@@ -5,7 +5,7 @@ import FloatingQuoteButton from './components/form/FloatingQuoteButton'
 
 function App() {
   const [showMobileForm, setShowMobileForm] = useState(false)
-
+console.log(showMobileForm)
   return (
     <div className="font-lexend">
       <Navbar />
