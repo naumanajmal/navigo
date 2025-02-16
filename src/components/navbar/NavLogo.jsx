@@ -1,7 +1,7 @@
 const NavLogo = () => {
   return (
-    <div className="flex items-center">
-      <a href="/" className="h-16">
+    <div className="flex items-center py-2">
+      <a href="/" className="h-20">
         <img 
           src="/Navigo_logo.png" 
           alt="NaviGo Financial Advisory" 
