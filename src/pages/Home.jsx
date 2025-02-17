@@ -9,6 +9,18 @@ import BankPartners from '../components/BankPartners'
 function Home() {
   const [showMobileForm, setShowMobileForm] = useState(false)
 
+  const handleOpenForm = () => {
+    console.log('Opening form...') // Debug log
+    setShowMobileForm(true)
+  }
+
+  const handleCloseForm = () => {
+    console.log('Closing form...') // Debug log
+    setShowMobileForm(false)
+  }
+
+  console.log('Current form state:', showMobileForm) // Debug log
+
   return (
     <div className="font-lexend">
       <Navbar />
@@ -66,15 +78,25 @@ function Home() {
         </div>
       </section>
 
-      {/* Floating Form Button (Mobile Only) */}
+      {/* Mobile Form and Button */}
+      <div className="relative">
+        <FloatingQuoteButton onClick={handleOpenForm} />
+        {showMobileForm && (
+          <div className="fixed inset-0 z-[9999] overflow-hidden">
+            <div className="absolute inset-0 bg-black/50" onClick={handleCloseForm}></div>
+            <div className="relative z-[10000]">
+              <QuoteForm 
+                isMobile={true} 
+                onClose={handleCloseForm} 
+              />
+            </div>
+          </div>
+        )}
+      </div>
+
       {/* Calculator Section */}
       <MortgageCalculator />
       {/* <BankPartners /> */}
-
-      <FloatingQuoteButton 
-        showMobileForm={showMobileForm}
-        setShowMobileForm={setShowMobileForm}
-      />
     </div>
   )
 }

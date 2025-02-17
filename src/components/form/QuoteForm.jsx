@@ -30,7 +30,7 @@ const QuoteForm = ({ isMobile, onClose }) => {
     : 'w-full max-w-md bg-white rounded-2xl shadow-xl p-8'
 
   const formContentClasses = isMobile
-    ? 'bg-white rounded-2xl shadow-xl p-8 w-full max-w-md relative'
+    ? 'bg-white rounded-2xl shadow-xl p-6 sm:p-8 w-full max-w-md relative'
     : ''
 
   return (
@@ -49,16 +49,16 @@ const QuoteForm = ({ isMobile, onClose }) => {
         
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="mb-6">
-            <div className="flex items-center gap-3 mb-2">
-              <div className="w-1.5 h-8 bg-primary rounded-full"></div>
-              <h3 className="text-[1.75rem] font-bold text-[#0A2342]">Get a Call Back Shortly</h3>
+            <div className="flex items-center gap-2 sm:gap-3 mb-2">
+              <div className="w-1 sm:w-1.5 h-6 sm:h-8 bg-primary rounded-full"></div>
+              <h3 className="text-xl sm:text-2xl md:text-[1.75rem] font-bold text-[#0A2342]">Get a Call Back Shortly</h3>
             </div>
           </div>
           
           <div className="space-y-6">
             <div className="space-y-5">
               <div className="relative">
-                <label htmlFor="mortgageAmount" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="mortgageAmount" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-1.5">
                   Mortgage Amount
                 </label>
                 <input
@@ -67,14 +67,14 @@ const QuoteForm = ({ isMobile, onClose }) => {
                   name="mortgageAmount"
                   value={formData.mortgageAmount}
                   onChange={handleChange}
-                  className="block w-full px-4 py-3 rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 placeholder:text-gray-400"
+                  className="block w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 placeholder:text-gray-400"
                   placeholder="Enter amount"
                   required
                 />
               </div>
 
               <div className="relative">
-                <label htmlFor="propertyType" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="propertyType" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-1.5">
                   Property Type
                 </label>
                 <select
@@ -91,7 +91,7 @@ const QuoteForm = ({ isMobile, onClose }) => {
               </div>
 
               <div className="relative">
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="name" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-1.5">
                   Your Name
                 </label>
                 <input
@@ -100,14 +100,14 @@ const QuoteForm = ({ isMobile, onClose }) => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="block w-full px-4 py-3 rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 placeholder:text-gray-400"
+                  className="block w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 placeholder:text-gray-400"
                   placeholder="Enter your name"
                   required
                 />
               </div>
 
               <div className="relative">
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="phone" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-1.5">
                   Phone Number
                 </label>
                 <input
@@ -116,7 +116,7 @@ const QuoteForm = ({ isMobile, onClose }) => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="block w-full px-4 py-3 rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 placeholder:text-gray-400"
+                  className="block w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 placeholder:text-gray-400"
                   placeholder="Enter your phone number"
                   required
                 />
@@ -128,7 +128,7 @@ const QuoteForm = ({ isMobile, onClose }) => {
 
           <button
             type="submit"
-            className="w-full flex justify-center items-center py-4 px-6 text-base font-semibold text-white bg-primary hover:bg-primary/90 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+            className="w-full flex justify-center items-center py-3 sm:py-4 px-4 sm:px-6 text-sm sm:text-base font-semibold text-white bg-primary hover:bg-primary/90 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
           >
             Get Your Quote Now
           </button>
