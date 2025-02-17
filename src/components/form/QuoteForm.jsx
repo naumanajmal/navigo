@@ -67,7 +67,8 @@ const QuoteForm = ({ isMobile, onClose }) => {
                   name="mortgageAmount"
                   value={formData.mortgageAmount}
                   onChange={handleChange}
-                  className="block w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 placeholder:text-gray-400"
+                  className="block w-full h-[42px] sm:h-[46px] px-3 sm:px-4 text-sm sm:text-base rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 placeholder:text-gray-400 appearance-none"
+                  style={{ WebkitAppearance: 'none', borderRadius: '12px' }}
                   placeholder="Enter amount"
                   required
                 />
@@ -108,7 +109,8 @@ const QuoteForm = ({ isMobile, onClose }) => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="block w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 placeholder:text-gray-400"
+                  className="block w-full h-[42px] sm:h-[46px] px-3 sm:px-4 text-sm sm:text-base rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 placeholder:text-gray-400 appearance-none"
+                  style={{ WebkitAppearance: 'none', borderRadius: '12px' }}
                   placeholder="Enter your name"
                   required
                 />
@@ -124,7 +126,8 @@ const QuoteForm = ({ isMobile, onClose }) => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="block w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 placeholder:text-gray-400"
+                  className="block w-full h-[42px] sm:h-[46px] px-3 sm:px-4 text-sm sm:text-base rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 placeholder:text-gray-400 appearance-none"
+                  style={{ WebkitAppearance: 'none', borderRadius: '12px' }}
                   placeholder="Enter your phone number"
                   required
                 />
