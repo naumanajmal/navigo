@@ -3,10 +3,9 @@ import { useState } from 'react'
 const QuoteForm = ({ isMobile, onClose }) => {
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
     phone: '',
-    loanType: 'purchase',
-    message: ''
+    mortgageAmount: '',
+    propertyType: 'apartment'
   })
 
   const handleChange = (e) => {
@@ -48,17 +47,52 @@ const QuoteForm = ({ isMobile, onClose }) => {
           </button>
         )}
         
-        <form onSubmit={handleSubmit} className="space-y-8">
-          <div className="text-center">
-            <h3 className="text-2xl font-bold text-primary">Get a Quote</h3>
-            <p className="mt-2 text-sm text-gray-600">Fill out the form below and we'll get back to you shortly</p>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="mb-6">
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-1.5 h-8 bg-primary rounded-full"></div>
+              <h3 className="text-[1.75rem] font-bold text-[#0A2342]">Get a Call Back Shortly</h3>
+            </div>
           </div>
           
           <div className="space-y-6">
             <div className="space-y-5">
               <div className="relative">
+                <label htmlFor="mortgageAmount" className="block text-sm font-medium text-gray-700 mb-1">
+                  Mortgage Amount
+                </label>
+                <input
+                  type="number"
+                  id="mortgageAmount"
+                  name="mortgageAmount"
+                  value={formData.mortgageAmount}
+                  onChange={handleChange}
+                  className="block w-full px-4 py-3 rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 placeholder:text-gray-400"
+                  placeholder="Enter amount"
+                  required
+                />
+              </div>
+
+              <div className="relative">
+                <label htmlFor="propertyType" className="block text-sm font-medium text-gray-700 mb-1">
+                  Property Type
+                </label>
+                <select
+                  id="propertyType"
+                  name="propertyType"
+                  value={formData.propertyType}
+                  onChange={handleChange}
+                  className="block w-full px-4 py-3 rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200"
+                >
+                  <option value="apartment">Apartment</option>
+                  <option value="villa">Villa</option>
+                  <option value="shop">Shop</option>
+                </select>
+              </div>
+
+              <div className="relative">
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                  Full Name
+                  Your Name
                 </label>
                 <input
                   type="text"
@@ -67,23 +101,7 @@ const QuoteForm = ({ isMobile, onClose }) => {
                   value={formData.name}
                   onChange={handleChange}
                   className="block w-full px-4 py-3 rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 placeholder:text-gray-400"
-                  placeholder="John Doe"
-                  required
-                />
-              </div>
-
-              <div className="relative">
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="block w-full px-4 py-3 rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 placeholder:text-gray-400"
-                  placeholder="john@example.com"
+                  placeholder="Enter your name"
                   required
                 />
               </div>
@@ -99,43 +117,12 @@ const QuoteForm = ({ isMobile, onClose }) => {
                   value={formData.phone}
                   onChange={handleChange}
                   className="block w-full px-4 py-3 rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 placeholder:text-gray-400"
-                  placeholder="(123) 456-7890"
+                  placeholder="Enter your phone number"
                   required
                 />
               </div>
 
-              <div className="relative">
-                <label htmlFor="loanType" className="block text-sm font-medium text-gray-700 mb-1">
-                  Loan Type
-                </label>
-                <select
-                  id="loanType"
-                  name="loanType"
-                  value={formData.loanType}
-                  onChange={handleChange}
-                  className="block w-full px-4 py-3 rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200"
-                >
-                  <option value="purchase">Purchase</option>
-                  <option value="refinance">Refinance</option>
-                  <option value="heloc">HELOC</option>
-                  <option value="reverse">Reverse Mortgage</option>
-                </select>
-              </div>
-
-              <div className="relative">
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                  Message (Optional)
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows={4}
-                  className="block w-full px-4 py-3 rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 placeholder:text-gray-400 resize-none"
-                  placeholder="Tell us more about your needs..."
-                />
-              </div>
+              
             </div>
           </div>
 
@@ -143,7 +130,7 @@ const QuoteForm = ({ isMobile, onClose }) => {
             type="submit"
             className="w-full flex justify-center items-center py-4 px-6 text-base font-semibold text-white bg-primary hover:bg-primary/90 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
           >
-            Get Your Quote
+            Get Your Quote Now
           </button>
         </form>
       </div>

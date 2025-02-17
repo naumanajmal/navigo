@@ -16,37 +16,48 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
 
   if (isMobile) {
     return (
-      <div className="flex flex-col space-y-4">
-        {links.slice(0, 4).map((link) => (
-          <a 
-            key={link.name}
-            href={link.href} 
-            className="text-primary hover:text-secondary transition-colors text-sm font-medium"
-          >
-            {link.name}
-          </a>
-        ))}
-        <div className="space-y-2 pl-4">
-          <p className="text-primary/80 text-sm font-medium">Calculators:</p>
-          {calculatorOptions.map((option) => (
+      <div className="flex flex-col">
+        {/* Main Links */}
+        <div className="space-y-4 mb-8">
+          {links.slice(0, 4).map((link) => (
             <a 
-              key={option.name}
-              href={option.href} 
-              className="block text-primary hover:text-secondary transition-colors text-sm font-medium"
+              key={link.name}
+              href={link.href} 
+              className="block px-4 py-2 text-primary hover:text-secondary hover:bg-gray-50 rounded-lg transition-all duration-200 text-base font-medium"
             >
-              {option.name}
+              {link.name}
             </a>
           ))}
         </div>
-        {links.slice(4).map((link) => (
-          <a 
-            key={link.name}
-            href={link.href} 
-            className="text-primary hover:text-secondary transition-colors text-sm font-medium"
-          >
-            {link.name}
-          </a>
-        ))}
+
+        {/* Calculator Section */}
+        <div className="mb-8">
+          <h3 className="text-sm font-semibold text-gray-400 px-4 mb-2">CALCULATORS</h3>
+          <div className="space-y-1">
+            {calculatorOptions.map((option) => (
+              <a 
+                key={option.name}
+                href={option.href} 
+                className="block px-4 py-2 text-primary hover:text-secondary hover:bg-gray-50 rounded-lg transition-all duration-200 text-base font-medium"
+              >
+                {option.name}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* Additional Links */}
+        <div className="space-y-4 pt-6 border-t border-gray-100">
+          {links.slice(4).map((link) => (
+            <a 
+              key={link.name}
+              href={link.href} 
+              className="block px-4 py-2 text-primary hover:text-secondary hover:bg-gray-50 rounded-lg transition-all duration-200 text-base font-medium"
+            >
+              {link.name}
+            </a>
+          ))}
+        </div>
       </div>
     )
   }
@@ -57,14 +68,14 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
         <a 
           key={link.name}
           href={link.href} 
-          className="text-primary hover:text-secondary transition-colors text-sm font-medium"
+          className="text-primary hover:text-secondary transition-colors text-base font-medium"
         >
           {link.name}
         </a>
       ))}
       <div className="relative group">
         <button 
-          className="text-primary hover:text-secondary transition-colors text-sm font-medium flex items-center gap-1"
+          className="text-primary hover:text-secondary transition-colors text-base font-medium flex items-center gap-1"
           onMouseEnter={() => setShowCalculatorDropdown(true)}
           onMouseLeave={() => setShowCalculatorDropdown(false)}
         >
@@ -83,7 +94,7 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
               <a 
                 key={option.name}
                 href={option.href} 
-                className="block px-4 py-2 text-sm text-primary hover:text-secondary hover:bg-gray-50 transition-colors"
+                className="block px-4 py-2 text-base text-primary hover:text-secondary hover:bg-gray-50 transition-colors"
               >
                 {option.name}
               </a>
@@ -95,7 +106,7 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
         <a 
           key={link.name}
           href={link.href} 
-          className="text-primary hover:text-secondary transition-colors text-sm font-medium"
+          className="text-primary hover:text-secondary transition-colors text-base font-medium"
         >
           {link.name}
         </a>
