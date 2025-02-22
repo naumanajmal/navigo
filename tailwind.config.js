@@ -13,6 +13,9 @@ export default {
         primary: '#00203f',
         secondary: '#008cc9',
       },
+      backgroundImage: {
+        'radial-gradient': 'radial-gradient(circle at center, var(--tw-gradient-stops))',
+      },
     },
   },
   plugins: [],

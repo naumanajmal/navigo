@@ -6,6 +6,7 @@ import HeroSlider from '../components/hero/HeroSlider'
 import MortgageCalculator from '../components/calculator/MortgageCalculator'
 import BankPartners from '../components/BankPartners'
 import Services from '../components/services/Services'
+import About from '../components/about/About'
 import '../components/services/services.css'
 
 function Home() {
@@ -96,13 +97,19 @@ function Home() {
         )}
       </div>
 
+      
+            {/* About Section */}
+            <About />
       {/* Calculator Section */}
       <MortgageCalculator />
 
       {/* Services Section */}
       <Services />
 
+
+
       {/* <BankPartners /> */}
+      <BankPartners />
     </div>
   )
 }

@@ -1,94 +1,198 @@
-import { useRef, useState, useEffect } from 'react'
+import { useRef, useState, useEffect, useCallback } from 'react'
 import { services } from './servicesData.jsx'
 
 const Services = () => {
+  const [showAllServices, setShowAllServices] = useState(false)
   const [activeIndex, setActiveIndex] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
   const carouselRef = useRef(null)
   const autoPlayRef = useRef(null)
+  const intervalRef = useRef(null)
+  const scrollTimeoutRef = useRef(null)
 
-  useEffect(() => {
-    const autoPlay = () => {
-      if (!isPaused) {
-        const nextIndex = (activeIndex + 1) % services.length
-        setActiveIndex(nextIndex)
-        scrollToCard(nextIndex)
-      }
+  // Memoize scrollToCard function
+  const scrollToCard = useCallback((index) => {
+    if (carouselRef.current) {
+      const container = carouselRef.current
+      const cardWidth = 300 // Width of each card on mobile
+      const cardGap = 8 // Gap between cards (gap-2)
+      const scrollLeft = index * (cardWidth + cardGap)
+      
+      container.scrollTo({
+        left: scrollLeft,
+        behavior: 'smooth'
+      })
     }
+  }, [])
 
-    autoPlayRef.current = autoPlay
-  }, [activeIndex, isPaused])
+  // Memoize autoPlay function
+  const autoPlay = useCallback(() => {
+    if (!isPaused) {
+      const nextIndex = (activeIndex + 1) % services.length
+      setActiveIndex(nextIndex)
+      scrollToCard(nextIndex)
+    }
+  }, [activeIndex, isPaused, scrollToCard])
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (autoPlayRef.current && !isPaused) {
+  // Reset auto-play with new timer
+  const resetAutoPlay = useCallback(() => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current)
+    }
+    setIsPaused(false)
+    intervalRef.current = setInterval(() => {
+      if (autoPlayRef.current) {
         autoPlayRef.current()
       }
-    }, 3500) // Change slide every 3.5 seconds
+    }, 3500)
+  }, [])
 
-    return () => clearInterval(interval)
-  }, [isPaused])
-
-  // Handle manual scrolling
+  // Update autoPlayRef when autoPlay changes
   useEffect(() => {
-    const handleScroll = () => {
-      if (!carouselRef.current || isPaused) return
+    autoPlayRef.current = autoPlay
+  }, [autoPlay])
 
-      const scrollLeft = carouselRef.current.scrollLeft
-      const cardWidth = carouselRef.current.offsetWidth
-      const newIndex = Math.round(scrollLeft / cardWidth)
-
-      if (newIndex !== activeIndex) {
-        setActiveIndex(newIndex)
+  // Memoize startAutoPlay function
+  const startAutoPlay = useCallback(() => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current)
+    }
+    
+    intervalRef.current = setInterval(() => {
+      if (autoPlayRef.current) {
+        autoPlayRef.current()
       }
-    }
+    }, 3500)
+  }, [])
 
-    const carousel = carouselRef.current
-    if (carousel) {
-      carousel.addEventListener('scroll', handleScroll)
-    }
-
+  // Initialize auto-play
+  useEffect(() => {
+    resetAutoPlay()
     return () => {
-      if (carousel) {
-        carousel.removeEventListener('scroll', handleScroll)
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current)
       }
     }
-  }, [activeIndex, isPaused])
+  }, [resetAutoPlay])
 
-  const handleCardClick = (index) => {
+  // Track if we're manually scrolling
+  const isManualScrolling = useRef(false)
+
+  // Debounced scroll handler
+  const handleScroll = useCallback(() => {
+    if (!isManualScrolling.current) {
+      isManualScrolling.current = true
+      setIsPaused(true)
+    }
+
+    if (scrollTimeoutRef.current) {
+      clearTimeout(scrollTimeoutRef.current)
+    }
+
+    scrollTimeoutRef.current = setTimeout(() => {
+      if (carouselRef.current) {
+        const container = carouselRef.current
+        const cardWidth = 300
+        const cardGap = 8
+        const scrollPosition = container.scrollLeft
+        const newIndex = Math.round(scrollPosition / (cardWidth + cardGap))
+        
+        if (newIndex >= 0 && newIndex < services.length) {
+          setActiveIndex(newIndex)
+          // Ensure proper alignment
+          scrollToCard(newIndex)
+          // Reset scroll state and restart auto-play
+          isManualScrolling.current = false
+          resetAutoPlay()
+        }
+      }
+    }, 200)
+  }, [scrollToCard, resetAutoPlay])
+
+  // Memoize card click handler
+  const handleCardClick = useCallback((index) => {
     setActiveIndex(index)
     scrollToCard(index)
-    // Reset autoplay to start from this card
-    if (autoPlayRef.current) {
-      autoPlayRef.current()
-    }
-  }
+    startAutoPlay()
+  }, [scrollToCard, startAutoPlay])
 
-  const scrollToCard = (index) => {
+  // Initialize scroll position and event listener
+  useEffect(() => {
     if (carouselRef.current) {
-      const card = carouselRef.current.children[index]
-      if (card) {
-        const scrollLeft = card.offsetLeft - (carouselRef.current.offsetWidth - card.offsetWidth) / 2
-        carouselRef.current.scrollTo({
-          left: scrollLeft,
-          behavior: 'smooth'
-        })
-      }
+      const cardWidth = carouselRef.current.offsetWidth
+      const initialScroll = window.innerWidth <= 640 ? (cardWidth - window.innerWidth) / 2 : 0
+      carouselRef.current.scrollLeft = initialScroll
+      
+      const currentRef = carouselRef.current
+      currentRef.addEventListener('scroll', handleScroll)
+      return () => currentRef.removeEventListener('scroll', handleScroll)
     }
-    setActiveIndex(index)
-  }
+  }, [handleScroll])
 
   return (
-    <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-blue-50/50 to-white overflow-hidden">
-      <div className="w-full">
+    <section className="relative py-12 sm:py-16 md:py-20 overflow-hidden">
+      {/* Background with SVG and fade effects */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Main background fade */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white opacity-90" />
+        
+        {/* SVG Pattern */}
+        <div className="absolute inset-0">
+          <svg
+            className="w-full h-full"
+            viewBox="0 0 1200 800"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="xMidYMid slice"
+          >
+            {/* Gradient Definitions */}
+            <defs>
+              <linearGradient id="navigo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#008cc9" stopOpacity="0.12" />
+                <stop offset="50%" stopColor="#008cc9" stopOpacity="0.08" />
+                <stop offset="100%" stopColor="#008cc9" stopOpacity="0.04" />
+              </linearGradient>
+              <filter id="blur" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="30" />
+              </filter>
+            </defs>
+
+            {/* Abstract N Pattern */}
+            <path
+              d="M300,150 L300,650 L600,150 L900,650 L900,150"
+              fill="none"
+              stroke="url(#navigo-grad)"
+              strokeWidth="120"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              filter="url(#blur)"
+              opacity="0.7"
+            />
+            
+            {/* Additional decorative elements */}
+            <circle cx="300" cy="150" r="50" fill="url(#navigo-grad)" filter="url(#blur)" />
+            <circle cx="900" cy="150" r="50" fill="url(#navigo-grad)" filter="url(#blur)" />
+            <circle cx="600" cy="400" r="80" fill="url(#navigo-grad)" filter="url(#blur)" opacity="0.5" />
+          </svg>
+        </div>
+
+        {/* Overlay gradients */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white opacity-80" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-white opacity-60" />
+      </div>
+      <div className="w-full relative z-10">
         {/* Section Header */}
         <div className="text-center mb-10 sm:mb-16 md:mb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
             Our Premium Services
           </h2>
-          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4 mb-6">
             Discover our comprehensive range of mortgage and property services designed to make your journey smooth and successful.
           </p>
+          <button 
+            onClick={() => setShowAllServices(!showAllServices)}
+            className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary-dark transition-colors duration-200">
+            {showAllServices ? 'Show Featured Services' : 'View All Services'}
+          </button>
         </div>
 
         {/* Services Carousel */}
@@ -96,24 +200,41 @@ const Services = () => {
           {/* Cards Container */}
           <div
             ref={carouselRef}
-            className="flex gap-2 sm:gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory pb-8 sm:pb-12 scrollbar-hide pl-[max(0.5rem,calc((100%-1280px)/2))] sm:pl-[max(2rem,calc((100%-1280px)/2))] pr-2 sm:pr-8 scroll-smooth"
+            className={`${showAllServices 
+              ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8' 
+              : 'flex gap-2 sm:gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-8 sm:pb-12 scrollbar-hide pl-[calc(50%-150px)] sm:pl-[max(2rem,calc((100%-1280px)/2))] pr-[calc(50%-150px)] sm:pr-8'}`}
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
+            onMouseEnter={() => {
+              !showAllServices && setIsPaused(true)
+              if (intervalRef.current) {
+                clearInterval(intervalRef.current)
+              }
+            }}
+            onMouseLeave={() => {
+              setIsPaused(false)
+              startAutoPlay()
+            }}
+            onScroll={handleScroll}
           >
             {services.map((service, index) => (
               <div
                 key={service.id}
                 onClick={() => handleCardClick(index)}
-                className={`flex-shrink-0 w-[300px] sm:w-[320px] md:w-[360px] lg:w-[400px] snap-center transform transition-all duration-300 cursor-pointer ${
+                className={`flex-shrink-0 w-[300px] sm:w-[320px] md:w-[360px] lg:w-[400px] snap-center transition-all duration-300 cursor-pointer ${
                   activeIndex === index
-                    ? 'scale-100 opacity-100'
-                    : 'scale-95 opacity-70'
+                    ? 'opacity-100'
+                    : 'opacity-70'
                 }`}
               >
-                <div className={`bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 h-[470px] sm:h-[500px] md:h-[500px] group transition-all duration-500 border shadow-sm ${activeIndex === index ? 'bg-gradient-to-br from-primary/5 to-secondary/5 border-secondary/20 shadow-md scale-100' : 'hover:bg-gradient-to-br hover:from-primary/5 hover:to-secondary/5 border-gray-100 hover:border-secondary/20 hover:shadow-md scale-95'}`}>
+                <div className={`bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 h-[470px] sm:h-[500px] md:h-[550px] group transition-all duration-500 border shadow-sm ${activeIndex === index ? 'bg-gradient-to-br from-primary/5 to-secondary/5 border-secondary/20 shadow-md' : 'border-gray-100 shadow-sm hover:shadow-md'}`}>
                   <div className="h-full flex flex-col">
-                    <div className={`mb-4 sm:mb-6 transition-all duration-500 ${activeIndex === index ? 'text-secondary scale-110' : 'text-primary group-hover:text-secondary group-hover:scale-110'}`}>{service.icon}</div>
+                    <div className="mb-4 sm:mb-6 transition-all duration-500">
+                      <div className={`w-16 h-16 rounded-2xl flex items-center justify-center bg-gradient-to-br transition-all duration-500 ${activeIndex === index ? 'from-secondary/10 to-primary/10 scale-110' : 'from-primary/5 to-secondary/5 group-hover:scale-110'}`}>
+                        <div className={`transition-colors duration-500 ${activeIndex === index ? 'text-secondary' : 'text-primary group-hover:text-secondary'}`}>
+                          {service.icon}
+                        </div>
+                      </div>
+                    </div>
                     <div className="space-y-4 mb-8">
                       <h3 className={`text-xl sm:text-2xl font-bold transition-colors duration-300 ${activeIndex === index ? 'text-primary' : 'text-gray-900 group-hover:text-primary'}`}>{service.title}</h3>
                       <p className="text-base sm:text-lg text-secondary font-medium">{service.subtitle}</p>

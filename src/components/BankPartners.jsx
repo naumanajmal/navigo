@@ -95,14 +95,14 @@ const BankPartners = () => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent py-4">
             Trusted by UAE's Leading Banks
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
             We partner with the most prestigious financial institutions in the UAE to provide you with competitive mortgage options
           </p>
         </div>
-        
+        <div className=" ">
         {/* Bank Slider */}
         <Swiper
           modules={[Autoplay, FreeMode]}
@@ -121,7 +121,7 @@ const BankPartners = () => {
             1024: { slidesPerView: 5, spaceBetween: 40 },
             1280: { slidesPerView: 6, spaceBetween: 50 }
           }}
-          className="w-full py-12"
+          className="w-full p-4"
         >
           {banks.map((bank) => (
             <SwiperSlide key={bank.name}>
@@ -137,7 +137,8 @@ const BankPartners = () => {
               </div>
             </SwiperSlide>
           ))}
-        </Swiper>
+          </Swiper>
+          </div>
       </div>
     </section>
   )
