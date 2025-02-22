@@ -21,13 +21,39 @@ const Services = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (autoPlayRef.current) {
+      if (autoPlayRef.current && !isPaused) {
         autoPlayRef.current()
       }
     }, 3500) // Change slide every 3.5 seconds
 
     return () => clearInterval(interval)
-  }, [])
+  }, [isPaused])
+
+  // Handle manual scrolling
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!carouselRef.current || isPaused) return
+
+      const scrollLeft = carouselRef.current.scrollLeft
+      const cardWidth = carouselRef.current.offsetWidth
+      const newIndex = Math.round(scrollLeft / cardWidth)
+
+      if (newIndex !== activeIndex) {
+        setActiveIndex(newIndex)
+      }
+    }
+
+    const carousel = carouselRef.current
+    if (carousel) {
+      carousel.addEventListener('scroll', handleScroll)
+    }
+
+    return () => {
+      if (carousel) {
+        carousel.removeEventListener('scroll', handleScroll)
+      }
+    }
+  }, [activeIndex, isPaused])
 
   const handleCardClick = (index) => {
     setActiveIndex(index)
@@ -70,7 +96,7 @@ const Services = () => {
           {/* Cards Container */}
           <div
             ref={carouselRef}
-            className="flex gap-2 sm:gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory pb-8 sm:pb-12 scrollbar-hide pl-[max(0.5rem,calc((100%-1280px)/2))] sm:pl-[max(2rem,calc((100%-1280px)/2))] pr-2 sm:pr-8"
+            className="flex gap-2 sm:gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory pb-8 sm:pb-12 scrollbar-hide pl-[max(0.5rem,calc((100%-1280px)/2))] sm:pl-[max(2rem,calc((100%-1280px)/2))] pr-2 sm:pr-8 scroll-smooth"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
