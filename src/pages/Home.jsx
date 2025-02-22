@@ -5,6 +5,8 @@ import FloatingQuoteButton from '../components/form/FloatingQuoteButton'
 import HeroSlider from '../components/hero/HeroSlider'
 import MortgageCalculator from '../components/calculator/MortgageCalculator'
 import BankPartners from '../components/BankPartners'
+import Services from '../components/services/Services'
+import '../components/services/services.css'
 
 function Home() {
   const [showMobileForm, setShowMobileForm] = useState(false)
@@ -96,6 +98,10 @@ function Home() {
 
       {/* Calculator Section */}
       <MortgageCalculator />
+
+      {/* Services Section */}
+      <Services />
+
       {/* <BankPartners /> */}
     </div>
   )
