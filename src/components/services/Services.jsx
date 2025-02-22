@@ -189,7 +189,7 @@ const Services = () => {
             Discover our comprehensive range of mortgage and property services designed to make your journey smooth and successful.
           </p>
           <button 
-            onClick={() => setShowAllServices(!showAllServices)}
+             
             className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary-dark transition-colors duration-200">
             {showAllServices ? 'Show Featured Services' : 'View All Services'}
           </button>

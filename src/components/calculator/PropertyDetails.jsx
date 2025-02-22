@@ -32,6 +32,13 @@ const PropertyDetails = ({ propertyValue, setPropertyValue, downPayment, setDown
   const [propertyError, setPropertyError] = useState("");
   const [downPaymentError, setDownPaymentError] = useState("");
 
+  // Re-execute handlePropertyChange when residency status changes
+  useEffect(() => {
+    if (propertyValue > 0) {
+      handlePropertyChange({ target: { value: propertyValue.toString() } });
+    }
+  }, [residencyStatus]); // eslint-disable-line react-hooks/exhaustive-deps
+
   // Check minimum down payment when residency status changes
   useEffect(() => {
     const currentMinDownPayment = (propertyValue * minDownPaymentPercentage) / 100;
@@ -54,12 +61,13 @@ const PropertyDetails = ({ propertyValue, setPropertyValue, downPayment, setDown
     
     setPropertyInput(formatNumber(rawValue));
     setPropertyValue(parsedValue);
+    console.log(minDownPaymentPercentage, "minimun payment perc")
 
     // Calculate new minimum down payment based on new property value
     const newMinDownPayment = (parsedValue * minDownPaymentPercentage) / 100;
     
     // If current down payment is less than new minimum, update it
-    if (downPayment < newMinDownPayment) {
+    if (downPayment !== newMinDownPayment) {
       setDownPayment(newMinDownPayment);
       setDownPaymentInput(formatNumber(newMinDownPayment));
     }
