@@ -8,7 +8,7 @@ import BankPartners from '../components/BankPartners'
 import Services from '../components/services/Services'
 import About from '../components/about/About'
 import '../components/services/services.css'
-
+import Footer from '../components/Footer'
 function Home() {
   const [showMobileForm, setShowMobileForm] = useState(false)
 
@@ -110,6 +110,8 @@ function Home() {
 
       {/* <BankPartners /> */}
       <BankPartners />
+
+      <Footer />
     </div>
   )
 }

@@ -3,7 +3,6 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
     { name: 'Home', href: '#' },
     { name: 'About Us', href: '#' },
     { name: 'Services', href: '#' },
-    { name: 'Products', href: '#' },
     { name: 'FAQs', href: '#' },
     { name: 'Blogs', href: '#' },
     { name: 'Contact', href: '#' },
