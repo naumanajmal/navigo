@@ -94,8 +94,8 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-8 py-6 border-t border-gray-400 w-full flex items-center justify-center  ">
-          <div className="flex flex-row items-center justify-between w-full max-w-7xl  mx-auto px-4  sm:px-6 lg:px-8">
+        <div className="mt-8 py-6 border-t border-gray-400 w-full flex- items-center justify-center  ">
+          <div className="flex flex-col-reverse gap-4 sm:flex-row space-y-6 sm:space-y-0 items-center justify-between w-full max-w-7xl  mx-auto px-4  sm:px-6 lg:px-8">
             <p className="text-xs text-white">
               &copy; {currentYear} {footerData.company_name}. All rights reserved.
             </p>
