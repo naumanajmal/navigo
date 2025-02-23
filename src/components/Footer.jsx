@@ -15,9 +15,9 @@ const Footer = () => {
 
   return (
     <footer className="bg-primary border-t border-gray-100 text-white">
-      <div className=" pt-8 sm:pt-12 lg:pt-16 flex flex-col items-center justify-center">
+      <div className=" pt-8   lg:pt-16 flex flex-col items-center justify-center">
         {/* Content Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 max-w-7xl mx-auto px-4  sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 w-full sm:max-w-7xl  mx-auto px-4  sm:px-6 lg:px-8">
           {/* Contact Info */}
           <div className='space-y-4 '>
             <div className="">
@@ -25,7 +25,7 @@ const Footer = () => {
             </div>
             <div className="text-sm sm:text-base text-white mb-4 space-y-2 pl-1">
               <div>
-               Your trusted partner in mortgage solutions.
+               Your trusted partner in mortgage solutions. 
               </div>
             </div>
           </div>
