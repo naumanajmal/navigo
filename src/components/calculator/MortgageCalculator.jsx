@@ -4,6 +4,7 @@ import LoanDuration from './LoanDuration'
 import MortgageProducts from './MortgageProducts'
 import YearRange from './YearRange'
 import Results from './Results'
+import AffordabilityCalculator from './AffordabilityCalculator'
 const getInterestRate = (residencyStatus, mortgageType, yearRange) => {
   if (mortgageType === 'Variable') {
     switch (residencyStatus) {
@@ -55,6 +56,7 @@ const calculateMonthlyPayment = ({ propertyValue, downPayment, loanDuration, mor
 };
 
 const MortgageCalculator = () => {
+  const [activeCalculator, setActiveCalculator] = useState('mortgage')
   const [residencyStatus, setResidencyStatus] = useState('UAE National')
   const [propertyValue, setPropertyValue] = useState(1000000)
   const [downPayment, setDownPayment] = useState(150000) // 15% of 1000000 for UAE National
@@ -105,6 +107,93 @@ const MortgageCalculator = () => {
     });
   }, [propertyValue, downPayment, loanDuration, mortgageType, residencyStatus, yearRange, isValidInput])
   
+  const calculatorContent = activeCalculator === 'affordability' ? (
+    <AffordabilityCalculator />
+  ) : (
+    <div className="bg-white/80 backdrop-blur-lg rounded-2xl md:rounded-3xl p-3 md:p-4 shadow-xl ring-1 ring-gray-100 hover:shadow-2xl transition-shadow duration-500">
+      {/* Residency Status */}
+      <div className="mb-8">
+        <label className="block text-gray-700 mb-3 text-sm font-medium">Residency status</label>
+        <div className="grid grid-cols-3 gap-3">
+          {['UAE National', 'UAE Resident', 'Non-Resident'].map((status) => (
+            <button
+              key={status}
+              onClick={() => setResidencyStatus(status)}
+              className={`relative py-2 px-4 rounded-xl text-sm font-medium transition-all duration-200 ${
+                residencyStatus === status
+                  ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-lg hover:shadow-xl hover:scale-[1.02]'
+                  : 'bg-white/80 text-gray-600 hover:text-gray-900 hover:bg-white hover:shadow-md ring-1 ring-gray-100'
+              }`}
+            >
+              {status}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Property Value & Down Payment */}
+      <PropertyDetails
+        propertyValue={propertyValue}
+        setPropertyValue={setPropertyValue}
+        downPayment={downPayment}
+        setDownPayment={setDownPayment}
+        residencyStatus={residencyStatus}
+      />
+
+      {/* Loan Duration */}
+      <LoanDuration
+        loanDuration={loanDuration}
+        setLoanDuration={setLoanDuration}
+      />
+
+      {/* Popular mortgage products */}
+      <MortgageProducts
+        mortgageType={mortgageType}
+        setMortgageType={setMortgageType}
+      />
+
+      {/* Year Range - Only show for Fixed rate */}
+      {mortgageType === 'Fixed' && (
+        <YearRange
+          yearRange={yearRange}
+          setYearRange={setYearRange}
+        />
+      )}
+
+      {/* Results */}
+      <Results
+        loanAmount={loanAmount}
+        monthlyPayment={monthlyPayment}
+        interestRate={interestRate}
+      />
+
+      {/* CTA Button */}
+      <button className="w-full bg-gradient-to-r from-primary to-secondary text-white py-4 rounded-xl font-medium text-lg hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] transition-all duration-200 shadow-lg mt-6">
+        Get Started
+      </button>
+    </div>
+  );
+
+  const pageTitle = activeCalculator === 'affordability' ? (
+    <>
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold pb-6 md:pb-10 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+        How Much Can You Afford?
+      </h2>
+      <p className="text-base md:text-lg lg:text-xl text-gray-600">
+        Calculate the property value you can afford based on your income and expenses.
+      </p>
+    </>
+  ) : (
+    <>
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold pb-6 md:pb-10 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+        Calculate Your Mortgage Instantly
+      </h2>
+      <p className="text-base md:text-lg lg:text-xl text-gray-600">
+        Enter your details and see exactly what your monthly mortgage payments could look like.
+      </p>
+    </>
+  );
+
   return (
     <section className="bg-gradient-to-b from-[#e5f6ff] to-white py-10 md:py-16 lg:py-20 relative overflow-hidden">
       {/* Premium Background Elements */}
@@ -116,80 +205,37 @@ const MortgageCalculator = () => {
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/5 rounded-full blur-3xl"></div>
           <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-secondary/5 rounded-full blur-3xl"></div>
           {/* Left Side - Text */}
-          <div className="text-gray-900">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold pb-6 md:pb-10 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              Calculate Your Mortgage Instantly
-            </h2>
-            <p className="text-base md:text-lg lg:text-xl text-gray-600">
-              Enter your details and see exactly what your monthly mortgage payments could look like.
-            </p>
+          <div className="text-gray-900 space-y-6">
+            {/* Calculator Type Selector */}
+            <div className="flex space-x-4">
+              <button
+                onClick={() => setActiveCalculator('mortgage')}
+                className={`px-6 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
+                  activeCalculator === 'mortgage'
+                    ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-lg'
+                    : 'bg-white/80 text-gray-600 hover:text-gray-900 hover:bg-white hover:shadow-md ring-1 ring-gray-100'
+                }`}
+              >
+                Mortgage Calculator
+              </button>
+              <button
+                onClick={() => setActiveCalculator('affordability')}
+                className={`px-6 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
+                  activeCalculator === 'affordability'
+                    ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-lg'
+                    : 'bg-white/80 text-gray-600 hover:text-gray-900 hover:bg-white hover:shadow-md ring-1 ring-gray-100'
+                }`}
+              >
+                Affordability Calculator
+              </button>
+            </div>
+            <div>
+              {pageTitle}
+            </div>
           </div>
 
           {/* Right Side - Calculator */}
-          <div className="bg-white/80 backdrop-blur-lg rounded-2xl md:rounded-3xl p-3 md:p-4 shadow-xl ring-1 ring-gray-100 hover:shadow-2xl transition-shadow duration-500">
-            {/* Residency Status */}
-            <div className="mb-8">
-              <label className="block text-gray-700 mb-3 text-sm font-medium">Residency status</label>
-              <div className="grid grid-cols-3 gap-3">
-                {['UAE National', 'UAE Resident', 'Non-Resident'].map((status) => (
-                  <button
-                    key={status}
-                    onClick={() => setResidencyStatus(status)}
-                    className={`relative py-2 px-4 rounded-xl text-sm font-medium transition-all duration-200 ${
-                      residencyStatus === status
-                        ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-lg hover:shadow-xl hover:scale-[1.02]'
-                        : 'bg-white/80 text-gray-600 hover:text-gray-900 hover:bg-white hover:shadow-md ring-1 ring-gray-100'
-                    }`}
-                  >
-                    {status}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            
-
-            {/* Property Value & Down Payment */}
-            <PropertyDetails
-              propertyValue={propertyValue}
-              setPropertyValue={setPropertyValue}
-              downPayment={downPayment}
-              setDownPayment={setDownPayment}
-              residencyStatus={residencyStatus}
-            />
-
-            {/* Loan Duration */}
-            <LoanDuration
-              loanDuration={loanDuration}
-              setLoanDuration={setLoanDuration}
-            />
-
-            {/* Popular mortgage products */}
-            <MortgageProducts
-              mortgageType={mortgageType}
-              setMortgageType={setMortgageType}
-            />
-
-            {/* Year Range - Only show for Fixed rate */}
-            {mortgageType === 'Fixed' && (
-              <YearRange
-                yearRange={yearRange}
-                setYearRange={setYearRange}
-              />
-            )}
-
-            {/* Results */}
-            <Results
-              loanAmount={loanAmount}
-              monthlyPayment={monthlyPayment}
-              interestRate={interestRate}
-            />
-
-            {/* CTA Button */}
-            <button className="w-full bg-gradient-to-r from-primary to-secondary text-white py-4 rounded-xl font-medium text-lg hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] transition-all duration-200 shadow-lg mt-6">
-              Get Started
-            </button>
-          </div>
+          {calculatorContent}
         </div>
       </div>
     </section>

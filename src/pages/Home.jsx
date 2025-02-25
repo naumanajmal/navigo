@@ -9,6 +9,9 @@ import Services from '../components/services/Services'
 import About from '../components/about/About'
 import '../components/services/services.css'
 import Footer from '../components/Footer'
+import FAQ from '../components/FAQ'
+import GoogleReviews from '../components/GoogleReviews'
+import ContactSection from '../components/ContactSection'
 function Home() {
   const [showMobileForm, setShowMobileForm] = useState(false)
 
@@ -107,10 +110,10 @@ function Home() {
       <Services />
 
 
-
-      {/* <BankPartners /> */}
+<FAQ />
+      <GoogleReviews />
       <BankPartners />
-
+<ContactSection/>
       <Footer />
     </div>
   )
