@@ -207,10 +207,10 @@ const MortgageCalculator = () => {
           {/* Left Side - Text */}
           <div className="text-gray-900 space-y-6">
             {/* Calculator Type Selector */}
-            <div className="flex space-x-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:space-x-4">
               <button
                 onClick={() => setActiveCalculator('mortgage')}
-                className={`px-6 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
+                className={`px-6 py-2 rounded-xl text-sm font-medium transition-all duration-200 w-full sm:w-auto ${
                   activeCalculator === 'mortgage'
                     ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-lg'
                     : 'bg-white/80 text-gray-600 hover:text-gray-900 hover:bg-white hover:shadow-md ring-1 ring-gray-100'
@@ -220,7 +220,7 @@ const MortgageCalculator = () => {
               </button>
               <button
                 onClick={() => setActiveCalculator('affordability')}
-                className={`px-6 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
+                className={`px-6 py-2 rounded-xl text-sm font-medium transition-all duration-200 w-full sm:w-auto ${
                   activeCalculator === 'affordability'
                     ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-lg'
                     : 'bg-white/80 text-gray-600 hover:text-gray-900 hover:bg-white hover:shadow-md ring-1 ring-gray-100'

@@ -113,7 +113,7 @@ function Home() {
 <FAQ />
       <GoogleReviews />
       <BankPartners />
-<ContactSection/>
+{/* <ContactSection/> */}
       <Footer />
     </div>
   )

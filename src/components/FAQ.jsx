@@ -1,19 +1,17 @@
 import { useState } from 'react';
 
 const FAQItem = ({ question, answer, isOpen, onClick, index, anyOpen }) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const isExpanded = isOpen || (!anyOpen && isHovered);
+  const isExpanded = isOpen;
   return (
     <div 
-      className={`backdrop-blur-xl bg-white/80 rounded-2xl overflow-hidden transition-all duration-500 transform h-fit ${isExpanded ? 'scale-[1.02]' : (!anyOpen ? 'hover:scale-[1.01]' : '')} ${isExpanded ? 'shadow-2xl ring-1 ring-primary/20' : (!anyOpen ? 'shadow-lg hover:shadow-xl' : 'shadow-lg')}`}
-      onMouseEnter={() => !anyOpen && setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      className={`backdrop-blur-xl bg-white/80 rounded-2xl overflow-hidden transition-all duration-500 transform h-fit ${isExpanded ? 'scale-[1.02] shadow-2xl ring-1 ring-primary/20' : 'shadow-lg'}`}
+
       style={{
         animationDelay: `${index * 100}ms`,
       }}
     >
       <button
-        className="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none group"
+        className="w-full px-4 sm:px-8 py-4 sm:py-6 text-left flex justify-between items-center focus:outline-none group"
         onClick={onClick}
       >
         <div className="flex items-center space-x-4">
@@ -33,7 +31,7 @@ const FAQItem = ({ question, answer, isOpen, onClick, index, anyOpen }) => {
       <div
         className={`overflow-hidden transition-all duration-500 ease-in-out ${isExpanded ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}
       >
-        <div className="px-8 pb-6 pl-20">
+        <div className="px-4 sm:px-8 pb-4 sm:pb-6 pl-12 sm:pl-20">
           <p className="text-gray-600 leading-relaxed">{answer}</p>
         </div>
       </div>
@@ -72,7 +70,7 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="relative bg-gradient-to-br from-[#e5f6ff] via-white to-[#f0f7ff] py-20 sm:py-24 lg:py-32 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-[#e5f6ff] via-white to-[#f0f7ff] py-12 sm:py-20 lg:py-32 overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_100%_100%,#00203f15_0%,transparent_50%)] mix-blend-soft-light" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_0%_0%,#008cc915_0%,transparent_50%)] mix-blend-soft-light" />
@@ -88,16 +86,16 @@ const FAQ = () => {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-20">
        
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold pb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold pb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             Frequently Asked Questions
           </h2>
-          <p className="mt-6 text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="mt-4 sm:mt-6 text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
             Get answers to common questions about mortgages and property buying in the UAE
           </p>
         </div>
         
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-4 px-4">
-          <div className="flex-1 space-y-4">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-4 px-2 sm:px-4">
+          <div className="flex-1 space-y-3 sm:space-y-4">
             {faqData.slice(0, Math.ceil(faqData.length / 2)).map((faq, index) => (
               <FAQItem
                 key={index}
@@ -110,7 +108,7 @@ const FAQ = () => {
               />
             ))}
           </div>
-          <div className="flex-1 space-y-4">
+          <div className="flex-1 space-y-3 sm:space-y-4">
             {faqData.slice(Math.ceil(faqData.length / 2)).map((faq, index) => (
               <FAQItem
                 key={index + Math.ceil(faqData.length / 2)}
