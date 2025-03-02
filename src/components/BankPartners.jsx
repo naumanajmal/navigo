@@ -1,6 +1,4 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, FreeMode } from 'swiper/modules';
-import 'swiper/css';
+import Marquee from 'react-fast-marquee';
 
 const BankPartners = () => {
   const banks = [
@@ -103,29 +101,16 @@ const BankPartners = () => {
           </p>
         </div>
         <div className=" ">
-        {/* Bank Slider */}
-        <Swiper
-          modules={[Autoplay, FreeMode]}
-          spaceBetween={30}
-          slidesPerView={2}
-          loop={true}
-          freeMode={true}
-          speed={5000}
-          autoplay={{
-            delay: 0,
-            disableOnInteraction: false,
-          }}
-          breakpoints={{
-            640: { slidesPerView: 3, spaceBetween: 30 },
-            768: { slidesPerView: 4, spaceBetween: 40 },
-            1024: { slidesPerView: 5, spaceBetween: 40 },
-            1280: { slidesPerView: 6, spaceBetween: 50 }
-          }}
-          className="w-full p-4"
+        {/* Bank Marquee */}
+        <Marquee
+          speed={50}
+          gradient={false}
+          pauseOnHover={true}
+          className="w-full py-4"
         >
           {banks.map((bank) => (
-            <SwiperSlide key={bank.name}>
-              <div className="w-full max-w-[180px] mx-auto aspect-[3/2] relative group">
+            <div key={bank.name} className="mx-4">
+              <div className="w-[180px] aspect-[3/2] relative group">
                 <div className="absolute inset-0 bg-white/80 backdrop-blur-lg rounded-xl shadow-lg ring-1 ring-gray-100 
                               transform group-hover:scale-105 transition-all duration-300 p-6 flex items-center justify-center">
                   <img
@@ -135,9 +120,9 @@ const BankPartners = () => {
                   />
                 </div>
               </div>
-            </SwiperSlide>
+            </div>
           ))}
-          </Swiper>
+        </Marquee>
           </div>
       </div>
     </section>

@@ -1,0 +1,84 @@
+import { useState } from 'react';
+import MortgageCalculator from './MortgageCalculator';
+import AffordabilityCalculator from './AffordabilityCalculator';
+
+const CalculatorSection = () => {
+  const [activeCalculator, setActiveCalculator] = useState('mortgage');
+
+  const pageTitle = activeCalculator === 'affordability' ? (
+    <>
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold pb-6 md:pb-10 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent ">
+        How Much Can You Afford?
+      </h2>
+      <p className="text-base md:text-lg lg:text-xl text-gray-600">
+        Calculate the property value you can afford based on your income and expenses.
+      </p>
+    </>
+  ) : (
+    <>
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold pb-6 md:pb-10 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+        Calculate Your Mortgage Instantly
+      </h2>
+      <p className="text-base md:text-lg lg:text-xl text-gray-600">
+        Enter your details and see exactly what your monthly mortgage payments could look like.
+      </p>
+    </>
+  );
+
+  return (
+    <section className="bg-gradient-to-b from-[#e5f6ff] to-white py-10 md:py-16 lg:py-20 relative overflow-hidden">
+      {/* Premium Background Elements */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_100%_100%,#00203f15_0%,transparent_50%)] mix-blend-soft-light" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_0%_0%,#008cc915_0%,transparent_50%)] mix-blend-soft-light" />
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Calculator Toggle */}
+        <div className="flex justify-center mb-10">
+          <div className="inline-flex rounded-xl bg-white/80 backdrop-blur-lg p-1 ring-1 ring-gray-100 shadow-lg">
+            <button
+              onClick={() => setActiveCalculator('mortgage')}
+              className={`px-6 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                activeCalculator === 'mortgage'
+                  ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-md'
+                  : 'text-gray-600 hover:text-gray-900'
+              }`}
+            >
+              Mortgage Calculator
+            </button>
+            <button
+              onClick={() => setActiveCalculator('affordability')}
+              className={`px-6 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                activeCalculator === 'affordability'
+                  ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-md'
+                  : 'text-gray-600 hover:text-gray-900'
+              }`}
+            >
+              Affordability Calculator
+            </button>
+          </div>
+        </div>
+
+        {/* Main Content Container */}
+        <div className="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-start">
+          {/* Left Side - Title and Description */}
+          <div className=" h-full flex flex-col justify-center items-center">
+           
+              {pageTitle}
+        
+          </div>
+
+          {/* Right Side - Calculator */}
+          <div className=" ">
+            {activeCalculator === 'affordability' ? (
+              <AffordabilityCalculator />
+            ) : (
+              <MortgageCalculator />
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default CalculatorSection;

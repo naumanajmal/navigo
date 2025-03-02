@@ -16,6 +16,12 @@ export default {
       backgroundImage: {
         'radial-gradient': 'radial-gradient(circle at center, var(--tw-gradient-stops))',
       },
+      animation: {},
+      keyframes: {},
+      transitionDelay: {
+        '200': '200ms',
+        '400': '400ms',
+      }
     },
   },
   plugins: [],

@@ -1,16 +1,16 @@
 const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorDropdown }) => {
   const links = [
-    { name: 'Home', href: '#' },
-    { name: 'About Us', href: '#' },
-    { name: 'Services', href: '#' },
-    { name: 'FAQs', href: '#' },
-    { name: 'Blogs', href: '#' },
-    { name: 'Contact', href: '#' },
+    { name: 'Home', href: '/' },
+    { name: 'About Us', href: '/about-us' },
+    { name: 'Services', href: '/services' },
+    { name: 'FAQs', href: '/faq' },
+    { name: 'Blogs', href: '/blog' },
+    { name: 'Contact', href: '/contact' },
   ]
 
   const calculatorOptions = [
-    { name: 'Mortgage Calculator', href: '#' },
-    { name: 'Affordability Calculator', href: '#' },
+    { name: 'Mortgage Calculator', href: '/mortgage-calculator' },
+    { name: 'Affordability Calculator', href: '/affordability-calculator' },
   ]
 
   if (isMobile) {

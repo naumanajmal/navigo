@@ -100,14 +100,15 @@ const Footer = () => {
               &copy; {currentYear} {footerData.company_name}. All rights reserved.
             </p>
             <div className="flex items-center space-x-4 relative">
-              <button
+              <a
+                href="/privacy-policy"
                 className="text-xs text-white hover:text-secondary transition-colors font-medium"
               >
                 Privacy Policy
-              </button>
+              </a>
               <span className="text-gray-400">|</span>
               <a
-                href="mailto:contact@nexatech.com"
+                href="/terms-conditions"
                 className="text-xs text-white hover:text-secondary transition-colors font-medium"
               >
                 Terms & Conditions

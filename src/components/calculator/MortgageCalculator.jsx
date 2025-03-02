@@ -4,7 +4,6 @@ import LoanDuration from './LoanDuration'
 import MortgageProducts from './MortgageProducts'
 import YearRange from './YearRange'
 import Results from './Results'
-import AffordabilityCalculator from './AffordabilityCalculator'
 const getInterestRate = (residencyStatus, mortgageType, yearRange) => {
   if (mortgageType === 'Variable') {
     switch (residencyStatus) {
@@ -56,7 +55,6 @@ const calculateMonthlyPayment = ({ propertyValue, downPayment, loanDuration, mor
 };
 
 const MortgageCalculator = () => {
-  const [activeCalculator, setActiveCalculator] = useState('mortgage')
   const [residencyStatus, setResidencyStatus] = useState('UAE National')
   const [propertyValue, setPropertyValue] = useState(1000000)
   const [downPayment, setDownPayment] = useState(150000) // 15% of 1000000 for UAE National
@@ -107,9 +105,7 @@ const MortgageCalculator = () => {
     });
   }, [propertyValue, downPayment, loanDuration, mortgageType, residencyStatus, yearRange, isValidInput])
   
-  const calculatorContent = activeCalculator === 'affordability' ? (
-    <AffordabilityCalculator />
-  ) : (
+  return (
     <div className="bg-white/80 backdrop-blur-lg rounded-2xl md:rounded-3xl p-3 md:p-4 shadow-xl ring-1 ring-gray-100 hover:shadow-2xl transition-shadow duration-500">
       {/* Residency Status */}
       <div className="mb-8">
