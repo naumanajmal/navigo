@@ -2,8 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../components/navbar/Navbar'
 import Footer from '../components/Footer'
-import { services } from '../components/services/servicesData'
-import { ServiceIcons } from '../components/services/ServiceIcons'
+import { services } from '../components/services/servicesData.jsx'
 import ContactSection from '../components/ContactSection'
 import FAQ from '../components/FAQ'
 
@@ -47,7 +46,7 @@ const Services = () => {
                 <div className="p-5 sm:p-6 md:p-8 flex flex-col h-full">
                   <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-4 sm:mb-5 md:mb-6 group-hover:bg-primary/20 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
                     <div className="text-primary">
-                      {ServiceIcons[service.iconName]}
+                      {service.icon}
                     </div>
                   </div>
                   

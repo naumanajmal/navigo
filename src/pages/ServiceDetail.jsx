@@ -38,9 +38,9 @@ const ServiceDetail = () => {
 
 
       {/* Service Hero Section - White Background */}
-      <section className="bg-white py-40">
+      <section className="bg-white pb-20 pt-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 ">
             <div className="flex flex-col order-2 lg:order-1">
               <h1 className="text-4xl md:text-5xl font-bold text-primary mb-8">{service.title}</h1>
               <p className="text-gray-700 text-lg leading-relaxed mb-8">{service.description}</p>
