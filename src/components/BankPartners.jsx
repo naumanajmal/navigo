@@ -85,7 +85,7 @@ const BankPartners = () => {
   ]
 
   return (
-    <section className="py-20 relative overflow-hidden bg-primary">
+    <section className="py-20 relative overflow-hidden bg-primary border-b border-gray-100">
       {/* Premium Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#e5f6ff] to-white" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_100%_100%,#00203f15_0%,transparent_50%)] mix-blend-soft-light" />
