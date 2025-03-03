@@ -172,7 +172,7 @@ const MortgageCalculator = () => {
 
   const pageTitle = activeCalculator === 'affordability' ? (
     <>
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold pb-6 md:pb-10 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold pb-6 md:pb-10 text-primary">
         How Much Can You Afford?
       </h2>
       <p className="text-base md:text-lg lg:text-xl text-gray-600">
@@ -181,7 +181,7 @@ const MortgageCalculator = () => {
     </>
   ) : (
     <>
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold pb-6 md:pb-10 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold pb-6 md:pb-10 text-primary">
         Calculate Your Mortgage Instantly
       </h2>
       <p className="text-base md:text-lg lg:text-xl text-gray-600">

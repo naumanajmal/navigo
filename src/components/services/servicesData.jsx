@@ -1,13 +1,16 @@
 import React from 'react'
 
+export const mainTitle = "One-Stop Solution For All Financial Requirements";
+export const mainSubtitle = "No matter what your financing needs are, we've got you!";
+
 export const services = [
   // Mortgage Services
   {
     id: 1,
-    title: 'Residential Mortgages',
-    subtitle: 'Home Financing Solutions',
-    description: 'Comprehensive residential mortgage solutions for your dream home, whether you\'re a first-time buyer or looking to upgrade.',
-    features: ['First-time buyers', 'Home purchase', 'Property investment', 'Competitive rates'],
+    title: 'Residential Mortgage',
+    subtitle: 'Your dream home',
+    description: 'Residential mortgage loans are made for those who want to buy their dream home.',
+    features: ['Looking for primary residential home', 'For first time home buyers', 'Best mortgage rates', 'Smooth process'],
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -16,10 +19,10 @@ export const services = [
   },
   {
     id: 2,
-    title: 'Commercial Mortgages',
-    subtitle: 'Business Property Finance',
-    description: 'Specialized financing solutions for commercial properties, including office spaces, retail outlets, and industrial facilities.',
-    features: ['Commercial properties', 'Office spaces', 'Retail outlets', 'Industrial facilities'],
+    title: 'Commercial Property',
+    subtitle: 'Your business property solution',
+    description: 'This is for you, if you\'re looking for commercial property like offices, retail spaces, warehouses, restaurants, etc.',
+    features: ['For commercial property buyers', 'Compared interest rates', 'Tailored solutions', 'Expert advice'],
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -29,9 +32,9 @@ export const services = [
   {
     id: 3,
     title: 'International Mortgages',
-    subtitle: 'Global Property Investment',
-    description: 'Access international property markets with our specialized mortgage solutions for overseas investments.',
-    features: ['Global markets', 'Currency solutions', 'International compliance', 'Local expertise'],
+    subtitle: 'You\'re non-resident, we\'ve got you!',
+    description: 'Don\'t worry if you\'re a non-resident in UAE, we\'ve got ample options at our fingertips.',
+    features: ['Property valuation', 'Currency solutions', 'Local expertise', 'Loan-to-value'],
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -41,10 +44,10 @@ export const services = [
   // Additional Financial Services
   {
     id: 1,
-    title: 'Expert Mortgage Advisory',
-    subtitle: 'Personalized Solutions',
-    description: 'Our team of seasoned mortgage advisors provides comprehensive guidance tailored to your unique financial situation. We analyze multiple options that aligns with your goals.',
-    features: ['Personalized consultation', 'Rate comparison', 'Financial assessment', 'Strategy planning'],
+    title: 'Portfolio Consolidation',
+    subtitle: 'Your go-to expert',
+    description: 'Are you considering merging multiple mortgage plans from different banks into a single mortgage plan to one bank? You\'ll definitely need expert advice!',
+    features: ['Interest rates analysis', 'Easy documentation', 'Legal advice', 'Mortgage negotiation'],
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
@@ -53,10 +56,10 @@ export const services = [
   },
   {
     id: 2,
-    title: 'Premium Property Search',
-    subtitle: 'Find Your Dream Home',
-    description: 'Access our exclusive network of premium properties and trusted real estate partners. Our advanced property matching system helps you discover homes.',
-    features: ['Exclusive listings', 'Virtual tours', 'Neighborhood analysis', 'Price negotiation'],
+    title: 'Balance Transfer',
+    subtitle: 'Optimize best interest rates',
+    description: 'If you\'re planning to move the existing mortgage plan to another lender, we can help you achieve the goal.',
+    features: ['Access to different lenders', 'Transparent and clear information on rates', 'Risk assessment', 'Personalized consultation'],
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -65,10 +68,10 @@ export const services = [
   },
   {
     id: 3,
-    title: 'Strategic Financial Planning',
-    subtitle: 'Secure Your Future',
-    description: 'Our financial experts create comprehensive plans that optimize your mortgage investment while maintaining long-term financial stability. ',
-    features: ['Investment analysis', 'Risk assessment', 'Tax planning', 'Wealth management'],
+    title: 'Mega loans',
+    subtitle: 'Your assistant on giant loans',
+    description: 'Also known as Jumbo Loans, Mega loans are for those who need large loan amounts.',
+    features: ['Access to expert team of consultants', 'Comprehensive guidance and support', 'High-level product knowledge', 'Personalized solutions'],
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />

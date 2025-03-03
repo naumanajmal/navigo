@@ -93,11 +93,11 @@ const BankPartners = () => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-16">
-          <h2 className="text-[38px] md:text-[46px] font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent py-4">
+          <h2 className="text-[38px] md:text-[46px] font-bold mb-6 text-primary py-4">
             Trusted by UAE's Leading Banks
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-            We partner with the most prestigious financial institutions in the UAE to provide you with competitive mortgage options
+            We partner with the best UAE Banks to provide you with the best mortgage rates in UAE. Our clients describe our team expert, professional and helpful who guided them with best mortgage rates.
           </p>
         </div>
         <div className=" ">

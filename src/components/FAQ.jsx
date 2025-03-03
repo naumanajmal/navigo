@@ -18,7 +18,7 @@ const FAQItem = ({ question, answer, isOpen, onClick, index, anyOpen }) => {
           <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${isExpanded ? 'bg-primary text-white' : 'bg-gray-100 text-gray-500 group-hover:bg-primary/10 group-hover:text-primary'} transition-colors duration-300`}>
             <span className="text-sm font-medium">{index + 1}</span>
           </span>
-          <span className={`text-base sm:text-lg font-medium transition-all duration-300 ${isExpanded ? 'text-primary' : 'text-gray-900 group-hover:text-primary'}`}>
+          <span className={`text-sm sm:text-base font-normal transition-all duration-300 ${isExpanded ? 'text-primary' : 'text-gray-900 group-hover:text-primary'}`}>
             {question}
           </span>
         </div>
@@ -32,7 +32,7 @@ const FAQItem = ({ question, answer, isOpen, onClick, index, anyOpen }) => {
         className={`overflow-hidden transition-all duration-500 ease-in-out ${isExpanded ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}
       >
         <div className="px-4 sm:px-8 pb-4 sm:pb-6 pl-12 sm:pl-20">
-          <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{answer}</p>
+          <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{answer}</p>
         </div>
       </div>
     </div>
@@ -86,7 +86,7 @@ const FAQ = () => {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-20">
        
-          <h2 className="text-2xl sm:text-[42px] lg:text-[52px] font-bold pb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+          <h2 className="text-2xl sm:text-[38px] lg:text-[46px] font-bold pb-4 text-primary">
             Frequently Asked Questions
           </h2>
           <p className="mt-4 sm:mt-6 text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto">

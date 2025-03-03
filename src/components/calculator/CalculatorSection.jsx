@@ -7,20 +7,20 @@ const CalculatorSection = () => {
 
   const pageTitle = activeCalculator === 'affordability' ? (
     <>
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold pb-6 md:pb-10 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent ">
-        How Much Can You Afford?
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold pb-6 md:pb-10 text-primary ">
+        Affordability Calculator
       </h2>
       <p className="text-base md:text-lg lg:text-xl text-gray-600">
-        Calculate the property value you can afford based on your income and expenses.
+        How much can you afford? Check your affordability based on your income and expense with Navigo's Affordability Calculator.
       </p>
     </>
   ) : (
     <>
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold pb-6 md:pb-10 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-        Calculate Your Mortgage Instantly
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold pb-6 md:pb-10 text-primary">
+        Mortgage Calculator
       </h2>
       <p className="text-base md:text-lg lg:text-xl text-gray-600">
-        Enter your details and see exactly what your monthly mortgage payments could look like.
+        Calculate your mortgage now! Plan the home financing with Navigo's Mortgage Calculator.
       </p>
     </>
   );
@@ -61,14 +61,12 @@ const CalculatorSection = () => {
         {/* Main Content Container */}
         <div className="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-start">
           {/* Left Side - Title and Description */}
-          <div className=" h-full flex flex-col justify-center items-center">
-           
+          <div className="h-full flex flex-col justify-center mb-8 lg:mb-0">
               {pageTitle}
-        
           </div>
 
           {/* Right Side - Calculator */}
-          <div className=" ">
+          <div className="space-y-6">
             {activeCalculator === 'affordability' ? (
               <AffordabilityCalculator />
             ) : (

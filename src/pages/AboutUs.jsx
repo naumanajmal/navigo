@@ -32,7 +32,7 @@ const AboutUs = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
             >
-              <h2 className="text-3xl sm:text-4xl md:text-[42px] lg:text-[52px] font-bold pb-4 sm:pb-6 md:pb-10 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent text-center lg:text-left">About Us</h2>
+              <h2 className="text-3xl sm:text-4xl md:text-[42px] lg:text-[52px] font-bold pb-4 sm:pb-6 md:pb-10 text-primary text-center lg:text-left">About Us</h2>
               <p className="text-gray-600 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed text-left sm:text-justify">
                 The Navigo team understands how complicated and expensive the process is. Our team is dedicated to making the process of home buying easy for everyone. Our motto is "making home buying a moment of celebration not a stressful event." Navigo brought this dream to life making home buying a simple process and easy for everyone. Our digitized and expert team builds transparent relationships.
               </p>
@@ -60,7 +60,7 @@ const AboutUs = () => {
             transition={{ duration: 0.8, ease: 'easeOut' }}
             className="text-center mb-16"
           >
-            <h2 className="text-[38px] font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent inline-block">
+            <h2 className="text-[38px] font-bold mb-6 text-primary inline-block">
               Why Choose Us?
             </h2>
             <p className="text-gray-600 text-lg max-w-3xl mx-auto">
@@ -168,7 +168,7 @@ const AboutUs = () => {
             className="flex flex-col md:flex-row items-center gap-8 md:gap-12"
           >
             <div className="w-full md:w-1/2 px-4 sm:px-6 md:px-0 order-2 md:order-1">
-              <h2 className="text-[38px] font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              <h2 className="text-[38px] font-bold mb-6 text-primary leading-[1.1]">
                 Message from Our Managing Partner
               </h2>
               <blockquote className="text-xl sm:text-2xl font-light italic text-gray-600 mb-6 text-center md:text-left">
