@@ -7,7 +7,7 @@ const CalculatorSection = () => {
 
   const pageTitle = activeCalculator === 'affordability' ? (
     <>
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold pb-6 md:pb-10 text-primary ">
+      <h2 className="text-[28px] sm:text-[32px] md:text-[38px] lg:text-[46px] font-bold pb-6 md:pb-10 text-primary ">
         Affordability Calculator
       </h2>
       <p className="text-base md:text-lg lg:text-xl text-gray-600">
@@ -16,7 +16,7 @@ const CalculatorSection = () => {
     </>
   ) : (
     <>
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold pb-6 md:pb-10 text-primary">
+      <h2 className="text-[28px] sm:text-[32px] md:text-[38px] lg:text-[46px] font-bold pb-6 md:pb-10 text-primary">
         Mortgage Calculator
       </h2>
       <p className="text-base md:text-lg lg:text-xl text-gray-600">

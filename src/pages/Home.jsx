@@ -44,7 +44,7 @@ function Home() {
         {/* Content */}
         <div className="relative z-20 h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="h-full flex items-center justify-between gap-16 xl:gap-24">
-            <div className="flex-1 max-w-[60%]">
+            <div className="flex-1 ">
             {/* Left Side - Content and CTAs */}
             <AnimateOnScroll className="w-full lg:max-w-2xl xl:max-w-3xl text-white" animation="fade-up">
               <h1 className="text-3xl sm:text-4xl lg:text-[46px] xl:text-[56px] font-bold mb-3 sm:mb-4 md:mb-6 leading-[1.18] sm:leading-[1.18] lg:leading-[1.18] xl:leading-[1.18] max-w-[35ch] xl:max-w-[40ch]">
@@ -57,7 +57,7 @@ function Home() {
               </p>
 
               {/* Contact CTAs */}
-              <div className="flex flex-row gap-2 sm:gap-4 w-full sm:w-auto">
+              <div className="flex flex-row gap-2 sm:gap-4  sm:w-auto w-4/5">
                 <a
                   href="tel:+1234567890"
                   className="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 sm:gap-2 bg-white text-primary px-3 sm:px-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl hover:bg-white/90 transition-all duration-200 text-sm sm:text-base font-medium shadow-lg hover:shadow-xl active:scale-[0.98] min-w-[140px]"
@@ -83,7 +83,7 @@ function Home() {
             </div>
 
             {/* Right Side - Form (Hidden on Mobile) */}
-            <div className="w-[35%]">
+            <div className="w-[35%] hidden lg:block">
             <AnimateOnScroll className="hidden lg:block w-full max-w-sm xl:max-w-md" animation="fade-in">
               <QuoteForm />
             </AnimateOnScroll>
@@ -135,9 +135,10 @@ function Home() {
         <FAQ />
       </AnimateOnScroll>
 
-
       {/* <ContactSection/> */}
-      <Footer />
+      <div className="pt-10 md:pt-16 lg:pt-20">
+        <Footer />
+      </div>
     </div>
   )
 }

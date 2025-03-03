@@ -57,7 +57,7 @@ const ServicesMegaMenu = ({ isMobile, onClose }) => {
         </div>
 
         {/* Why Choose Us */}
-        <div className="mt-6 mx-4 p-4 bg-gray-50 rounded-lg">
+        <div className="hidden md:block mt-6 mx-4 p-4 bg-gray-50 rounded-lg">
           <h3 className="text-sm font-semibold text-primary mb-3">Why Choose Us?</h3>
           <ul className="space-y-2 text-sm text-gray-600">
             <li className="flex items-center gap-2">

@@ -183,7 +183,7 @@ const Services = () => {
       <div className="w-full relative z-10">
         {/* Section Header */}
         <div className="text-center mb-10 sm:mb-16 md:mb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-3 sm:mb-4 leading-[1.1]">
+          <h2 className="text-[28px] sm:text-[32px] md:text-[38px] lg:text-[46px] font-bold text-primary mb-3 sm:mb-4 leading-[1.15]">
             {mainTitle}
           </h2>
           <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4 mb-6">

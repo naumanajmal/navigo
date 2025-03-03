@@ -16,7 +16,7 @@ const AffordabilityCalculatorPage = () => {
           {/* Main Content Container */}
           <div className="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-start">
             {/* Left Side - Title and Description */}
-            <div className="h-full flex flex-col justify-center items-center">
+            <div className="h-full flex flex-col justify-center items-center  mb-10">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold pb-6 md:pb-10 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                 How Much Can You Afford?
               </h2>

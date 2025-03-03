@@ -42,7 +42,7 @@ const ServiceDetail = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 ">
             <div className="flex flex-col order-2 lg:order-1">
-              <h1 className="text-4xl md:text-5xl font-bold text-primary mb-8">{service.title}</h1>
+              <h1 className="text-[28px] sm:text-[32px] md:text-[38px] lg:text-[46px] font-bold text-primary mb-8">{service.title}</h1>
               <p className="text-gray-700 text-lg leading-relaxed mb-8">{service.description}</p>
            
               

@@ -26,7 +26,7 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold pb-4 sm:pb-6 md:pb-10 text-primary leading-[1.1]">Why choose Navigo?</h2>
+            <h2 className="text-[28px] sm:text-[32px] md:text-[38px] lg:text-[46px] font-bold pb-4 sm:pb-6 md:pb-10 text-primary leading-[1.15]">Why choose Navigo?</h2>
             <p className="text-gray-600 mb-6 text-base sm:text-lg leading-relaxed">
               At Navigo, we make the homeownership process simple by finding the best mortgage rates in UAE for you—all at one place!
             </p>
