@@ -40,7 +40,7 @@ const WhatsAppButton = () => {
       href="https://wa.me/1234567890" // Replace with your WhatsApp number
       target="_blank"
       rel="noopener noreferrer"
-      className={`fixed bottom-6 right-6 z-50 ${isNearFooter ? 'bg-secondary' : 'bg-primary'} hover:bg-primary/90 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ${
+      className={`fixed bottom-6 right-6 z-40 ${isNearFooter ? 'bg-secondary' : 'bg-primary'} hover:bg-primary/90 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ${
         isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
       }`}
       aria-label="Chat on WhatsApp"
