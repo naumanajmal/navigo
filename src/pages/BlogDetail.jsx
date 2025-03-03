@@ -11,6 +11,9 @@ const BlogDetail = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // WordPress API base URL
+  const WP_API_BASE = '/wp-api/wp/v2';
+
   useEffect(() => {
     fetchPost();
     fetchCategories();
@@ -18,7 +21,7 @@ const BlogDetail = () => {
 
   const fetchPost = async () => {
     try {
-      const response = await fetch(`/wp-api/wp/v2/posts?slug=${slug}&_embed`, {
+      const response = await fetch(`${WP_API_BASE}/posts?slug=${slug}&_embed`, {
         headers: {
           'Accept': 'application/json',
         }
@@ -46,7 +49,7 @@ const BlogDetail = () => {
 
   const fetchCategories = async () => {
     try {
-      const response = await fetch('/wp-api/wp/v2/categories', {
+      const response = await fetch(`${WP_API_BASE}/categories`, {
         headers: {
           'Accept': 'application/json',
         }
@@ -71,7 +74,7 @@ const BlogDetail = () => {
 
       if (categoryIds) {
         const response = await fetch(
-          `/wp-api/wp/v2/posts?categories=${categoryIds}&exclude=${currentPost.id}&per_page=3&_embed`,
+          `${WP_API_BASE}/posts?categories=${categoryIds}&exclude=${currentPost.id}&per_page=3&_embed`,
           {
             headers: {
               'Accept': 'application/json',
@@ -201,25 +204,65 @@ const BlogDetail = () => {
               {post._embedded?.['wp:term']?.[0] && (
                 <>
                   <span className="mx-2">•</span>
-                  <span>{post._embedded['wp:term'][0].map(cat => cat.name).join(', ')}</span>
+                  <span>{post._embedded['wp:term'][0].map(term => term.name).join(', ')}</span>
                 </>
               )}
             </div>
 
-            {/* Banner Image */}
-            <div className="mb-8">
-              <img
-                src={getPostImage(post)}
-                alt={post.title.rendered}
-                className="w-full h-[250px] sm:h-[400px] object-cover rounded-lg"
-              />
-            </div>
+            {/* Featured Image */}
+            {post._embedded?.['wp:featuredmedia']?.[0]?.source_url && (
+              <div className="mb-8">
+                <img
+                  src={getPostImage(post)}
+                  alt={post.title.rendered}
+                  className="w-full h-auto rounded-lg shadow-lg"
+                />
+              </div>
+            )}
 
             {/* Content */}
             <div 
-              className="prose max-w-none"
-              dangerouslySetInnerHTML={{ __html: post.content.rendered }}
+              className="prose prose-lg max-w-none text-gray-700"
+              dangerouslySetInnerHTML={{ 
+                __html: post.content.rendered 
+              }}
             />
+
+            {/* Add custom styles for WordPress content */}
+            <style jsx global>{`
+              .prose ul {
+                list-style-type: disc;
+                margin-left: 1.5em;
+                margin-bottom: 1.5em;
+              }
+              .prose ol {
+                list-style-type: decimal;
+                margin-left: 1.5em;
+                margin-bottom: 1.5em;
+              }
+              .prose li {
+                margin-bottom: 0.5em;
+              }
+              .prose p {
+                margin-bottom: 1.5em;
+              }
+              .prose h2, .prose h3, .prose h4 {
+                color: #1a365d;
+                margin-top: 2em;
+                margin-bottom: 1em;
+                font-weight: 600;
+              }
+              .prose a {
+                color: #2563eb;
+                text-decoration: underline;
+              }
+              .prose a:hover {
+                color: #1d4ed8;
+              }
+              .wp-block-list {
+                margin-bottom: 1.5em;
+              }
+            `}</style>
           </div>
         </div>
       </div>

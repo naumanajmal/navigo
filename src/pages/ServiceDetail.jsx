@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { useParams, useNavigate, useLocation } from 'react-router-dom'
 import Navbar from '../components/navbar/Navbar'
 import Footer from '../components/Footer'
 import { services } from '../components/services/servicesData'
@@ -13,9 +13,13 @@ import FAQ from '../components/FAQ'
 const ServiceDetail = () => {
   const { id } = useParams()
   const navigate = useNavigate()
+  const location = useLocation()
   const [activeStep, setActiveStep] = useState(0)
-
   const [showQuoteForm, setShowQuoteForm] = useState(false)
+  
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location.pathname])
   
   // Find the service by id
   const service = services.find(s => s.id.toString() === id)

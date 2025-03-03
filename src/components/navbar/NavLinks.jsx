@@ -64,22 +64,22 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
           {links.slice(0, 4).map((link) => (
             link.name === 'Services' ? (
               <div key={link.name}>
-                <a 
-                  href={link.href}
+                <Link 
+                  to={link.href}
                   className="block px-4 py-2 text-primary hover:text-secondary hover:bg-gray-50 rounded-lg transition-all duration-200 text-base font-medium"
                 >
                   {link.name}
-                </a>
+                </Link>
                 <ServicesMegaMenu isMobile={true} onClose={() => setShowServicesDropdown(false)} />
               </div>
             ) : (
-              <a 
+              <Link 
                 key={link.name}
-                href={link.href} 
+                to={link.href} 
                 className="block px-4 py-2 text-primary hover:text-secondary hover:bg-gray-50 rounded-lg transition-all duration-200 text-base font-medium"
               >
                 {link.name}
-              </a>
+              </Link>
             )
           ))}
         </div>
@@ -89,13 +89,13 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
           <h3 className="text-sm font-semibold text-gray-400 px-4 mb-2">CALCULATORS</h3>
           <div className="space-y-1">
             {calculatorOptions.map((option) => (
-              <a 
+              <Link 
                 key={option.name}
-                href={option.href} 
+                to={option.href} 
                 className="block px-4 py-2 text-primary hover:text-secondary hover:bg-gray-50 rounded-lg transition-all duration-200 text-base font-medium"
               >
                 {option.name}
-              </a>
+              </Link>
             ))}
           </div>
         </div>
@@ -103,13 +103,13 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
         {/* Additional Links */}
         <div className="space-y-4 pt-6 border-t border-gray-100">
           {links.slice(4).map((link) => (
-            <a 
+            <Link 
               key={link.name}
-              href={link.href} 
+              to={link.href} 
               className="block px-4 py-2 text-primary hover:text-secondary hover:bg-gray-50 rounded-lg transition-all duration-200 text-base font-medium"
             >
               {link.name}
-            </a>
+            </Link>
           ))}
         </div>
       </div>
@@ -133,20 +133,19 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
             {showServicesDropdown && (
               <div 
                 className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 bg-white rounded-xl shadow-xl py-8 w-[90vw] max-w-7xl border border-gray-100"
-
               >
                 <ServicesMegaMenu isMobile={false} onClose={() => setShowServicesDropdown(false)} />
               </div>
             )}
           </div>
         ) : (
-          <a 
+          <Link 
             key={link.name}
-            href={link.href} 
+            to={link.href} 
             className="text-primary hover:text-secondary transition-colors text-base font-medium"
           >
             {link.name}
-          </a>
+          </Link>
         )
       ))}
       <div className="relative group" ref={calculatorRef}>
@@ -169,8 +168,8 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
             </div>
             <div className="grid grid-cols-2 gap-6 p-6">
               {calculatorOptions.map((option) => (
-                <a 
-                  href={option.href}
+                <Link 
+                  to={option.href}
                   key={option.name} 
                   className="block group p-4 rounded-lg hover:bg-gray-50 transition-all"
                 >
@@ -200,20 +199,20 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </div>
-                </a>
+                </Link>
               ))}
             </div>
           </div>
         )}
       </div>
       {links.slice(4).map((link) => (
-        <a 
+        <Link 
           key={link.name}
-          href={link.href} 
+          to={link.href} 
           className="text-primary hover:text-secondary transition-colors text-base font-medium"
         >
           {link.name}
-        </a>
+        </Link>
       ))}
     </div>
   )

@@ -10,6 +10,9 @@ const BlogArchive = () => {
   const [error, setError] = useState(null);
   const [categories, setCategories] = useState(['All']);
 
+  // WordPress API base URL
+  const WP_API_BASE = '/wp-api/wp/v2';
+
   useEffect(() => {
     fetchPosts();
     fetchCategories();
@@ -17,12 +20,12 @@ const BlogArchive = () => {
 
   const fetchPosts = async () => {
     try {
-      const response = await fetch('/wp-api/wp/v2/posts?_embed', {
+      const response = await fetch(`${WP_API_BASE}/posts?_embed`, {
         headers: {
           'Accept': 'application/json',
         }
       });
-      
+      console.log(response);
       if (!response.ok) {
         throw new Error('Failed to fetch posts');
       }
@@ -39,7 +42,7 @@ const BlogArchive = () => {
 
   const fetchCategories = async () => {
     try {
-      const response = await fetch('/wp-api/wp/v2/categories', {
+      const response = await fetch(`${WP_API_BASE}/categories`, {
         headers: {
           'Accept': 'application/json',
         }
@@ -204,10 +207,7 @@ const BlogArchive = () => {
                     className="text-xl font-bold text-primary mb-3 line-clamp-2"
                     dangerouslySetInnerHTML={{ __html: post.title.rendered }}
                   />
-                  <div 
-                    className="text-gray-600 mb-4 line-clamp-3"
-                    dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
-                  />
+                 
                 </div>
               </Link>
             ))}
