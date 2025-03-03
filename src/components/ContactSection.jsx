@@ -19,7 +19,7 @@ const ContactSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Text Content */}
           <div className="text-white">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+            <h2 className="text-4xl sm:text-[42px] lg:text-[52px] font-bold mb-6">
               Expert Mortgage
               <span className="block mt-2">Solutions in Dubai</span>
             </h2>

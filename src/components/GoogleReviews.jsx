@@ -90,7 +90,7 @@ const GoogleReviews = () => {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
          
-          <h2 className="text-4xl sm:text-5xl font-bold pb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+          <h2 className="text-[38px] sm:text-[46px] font-bold pb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             What Our Clients Say
           </h2>
           <div className="mt-6 flex items-center justify-center">
