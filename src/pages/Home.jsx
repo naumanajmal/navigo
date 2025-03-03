@@ -14,6 +14,7 @@ import Footer from '../components/Footer'
 import FAQ from '../components/FAQ'
 import GoogleReviews from '../components/GoogleReviews'
 import ContactSection from '../components/ContactSection'
+import BlogSection from '../components/blog/BlogSection'
 function Home() {
   const [showMobileForm, setShowMobileForm] = useState(false)
   const { activeContent, setActiveIndex } = useSliderContent()
@@ -129,6 +130,10 @@ function Home() {
       
       <AnimateOnScroll>
         <GoogleReviews />
+      </AnimateOnScroll>
+      
+      <AnimateOnScroll>
+        <BlogSection />
       </AnimateOnScroll>
       
       <AnimateOnScroll>

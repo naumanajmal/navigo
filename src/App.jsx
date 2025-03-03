@@ -12,6 +12,7 @@ import AffordabilityCalculatorPage from './pages/AffordabilityCalculatorPage'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import Terms from './pages/Terms'
 import AboutUs from './pages/AboutUs'
+
 function App() {
   return (
     <Router>
@@ -24,7 +25,7 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/services/:id" element={<ServiceDetail />} />
         <Route path="/blog" element={<BlogArchive />} />
-        <Route path="/blog/:id" element={<BlogDetail />} />
+        <Route path="/blog/:slug" element={<BlogDetail />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-conditions" element={<Terms />} />

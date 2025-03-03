@@ -1,23 +1,135 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { blogPosts } from '../data/blogData';
 import Navbar from '../components/navbar/Navbar';
 import Footer from '../components/Footer';
 
 const BlogDetail = () => {
-  const { id } = useParams();
-  const post = blogPosts.find(post => post.id === parseInt(id));
-  const categories = [...new Set(blogPosts.map(post => post.category))];
-  const relatedPosts = blogPosts
-    .filter(p => p.category === post?.category && p.id !== parseInt(id))
-    .slice(0, 3);
+  const { slug } = useParams();
+  const [post, setPost] = useState(null);
+  const [categories, setCategories] = useState([]);
+  const [relatedPosts, setRelatedPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  if (!post) {
+  useEffect(() => {
+    fetchPost();
+    fetchCategories();
+  }, [slug]);
+
+  const fetchPost = async () => {
+    try {
+      const response = await fetch(`https://navigo.ae/navigoadmin/index.php/wp-json/wp/v2/posts?slug=${slug}&_embed`, {
+        headers: {
+          'Accept': 'application/json',
+        }
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to fetch post');
+      }
+
+      const data = await response.json();
+      if (data.length > 0) {
+        setPost(data[0]);
+        // Fetch related posts after getting the main post
+        fetchRelatedPosts(data[0]);
+      } else {
+        setError('Post not found');
+      }
+    } catch (err) {
+      console.error('Blog fetch error:', err);
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const fetchCategories = async () => {
+    try {
+      const response = await fetch('https://navigo.ae/navigoadmin/index.php/wp-json/wp/v2/categories', {
+        headers: {
+          'Accept': 'application/json',
+        }
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to fetch categories');
+      }
+
+      const data = await response.json();
+      setCategories(data);
+    } catch (err) {
+      console.error('Categories fetch error:', err);
+    }
+  };
+
+  const fetchRelatedPosts = async (currentPost) => {
+    try {
+      // Get the categories of the current post
+      const postCategories = currentPost._embedded?.['wp:term']?.[0] || [];
+      const categoryIds = postCategories.map(cat => cat.id).join(',');
+
+      if (categoryIds) {
+        const response = await fetch(
+          `https://navigo.ae/navigoadmin/index.php/wp-json/wp/v2/posts?categories=${categoryIds}&exclude=${currentPost.id}&per_page=3&_embed`,
+          {
+            headers: {
+              'Accept': 'application/json',
+            }
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch related posts');
+        }
+
+        const data = await response.json();
+        setRelatedPosts(data);
+      }
+    } catch (err) {
+      console.error('Related posts fetch error:', err);
+    }
+  };
+
+  const getPostImage = (post) => {
+    // Try to get the featured image
+    const featuredImage = post._embedded?.['wp:featuredmedia']?.[0]?.source_url;
+    if (featuredImage) return featuredImage;
+
+    // Fallback to thumbnail if available
+    const thumbnail = post._embedded?.['wp:featuredmedia']?.[0]?.media_details?.sizes?.thumbnail?.source_url;
+    if (thumbnail) return thumbnail;
+
+    // Final fallback to a default image
+    return '/path/to/your/default/image.jpg'; // Replace with your default image path
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <Navbar />
+        <div className="max-w-6xl mx-auto px-4 py-20">
+          <div className="animate-pulse">
+            <div className="h-8 bg-gray-200 rounded w-3/4 mb-4"></div>
+            <div className="h-64 bg-gray-200 rounded mb-4"></div>
+            <div className="h-4 bg-gray-200 rounded w-full mb-2"></div>
+            <div className="h-4 bg-gray-200 rounded w-5/6"></div>
+          </div>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+
+  if (error || !post) {
     return (
       <div className="min-h-screen bg-gray-50">
         <Navbar />
         <div className="max-w-6xl mx-auto px-4 py-20">
           <h1 className="text-3xl text-primary">Blog post not found</h1>
+          <Link to="/blog" className="text-secondary hover:underline mt-4 inline-block">
+            ← Back to Blog
+          </Link>
         </div>
         <Footer />
       </div>
@@ -37,12 +149,12 @@ const BlogDetail = () => {
               <h3 className="text-lg sm:text-xl font-bold text-primary mb-3 sm:mb-4">Categories</h3>
               <ul className="space-y-2">
                 {categories.map(category => (
-                  <li key={category}>
+                  <li key={category.id}>
                     <Link 
-                      to={`/blog?category=${category}`} 
+                      to={`/blog?category=${category.slug}`} 
                       className="text-gray-600 hover:text-primary transition-colors"
                     >
-                      {category}
+                      {category.name}
                     </Link>
                   </li>
                 ))}
@@ -50,71 +162,64 @@ const BlogDetail = () => {
             </div>
 
             {/* Related Posts */}
-            <div>
-              <h3 className="text-lg sm:text-xl font-bold text-primary mb-3 sm:mb-4">Related Posts</h3>
-              <div className="space-y-4">
-                {relatedPosts.map(relatedPost => (
-                  <Link 
-                    key={relatedPost.id} 
-                    to={`/blog/${relatedPost.id}`}
-                    className="block group"
-                  >
-                    <div className="aspect-video mb-2 overflow-hidden rounded">
-                      <img 
-                        src={relatedPost.image} 
-                        alt={relatedPost.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            {relatedPosts.length > 0 && (
+              <div>
+                <h3 className="text-lg sm:text-xl font-bold text-primary mb-3 sm:mb-4">Related Posts</h3>
+                <div className="space-y-3">
+                  {relatedPosts.map(relatedPost => (
+                    <Link 
+                      key={relatedPost.id} 
+                      to={`/blog/${relatedPost.slug}`}
+                      className="block group"
+                    >
+                      <h4 
+                        className="text-sm font-medium text-gray-600 group-hover:text-primary transition-colors line-clamp-2"
+                        dangerouslySetInnerHTML={{ __html: relatedPost.title.rendered }}
                       />
-                    </div>
-                    <h4 className="text-sm font-medium text-gray-800 group-hover:text-primary transition-colors line-clamp-2">
-                      {relatedPost.title}
-                    </h4>
-                  </Link>
-                ))}
+                    </Link>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </div>
 
           {/* Main Content */}
           <div className="flex-1 order-1 lg:order-2">
             {/* Title */}
-            <h1 className="text-3xl sm:text-4xl font-bold text-primary mb-6 sm:mb-8">
-              {post.title}
-            </h1>
+            <h1 
+              className="text-3xl sm:text-4xl font-bold text-primary mb-6 sm:mb-8"
+              dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+            />
+
+            {/* Meta Information */}
+            <div className="flex items-center text-sm text-gray-500 mb-6">
+              <span>{new Date(post.date).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              })}</span>
+              {post._embedded?.['wp:term']?.[0] && (
+                <>
+                  <span className="mx-2">•</span>
+                  <span>{post._embedded['wp:term'][0].map(cat => cat.name).join(', ')}</span>
+                </>
+              )}
+            </div>
 
             {/* Banner Image */}
             <div className="mb-8">
               <img
-                src={post.image}
-                alt={post.title}
+                src={getPostImage(post)}
+                alt={post.title.rendered}
                 className="w-full h-[250px] sm:h-[400px] object-cover rounded-lg"
               />
             </div>
 
             {/* Content */}
-            <div className="prose max-w-none">
-              <p className="text-gray-600 leading-relaxed mb-6 sm:mb-8 text-base sm:text-lg">
-                {post.excerpt}
-              </p>
-              
-              <h2 className="text-xl sm:text-2xl font-bold text-primary mb-3 sm:mb-4">
-                Understanding the Basics
-              </h2>
-              <p className="text-gray-600 leading-relaxed mb-6 sm:mb-8 text-base sm:text-lg">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor 
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
-                nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              </p>
-
-              <h2 className="text-xl sm:text-2xl font-bold text-primary mb-3 sm:mb-4">
-                Key Takeaways
-              </h2>
-              <p className="text-gray-600 leading-relaxed mb-6 sm:mb-8 text-base sm:text-lg">
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
-                eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt 
-                in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-            </div>
+            <div 
+              className="prose max-w-none"
+              dangerouslySetInnerHTML={{ __html: post.content.rendered }}
+            />
           </div>
         </div>
       </div>
