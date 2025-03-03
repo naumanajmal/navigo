@@ -17,7 +17,7 @@ const BlogArchive = () => {
 
   const fetchPosts = async () => {
     try {
-      const response = await fetch('https://navigo.ae/navigoadmin/index.php/wp-json/wp/v2/posts?_embed', {
+      const response = await fetch('/wp-api/wp/v2/posts?_embed', {
         headers: {
           'Accept': 'application/json',
         }
@@ -39,7 +39,7 @@ const BlogArchive = () => {
 
   const fetchCategories = async () => {
     try {
-      const response = await fetch('https://navigo.ae/navigoadmin/index.php/wp-json/wp/v2/categories', {
+      const response = await fetch('/wp-api/wp/v2/categories', {
         headers: {
           'Accept': 'application/json',
         }

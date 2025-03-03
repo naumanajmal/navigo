@@ -18,7 +18,7 @@ const BlogDetail = () => {
 
   const fetchPost = async () => {
     try {
-      const response = await fetch(`https://navigo.ae/navigoadmin/index.php/wp-json/wp/v2/posts?slug=${slug}&_embed`, {
+      const response = await fetch(`/wp-api/wp/v2/posts?slug=${slug}&_embed`, {
         headers: {
           'Accept': 'application/json',
         }
@@ -46,7 +46,7 @@ const BlogDetail = () => {
 
   const fetchCategories = async () => {
     try {
-      const response = await fetch('https://navigo.ae/navigoadmin/index.php/wp-json/wp/v2/categories', {
+      const response = await fetch('/wp-api/wp/v2/categories', {
         headers: {
           'Accept': 'application/json',
         }
@@ -71,7 +71,7 @@ const BlogDetail = () => {
 
       if (categoryIds) {
         const response = await fetch(
-          `https://navigo.ae/navigoadmin/index.php/wp-json/wp/v2/posts?categories=${categoryIds}&exclude=${currentPost.id}&per_page=3&_embed`,
+          `/wp-api/wp/v2/posts?categories=${categoryIds}&exclude=${currentPost.id}&per_page=3&_embed`,
           {
             headers: {
               'Accept': 'application/json',

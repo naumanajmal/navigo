@@ -1,1 +1,15 @@
-{ "routes": [{ "src": "/[^.]+", "dest": "/", "status": 200 }] }
+{
+  "rewrites": [
+    {
+      "source": "/wp-api/:path*",
+      "destination": "https://navigo.ae/navigoadmin/index.php/wp-json/:path*"
+    }
+  ],
+  "routes": [
+    { 
+      "src": "/[^.]+", 
+      "dest": "/", 
+      "status": 200 
+    }
+  ]
+}
