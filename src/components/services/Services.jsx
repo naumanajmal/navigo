@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect, useCallback } from 'react'
+import { Link } from 'react-router-dom'
 import { services } from './servicesData.jsx'
 
 const Services = () => {
@@ -188,11 +189,13 @@ const Services = () => {
           <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4 mb-6">
             Discover our comprehensive range of mortgage and property services designed to make your journey smooth and successful.
           </p>
-          <button 
-             
-            className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary-dark transition-colors duration-200">
-            {showAllServices ? 'Show Featured Services' : 'View All Services'}
-          </button>
+          <Link 
+            to="/services"
+            onClick={() => window.scrollTo(0, 0)}
+            className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary-dark transition-colors duration-200"
+          >
+            View All Services
+          </Link>
         </div>
 
         {/* Services Carousel */}

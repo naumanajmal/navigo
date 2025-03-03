@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../components/navbar/Navbar'
 import Footer from '../components/Footer'
@@ -7,6 +7,10 @@ import ContactSection from '../components/ContactSection'
 import FAQ from '../components/FAQ'
 
 const Services = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="font-lexend">
       <Navbar />
