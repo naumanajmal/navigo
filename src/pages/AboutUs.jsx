@@ -192,7 +192,7 @@ const AboutUs = () => {
                 transition={{ duration: 0.8, ease: 'easeOut' }}
                 src="/nimishimg.JPG"
                 alt="Nimish Modi - Managing Partner"
-                className="rounded-2xl shadow-2xl w-full max-w-md mx-auto object-contain"
+                className="rounded-2xl shadow-2xl w-full max-w-md mx-auto object-contain px-8 pt-8"
               />
             </div>
           </motion.div>

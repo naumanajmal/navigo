@@ -5,7 +5,6 @@ const FAQItem = ({ question, answer, isOpen, onClick, index, anyOpen }) => {
   return (
     <div 
       className={`backdrop-blur-xl bg-white/80 rounded-2xl overflow-hidden transition-all duration-500 transform h-fit ${isExpanded ? 'scale-[1.02] shadow-2xl ring-1 ring-primary/20' : 'shadow-lg'}`}
-
       style={{
         animationDelay: `${index * 100}ms`,
       }}
@@ -39,10 +38,10 @@ const FAQItem = ({ question, answer, isOpen, onClick, index, anyOpen }) => {
   );
 };
 
-const FAQ = () => {
+const FAQ = ({ faqData = [] }) => {
   const [openIndex, setOpenIndex] = useState(0);
 
-  const faqData = [
+  const defaultFaqData = [
     {
       question: "What documents do I need for a mortgage application?",
       answer: "For a mortgage application in the UAE, you typically need: Valid passport and Emirates ID, Visa (for expats), Salary certificate or employment contract, Bank statements (last 6 months), Property details, and down payment proof. Additional documents may be required based on your employment status and residency."
@@ -69,6 +68,9 @@ const FAQ = () => {
     }
   ];
 
+  // Use provided faqData if available, otherwise use default
+  const faqs = faqData.length > 0 ? faqData : defaultFaqData;
+
   return (
     <section className="relative bg-gradient-to-br from-[#e5f6ff] via-white to-[#f0f7ff] py-12 sm:py-20 lg:py-32 overflow-hidden">
       {/* Decorative elements */}
@@ -85,7 +87,6 @@ const FAQ = () => {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-20">
-       
           <h2 className="text-[28px] sm:text-[32px] md:text-[38px] lg:text-[46px] font-bold pb-4 text-primary">
             Frequently Asked Questions
           </h2>
@@ -96,7 +97,7 @@ const FAQ = () => {
         
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-4 px-2 sm:px-4">
           <div className="flex-1 space-y-3 sm:space-y-4">
-            {faqData.slice(0, Math.ceil(faqData.length / 2)).map((faq, index) => (
+            {faqs.slice(0, Math.ceil(faqs.length / 2)).map((faq, index) => (
               <FAQItem
                 key={index}
                 index={index}
@@ -109,21 +110,19 @@ const FAQ = () => {
             ))}
           </div>
           <div className="flex-1 space-y-3 sm:space-y-4">
-            {faqData.slice(Math.ceil(faqData.length / 2)).map((faq, index) => (
+            {faqs.slice(Math.ceil(faqs.length / 2)).map((faq, index) => (
               <FAQItem
-                key={index + Math.ceil(faqData.length / 2)}
-                index={index + Math.ceil(faqData.length / 2)}
+                key={index + Math.ceil(faqs.length / 2)}
+                index={index + Math.ceil(faqs.length / 2)}
                 question={faq.question}
                 answer={faq.answer}
-                isOpen={index + Math.ceil(faqData.length / 2) === openIndex}
+                isOpen={index + Math.ceil(faqs.length / 2) === openIndex}
                 anyOpen={openIndex !== -1}
-                onClick={() => setOpenIndex((index + Math.ceil(faqData.length / 2)) === openIndex ? -1 : index + Math.ceil(faqData.length / 2))}
+                onClick={() => setOpenIndex((index + Math.ceil(faqs.length / 2)) === openIndex ? -1 : index + Math.ceil(faqs.length / 2))}
               />
             ))}
           </div>
         </div>
-
-        
       </div>
     </section>
   );

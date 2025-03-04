@@ -92,7 +92,7 @@ function Home() {
       </section>
 
       {/* Mobile Form and Button */}
-      <div className="relative">
+      {/* <div className="relative">
         <FloatingQuoteButton onClick={handleOpenForm} />
         {showMobileForm && (
           <div className="fixed inset-0 z-[9999] overflow-hidden">
@@ -105,7 +105,7 @@ function Home() {
             </div>
           </div>
         )}
-      </div>
+      </div> */}
 
       {/* About Section */}
       <AnimateOnScroll>
