@@ -240,7 +240,7 @@ const Services = () => {
                     </div>
                     <div className="space-y-4 mb-8">
                       <h3 className={`text-xl sm:text-2xl font-bold transition-colors duration-300 ${activeIndex === index ? 'text-primary' : 'text-gray-900 group-hover:text-primary'}`}>{service.title}</h3>
-                      <p className="text-base sm:text-lg text-secondary font-medium">{service.subtitle}</p>
+                      <p className="text-base sm:text-lg text-secondary font-medium">{service.list_sub_title}</p>
                       <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{service.description}</p>
                     </div>
                     <div className="">

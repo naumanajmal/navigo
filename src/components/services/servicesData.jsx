@@ -9,16 +9,12 @@ export const services = [
     id: 1,
     title: 'Residential Property',
     picture: 'Residential_Property.avif',
+    list_sub_title: 'Your Dream Home in UAE',
     features: ['Looking for primary residential home', 'For first time home buyers', 'Best mortgage rates', 'Smooth process'],
-    subtitle: `Do you wish to make your own dream home in the UAE? Don’t worry, we’ll
-make it true!`,
-    description_1: `UAE is a vibrant country known for its modern infrastructure and opulent lifestyle making it an
-ideal country to buy a house. Make a dream of buying a home in UAE with Navigo and we will
-help you by offering you a seamless digital homeownership experience.`,
-    description_2: `Discover the best range of mortgage plans, get quick approval, eligibility, required documents,
-and more-Navigo is your guide. Whether you are buying a new property or opting for a
-secondary one, our customized mortgage solutions are designed to make your experience
-hassle-free.`,
+    subtitle: `Do you wish to make your own dream home in the UAE? Don’t worry, we’ll make it true!`,
+    description: 'Find your perfect home in the UAE with our comprehensive residential mortgage solutions, offering competitive rates and seamless processing for first-time buyers.',
+    description_1: `UAE is a vibrant country known for its modern infrastructure and opulent lifestyle making it an ideal country to buy a house. Make a dream of buying a home in UAE with Navigo and we will help you by offering you a seamless digital homeownership experience.`,
+    description_2: `Discover the best range of mortgage plans, get quick approval, eligibility, required documents, and more-Navigo is your guide. Whether you are buying a new property or opting for a secondary one, our customized mortgage solutions are designed to make your experience hassle-free.`,
      benefits: {
       title: 'Benefits Only for You',
       items: [
@@ -73,21 +69,14 @@ hassle-free.`,
     id: 2,
     title: 'Commercial Property',
     picture: 'Commercial_Property.webp',
+
+    list_sub_title: 'Business Property Solutions',
     features: ['For commercial property buyers', 'Compared interest rates', 'Tailored solutions', 'Expert advice'],
-    subtitle: `Are you thinking of buying your own office or property for business? Let us
-help you with the best mortgage plans for offices, hotels, or other business
-property!`,
-    description_1: `If you’re looking to obtain a commercial property mortgage in the UAE, there are ample things to
-understand. The commercial property mortgage includes office space, shops, retail outlets,
-industrial properties, and warehouses. You must understand the local and legal regulations, and
-gather documents and information, proof of income, credit history, and other financial
-information. Obtaining a commercial property mortgage can be a little tricky if you’re not aware
-of these things. But you don’t have to worry, we have got you!`,
-    description_2: `Our expert team will help you with the complex process, compare interest rates, terms, research
-and preparation. You can easily compare several different banks and mortgage options
-available in Dubai or our experts can help with bespoke solutions.`,
-    description: 'Do you wish to make your own dream home in the UAE? Don\'t worry, we\'ll make it true! UAE is a vibrant country known for its modern infrastructure and opulent lifestyle making it an ideal country to buy a house. Make a dream of buying a home in UAE with Navigo and we will help you by offering you a seamless digital homeownership experience.',
-     benefits: {
+    subtitle: `Are you thinking of buying your own office or property for business? Let us help you with the best mortgage plans for offices, hotels, or other business property!`,
+    description: 'Expert guidance for commercial property investments in UAE, with tailored mortgage solutions for offices, retail spaces, and business properties.',
+    description_1: `If you’re looking to obtain a commercial property mortgage in the UAE, there are ample things to understand. The commercial property mortgage includes office space, shops, retail outlets, industrial properties, and warehouses. You must understand the local and legal regulations, and gather documents and information, proof of income, credit history, and other financial information. Obtaining a commercial property mortgage can be a little tricky if you’re not aware of these things. But you don’t have to worry, we have got you!`,
+    description_2: `Our expert team will help you with the complex process, compare interest rates, terms, research and preparation. You can easily compare several different banks and mortgage options available in Dubai or our experts can help with bespoke solutions.`,
+    benefits: {
       title: 'What are the Benefits of Choosing Navigo?',
       items: [
         'High loan amount',
@@ -138,15 +127,13 @@ available in Dubai or our experts can help with bespoke solutions.`,
     id: 3,
     title: 'International Mortgages',
     picture: 'International_Mortgages.jpg',
+    list_sub_title: 'Global Property Investment',
     features: ['Property valuation', 'Currency solutions', 'Local expertise', 'Loan-to-value'],
 
-    subtitle: `Dreaming of owning a property in the UAE, but you’re a non-resident?
-Don’t worry, we’ve got you!`,
-    description_1: `Make your dream of buying a home overseas true with Navigo. With the International Mortgage,
-you can make a home in the UAE and we'll help you make a smart investment. International mortgages are the same as any other mortgage but the process can be a little
-complex and eligibility requirements can be higher. Don’t worry, we’d love to help!`,
-    description_2: `Our experts and team know the mortgage ins and outs and offer the best suited advice. We
-make your mortgage process hassle free with our client centric and solution driven approach.`,
+    subtitle: `Dreaming of owning a property in the UAE, but you’re a non-resident? Don’t worry, we’ve got you!`,
+    description: 'Specialized mortgage solutions for non-residents looking to invest in UAE property, with expert guidance on international financing and regulations.',
+    description_1: `Make your dream of buying a home overseas true with Navigo. With the International Mortgage, you can make a home in the UAE and we'll help you make a smart investment. International mortgages are the same as any other mortgage but the process can be a little complex and eligibility requirements can be higher. Don’t worry, we’d love to help!`,
+    description_2: `Our experts and team know the mortgage ins and outs and offer the best suited advice. We make your mortgage process hassle free with our client centric and solution driven approach.`,
     benefits: {
       title: 'Why Should You Choose Us?',
       items: [
@@ -162,8 +149,7 @@ make your mortgage process hassle free with our client centric and solution driv
       items: [
         'Non-resident status: You must be a non-resident in the UAE to qualify for an international mortgage.',
         'Stable income: You\'ll need to have a stable income source and good credit history along with a credit report.',
-        `Valid passport & visa: You’ll need to have a valid passport and visa that allows you to
-be an owner of a property in the UAE.`,
+        `Valid passport & visa: You’ll need to have a valid passport and visa that allows you to be an owner of a property in the UAE.`,
         'Financial proof: You must submit financial stability proof such as salary certificates, statements, etc.'
       ]
     },
@@ -206,14 +192,9 @@ be an owner of a property in the UAE.`,
     title: 'Refinancing',
     picture:'Mortgage_Refinancing.jpg',
     subtitle: 'Better rates, better terms',
-    description_1: `Looking to optimize your existing mortgage? Refinancing can be an excellent way to
-secure better interest rates, reduce monthly payments, or access your home's equity. Our
-refinancing solutions are designed to help you make the most of your property investment
-while potentially saving thousands in interest payments.`,
-    description_2: `At Navigo, we analyze your current mortgage terms and market conditions to find the
-best refinancing options available. Whether you want to switch to a better rate, change your
-loan term, or cash out some equity, our expert team will guide you through the entire process,
-ensuring you make an informed decision that aligns with your financial goals.`,
+    list_sub_title: 'Better rates, better terms',
+    description_1: `Looking to optimize your existing mortgage? Refinancing can be an excellent way to secure better interest rates, reduce monthly payments, or access your home's equity. Our refinancing solutions are designed to help you make the most of your property investment while potentially saving thousands in interest payments.`,
+    description_2: `At Navigo, we analyze your current mortgage terms and market conditions to find the best refinancing options available. Whether you want to switch to a better rate, change your loan term, or cash out some equity, our expert team will guide you through the entire process, ensuring you make an informed decision that aligns with your financial goals.`,
     description: 'Looking to get better rates or terms on your existing mortgage? Refinancing might be the perfect solution for you. We\'ll help you explore your options and find the best refinancing solution.',
     features: ['Interest rates analysis', 'Easy documentation', 'Legal advice', 'Mortgage negotiation'],
     benefits: {
@@ -273,14 +254,9 @@ ensuring you make an informed decision that aligns with your financial goals.`,
     title: 'Professional Legal Support',
     picture:'Legal_Services.webp',
     subtitle: 'Expert Guidance',
-    description_1: `Navigating the legal aspects of property transactions in the UAE requires expert
-knowledge and attention to detail. Our professional legal support service ensures that your
-property dealings are conducted with the utmost care and in full compliance with UAE laws
-and regulations.`,
-    description_2: `Our network of experienced legal professionals specializes in UAE property law
-and can assist you with everything from contract review to dispute resolution. We work
-closely with you to understand your needs and provide tailored legal solutions that
-protect your interests throughout the property transaction process.`,
+    list_sub_title: 'Expert Guidance',
+    description_1: `Navigating the legal aspects of property transactions in the UAE requires expert knowledge and attention to detail. Our professional legal support service ensures that your property dealings are conducted with the utmost care and in full compliance with UAE laws and regulations.`,
+    description_2: `Our network of experienced legal professionals specializes in UAE property law and can assist you with everything from contract review to dispute resolution. We work closely with you to understand your needs and provide tailored legal solutions that protect your interests throughout the property transaction process.`,
     description: 'Our network of experienced legal professionals ensures your property transactions are handled with precision and care. ',
     features: ['Contract review', 'Due diligence', 'Legal documentation', 'Dispute resolution'],
     benefits: {
@@ -340,14 +316,9 @@ protect your interests throughout the property transaction process.`,
     title: 'Corporate & SME Lending',
     picture:'Business_Lending.webp',
     subtitle: 'Business Growth Solutions',
-    description_1: `Growing your business in the UAE requires reliable financial support. Our Corporate
-& SME Lending solutions are designed to meet the diverse needs of businesses, from small
-enterprises to large corporations. We understand that each business has unique requirements
-and challenges, which is why we offer customized lending solutions.`,
-    description_2: `Whether you need working capital, equipment financing, or expansion funding,
-our expert team will work with you to structure the right lending solution. We pride ourselves
-on quick processing times, competitive rates, and flexible terms that align with your
-business objectives and cash flow patterns.`,
+    list_sub_title: 'Business Growth Solutions',
+    description_1: `Growing your business in the UAE requires reliable financial support. Our Corporate & SME Lending solutions are designed to meet the diverse needs of businesses, from small enterprises to large corporations. We understand that each business has unique requirements and challenges, which is why we offer customized lending solutions.`,
+    description_2: `Whether you need working capital, equipment financing, or expansion funding, our expert team will work with you to structure the right lending solution. We pride ourselves on quick processing times, competitive rates, and flexible terms that align with your business objectives and cash flow patterns.`,
     description: 'Tailored lending solutions for businesses of all sizes, supporting growth and operational needs with flexible financing options.',
     features: ['Working capital', 'Equipment financing', 'Business expansion', 'Trade finance'],
     benefits: {
@@ -407,14 +378,9 @@ business objectives and cash flow patterns.`,
     title: 'Personal Loans',
     picture:'Personal_Loans.jpg',
     subtitle: 'Individual Financial Solutions',
-    description_1: `Life in the UAE often presents opportunities and needs that require additional
-financial support. Our Personal Loans are designed to help you achieve your personal goals,
-whether it's funding your education, renovating your home, or managing unexpected expenses.
-We understand that every individual's financial situation is unique.`,
-    description_2: `Our personal loan solutions offer competitive interest rates, flexible
-repayment terms, and quick processing to ensure you get the funds when you need them.
-Our dedicated team works closely with you to understand your requirements and financial
-capacity, helping you choose the most suitable loan option.`,
+    list_sub_title: 'Individual Financial Solutions',
+    description_1: `Life in the UAE often presents opportunities and needs that require additional financial support. Our Personal Loans are designed to help you achieve your personal goals, whether it's funding your education, renovating your home, or managing unexpected expenses. We understand that every individual's financial situation is unique.`,
+    description_2: `Our personal loan solutions offer competitive interest rates, flexible repayment terms, and quick processing to ensure you get the funds when you need them. Our dedicated team works closely with you to understand your requirements and financial capacity, helping you choose the most suitable loan option.`,
     description: 'Flexible personal financing options to help you achieve your goals, whether it\'s for education, home improvement, or other personal needs.',
     features: ['Quick approval', 'Flexible terms', 'Competitive rates', 'Multiple purposes'],
     benefits: {
@@ -474,14 +440,9 @@ capacity, helping you choose the most suitable loan option.`,
     title: 'Project Finance',
     picture:'Project_Finance.webp',
     subtitle: 'Large-Scale Development Funding',
-    description_1: `Major projects require sophisticated financing solutions. Our Project Finance
-service specializes in funding large-scale developments, from infrastructure and real estate
-to industrial ventures. We understand the complexities involved in project financing and
-provide structured solutions that align with project milestones and cash flow projections.`,
-    description_2: `Our experienced team works closely with project developers, contractors, and
-stakeholders to create customized financing packages. We consider various aspects including
-project viability, risk assessment, and market conditions to ensure optimal financing
-structure that supports successful project completion.`,
+    list_sub_title: 'Large-Scale Development Funding',
+    description_1: `Major projects require sophisticated financing solutions. Our Project Finance service specializes in funding large-scale developments, from infrastructure and real estate to industrial ventures. We understand the complexities involved in project financing and provide structured solutions that align with project milestones and cash flow projections.`,
+    description_2: `Our experienced team works closely with project developers, contractors, and stakeholders to create customized financing packages. We consider various aspects including project viability, risk assessment, and market conditions to ensure optimal financing structure that supports successful project completion.`,
     description: 'Comprehensive financing solutions for major projects, including infrastructure, real estate development, and industrial ventures.',
     features: ['Structured finance', 'Long-term funding', 'Risk assessment', 'Project monitoring'],
     benefits: {
@@ -541,14 +502,10 @@ structure that supports successful project completion.`,
     title: 'Trade Finance',
     picture:'Trade_Finance.webp',
     subtitle: 'International Trade Solutions',
-    description_1: `In today's global marketplace, efficient trade finance solutions are crucial
-for business success. Our comprehensive trade finance services are designed to facilitate
-international trade operations, helping businesses manage risks and optimize working capital.
-We understand the complexities of cross-border transactions and provide tailored solutions.`,
-    description_2: `Whether you need letters of credit, trade loans, or supply chain financing,
-our expert team will work with you to structure the most suitable trade finance solution.
-We leverage our extensive network and expertise to ensure smooth international trade
-operations while managing associated risks effectively.`,
+    list_sub_title: 'International Trade Solutions',
+
+    description_1: `In today's global marketplace, efficient trade finance solutions are crucial for business success. Our comprehensive trade finance services are designed to facilitate international trade operations, helping businesses manage risks and optimize working capital. We understand the complexities of cross-border transactions and provide tailored solutions.`,
+    description_2: `Whether you need letters of credit, trade loans, or supply chain financing, our expert team will work with you to structure the most suitable trade finance solution. We leverage our extensive network and expertise to ensure smooth international trade operations while managing associated risks effectively.`,
     description: 'Facilitate international trade with our comprehensive trade finance solutions, including letters of credit, trade loans, and supply chain financing.',
     features: ['Letters of credit', 'Trade loans', 'Supply chain finance', 'Export financing'],
     benefits: {
