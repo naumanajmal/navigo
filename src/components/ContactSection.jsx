@@ -1,5 +1,5 @@
-import ContactFormOverlay from './ContactFormOverlay';
 
+import QuoteForm from './form/QuoteForm';
 const ContactSection = () => {
   return (
     <section className="relative min-h-[800px] flex items-center justify-center py-24 lg:py-32">
@@ -54,7 +54,7 @@ const ContactSection = () => {
 
           {/* Right side - Form */}
           <div className="lg:pl-12">
-            <ContactFormOverlay />
+            <QuoteForm />
           </div>
         </div>
       </div>
