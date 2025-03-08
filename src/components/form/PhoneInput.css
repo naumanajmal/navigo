@@ -1,0 +1,15 @@
+.phone-input-container .form-control:focus {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 0 2px rgba(var(--primary-rgb), 0.2) !important;
+}
+
+.phone-input-container .form-control {
+  border: 2px solid #e5e7eb !important;
+}
+
+.phone-input-container .country-list {
+  border-radius: 12px;
+  width: max-content;
+  border: 2px solid #e5e7eb;
+  margin-top: 4px;
+}
