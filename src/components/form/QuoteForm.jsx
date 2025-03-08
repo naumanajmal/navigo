@@ -3,27 +3,44 @@ import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import './PhoneInput.css'
 
+const initialFormState = {
+  name: '',
+  email: '',
+  phone: '',
+  countryCode: '',
+  mortgageAmount: '',
+  propertyType: 'apartment',
+  residencyStatus: 'resident',
+  age: '',
+  employmentType: 'salaried',
+  propertyValue: 400000,
+  purchaseTimeline: 'Less than a month'
+}
+
 const QuoteForm = ({ isMobile, onClose }) => {
   const [step, setStep] = useState(1)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showSuccess, setShowSuccess] = useState(false)
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    countryCode: '',
-    mortgageAmount: '',
-    propertyType: 'apartment',
-    // Questionnaire fields
-    residencyStatus: '',
-    age: '',
-    employmentType: '',
-    propertyValue: 400000,
-    purchaseTimeline: ''
-  })
+  const [errors, setErrors] = useState({})
+  const [formData, setFormData] = useState(initialFormState)
 
   const handleChange = (e) => {
     const { name, value } = e.target
+    if (name === 'age') {
+      const age = parseInt(value)
+      if (age < 18 || age > 60) {
+        setErrors(prev => ({
+          ...prev,
+          age: 'Age must be between 18 and 60 years'
+        }))
+      } else {
+        setErrors(prev => {
+          const newErrors = { ...prev }
+          delete newErrors.age
+          return newErrors
+        })
+      }
+    }
     setFormData(prev => ({
       ...prev,
       [name]: value
@@ -31,17 +48,44 @@ const QuoteForm = ({ isMobile, onClose }) => {
   }
 
   const handlePhoneChange = (value, country) => {
-    // value already includes the country code, no need to modify it
+    // Remove all non-digit characters to check actual length
+    const phoneDigits = value.replace(/\D/g, '')
+    if (phoneDigits.length < 8) {
+      setErrors(prev => ({
+        ...prev,
+        phone: 'Phone number is invalid'
+      }))
+    } else {
+      setErrors(prev => {
+        const newErrors = { ...prev }
+        delete newErrors.phone
+        return newErrors
+      })
+    }
     setFormData(prev => ({
       ...prev,
-      phone: value, // This will include the country code e.g., "971501234567"
-      countryCode: country.dialCode // Store separately if needed e.g., "971"
+      phone: value,
+      countryCode: country.dialCode
     }))
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (step === 1) {
+      // Validate first form
+      const newErrors = {}
+      if (!formData.mortgageAmount) newErrors.mortgageAmount = 'Mortgage amount is required'
+      if (!formData.name) newErrors.name = 'Name is required'
+      if (!formData.email) newErrors.email = 'Email is required'
+      else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Please enter a valid email'
+      if (!formData.phone) newErrors.phone = 'Phone number is required'
+      else if (formData.phone.replace(/\D/g, '').length < 8) newErrors.phone = 'Phone number is invalid'
+
+      if (Object.keys(newErrors).length > 0) {
+        setErrors(newErrors)
+        return
+      }
+      setErrors({})
       setStep(2)
     } else {
       try {
@@ -63,19 +107,7 @@ const QuoteForm = ({ isMobile, onClose }) => {
         }
 
         // Reset form and show success message
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          countryCode: '',
-          mortgageAmount: '',
-          propertyType: 'apartment',
-          residencyStatus: '',
-          age: '',
-          employmentType: '',
-          propertyValue: 400000,
-          purchaseTimeline: ''
-        })
+        setFormData(initialFormState)
         setStep(1)
         setShowSuccess(true)
         
@@ -166,18 +198,22 @@ const QuoteForm = ({ isMobile, onClose }) => {
                   <div className="space-y-5">
                     <div className="relative">
                       <label htmlFor="mortgageAmount" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-1.5">
-                        Mortgage Amount
+                        Mortgage Amount <span className="text-red-500">*</span>
                       </label>
                       <input
+                        required
                         type="number"
                         id="mortgageAmount"
                         name="mortgageAmount"
                         value={formData.mortgageAmount}
                         onChange={handleChange}
-                        className="block w-full h-[42px] sm:h-[46px] px-3 sm:px-4 text-sm sm:text-base rounded-xl border-2 border-gray-200 bg-white text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 placeholder:text-gray-400 appearance-none"
+                        className={`block w-full h-[42px] sm:h-[46px] px-3 sm:px-4 text-sm sm:text-base rounded-xl border-2 ${errors.mortgageAmount ? 'border-red-500' : 'border-gray-200'} bg-white text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 placeholder:text-gray-400 appearance-none`}
                         style={{ WebkitAppearance: 'none', borderRadius: '12px' }}
                         placeholder="Enter amount"
                       />
+                      {errors.mortgageAmount && (
+                        <p className="mt-1 text-xs text-red-500">{errors.mortgageAmount}</p>
+                      )}
                     </div>
 
                     <div className="relative">
@@ -207,45 +243,53 @@ const QuoteForm = ({ isMobile, onClose }) => {
 
                     <div className="relative">
                       <label htmlFor="name" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-1.5">
-                        Your Name
+                        Your Name <span className="text-red-500">*</span>
                       </label>
                       <input
+                        required
                         type="text"
                         id="name"
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        className="block w-full h-[42px] sm:h-[46px] px-3 sm:px-4 text-sm sm:text-base rounded-xl border-2 border-gray-200 bg-white text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 placeholder:text-gray-400 appearance-none"
+                        className={`block w-full h-[42px] sm:h-[46px] px-3 sm:px-4 text-sm sm:text-base rounded-xl border-2 ${errors.name ? 'border-red-500' : 'border-gray-200'} bg-white text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 placeholder:text-gray-400 appearance-none`}
                         style={{ WebkitAppearance: 'none', borderRadius: '12px' }}
                         placeholder="Enter your name"
                       />
+                      {errors.name && (
+                        <p className="mt-1 text-xs text-red-500">{errors.name}</p>
+                      )}
                     </div>
 
                     <div className="relative">
                       <label htmlFor="email" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-1.5">
-                        Email Address
+                        Email Address <span className="text-red-500">*</span>
                       </label>
                       <input
+                        required
                         type="email"
                         id="email"
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        className="block w-full h-[42px] sm:h-[46px] px-3 sm:px-4 text-sm sm:text-base rounded-xl border-2 border-gray-200 bg-white text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 placeholder:text-gray-400 appearance-none"
+                        className={`block w-full h-[42px] sm:h-[46px] px-3 sm:px-4 text-sm sm:text-base rounded-xl border-2 ${errors.email ? 'border-red-500' : 'border-gray-200'} bg-white text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 placeholder:text-gray-400 appearance-none`}
                         style={{ WebkitAppearance: 'none', borderRadius: '12px' }}
                         placeholder="Enter your email address"
                       />
+                      {errors.email && (
+                        <p className="mt-1 text-xs text-red-500">{errors.email}</p>
+                      )}
                     </div>
 
                     <div className="relative">
                       <label htmlFor="phone" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-1.5">
-                        Phone Number
+                        Phone Number <span className="text-red-500">*</span>
                       </label>
                       <PhoneInput
                         country={'ae'}
                         value={formData.phone}
                         onChange={handlePhoneChange}
-                        inputClass="block w-full h-[42px] sm:h-[46px] px-3 sm:px-4 pl-[4.5rem] text-sm sm:text-base rounded-xl border-2 border-gray-200 bg-white text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 placeholder:text-gray-400"
+                        inputClass={`block w-full h-[42px] sm:h-[46px] px-3 sm:px-4 pl-[4.5rem] text-sm sm:text-base rounded-xl border-2 ${errors.phone ? 'border-red-500' : 'border-gray-200'} bg-white text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 placeholder:text-gray-400`}
                         containerClass="relative phone-input-container"
                         buttonClass="absolute inset-y-0 left-0 flex items-center px-3"
                         buttonStyle={{ 
@@ -269,6 +313,9 @@ const QuoteForm = ({ isMobile, onClose }) => {
                           border: '2px solid #e5e7eb'
                         }}
                       />
+                      {errors.phone && (
+                        <p className="mt-1 text-xs text-red-500">{errors.phone}</p>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -309,18 +356,24 @@ const QuoteForm = ({ isMobile, onClose }) => {
                     {/* Age */}
                     <div className="relative">
                       <label htmlFor="age" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-1.5">
-                        What is your current age?
+                        What is your current age? <span className="text-red-500">*</span>
                       </label>
                       <input
+                        required
                         type="number"
                         id="age"
                         name="age"
+                        min="18"
+                        max="60"
                         value={formData.age}
                         onChange={handleChange}
-                        className="block w-full h-[42px] sm:h-[46px] px-3 sm:px-4 text-sm sm:text-base rounded-xl border-2 border-gray-200 bg-white text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 placeholder:text-gray-400 appearance-none"
+                        className={`block w-full h-[42px] sm:h-[46px] px-3 sm:px-4 text-sm sm:text-base rounded-xl border-2 ${errors.age ? 'border-red-500' : 'border-gray-200'} bg-white text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 placeholder:text-gray-400 appearance-none`}
                         style={{ WebkitAppearance: 'none', borderRadius: '12px' }}
-                        placeholder="Enter your age"
+                        placeholder="Enter your age (18-60)"
                       />
+                      {errors.age && (
+                        <p className="mt-1 text-xs text-red-500">{errors.age}</p>
+                      )}
                     </div>
 
                     {/* Employment Type */}
