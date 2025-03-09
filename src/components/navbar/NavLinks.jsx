@@ -4,8 +4,15 @@ import ServicesMegaMenu from './ServicesMegaMenu'
 
 const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorDropdown }) => {
   const [showServicesDropdown, setShowServicesDropdown] = useState(false)
+  const [showMoreMenu, setShowMoreMenu] = useState(false)
+  const [showKnowledgeDropdown, setShowKnowledgeDropdown] = useState(false)
+  const [showMobileServices, setShowMobileServices] = useState(false);
+  const [showMobileCalculator, setShowMobileCalculator] = useState(false);
+  const [showMobileKnowledge, setShowMobileKnowledge] = useState(false);
   const servicesRef = useRef(null)
   const calculatorRef = useRef(null)
+  const moreMenuRef = useRef(null)
+  const knowledgeRef = useRef(null)
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -15,11 +22,15 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
       if (calculatorRef.current && !calculatorRef.current.contains(event.target)) {
         setShowCalculatorDropdown(false)
       }
+      if (moreMenuRef.current && !moreMenuRef.current.contains(event.target)) {
+        setShowMoreMenu(false)
+      }
     }
 
     document.addEventListener('mousedown', handleClickOutside)
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
+
   const links = [
     { name: 'Home', href: '/' },
     { name: 'About Us', href: '/about-us' },
@@ -33,8 +44,7 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
     { 
       name: 'Mortgage Calculator', 
       href: '/mortgage-calculator',
-      description: 'Calculate your monthly mortgage payments and view amortization schedule',
-      features: ['Monthly payment calculation', 'Amortization schedule', 'Interest breakdown'],
+ 
 
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -45,8 +55,7 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
     { 
       name: 'Affordability Calculator', 
       href: '/affordability-calculator',
-      description: 'Find out how much house you can afford based on your income and expenses',
-      features: ['Income analysis', 'Debt-to-income ratio', 'Maximum loan amount'],
+      
 
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -58,19 +67,28 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
 
   if (isMobile) {
     return (
-      <div className="flex flex-col">
+      <div className="flex flex-col space-y-2">
         {/* Main Links */}
-        <div className="space-y-4 mb-8">
-          {links.slice(0, 4).map((link) => (
+        
+          {[links[0], links[2]].map((link) => (
             link.name === 'Services' ? (
               <div key={link.name}>
-                <Link 
-                  to={link.href}
-                  className="block px-4 py-2 text-primary hover:text-secondary hover:bg-gray-50 rounded-lg transition-all duration-200 text-base font-medium"
+                <button 
+                  onClick={() => setShowMobileServices(!showMobileServices)}
+                  className="flex items-center justify-between w-full px-4 py-2 text-primary hover:text-secondary hover:bg-gray-50 rounded-lg transition-all duration-200 text-base font-medium"
                 >
-                  {link.name}
-                </Link>
-                <ServicesMegaMenu isMobile={true} onClose={() => setShowServicesDropdown(false)} />
+                  <span>Services</span>
+                  <div className="relative w-6 h-6">
+                    <div className={`absolute inset-0 transform transition-transform duration-300 ${showMobileServices ? 'rotate-45' : 'rotate-0'}`}>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v12M6 12h12" />
+                      </svg>
+                    </div>
+                  </div>
+                </button>
+                <div className={`transition-all duration-300 overflow-hidden ${showMobileServices ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                  <ServicesMegaMenu isMobile={true} onClose={() => setShowMobileServices(false)} />
+                </div>
               </div>
             ) : (
               <Link 
@@ -82,35 +100,84 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
               </Link>
             )
           ))}
-        </div>
+          {/* Knowledge Point Section */}
+          <div>
+            <button 
+              onClick={() => setShowMobileKnowledge(!showMobileKnowledge)}
+              className="flex items-center justify-between w-full px-4 py-2 text-primary hover:text-secondary hover:bg-gray-50 rounded-lg transition-all duration-200 text-base font-medium"
+            >
+              <span>Knowledge Point</span>
+              <div className="relative w-6 h-6">
+                <div className={`absolute inset-0 transform transition-transform duration-300 ${showMobileKnowledge ? 'rotate-45' : 'rotate-0'}`}>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v12M6 12h12" />
+                  </svg>
+                </div>
+              </div>
+            </button>
+            <div className={`transition-all duration-300 overflow-hidden ${showMobileKnowledge ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
+              <div className="space-y-1">
+                <Link 
+                  to="/faq" 
+                  className="block px-6 py-2 text-primary hover:text-secondary hover:bg-gray-50 rounded-lg transition-all duration-200 text-base font-medium"
+                >
+                  FAQs
+                </Link>
+                <Link 
+                  to="/blog" 
+                  className="block px-6 py-2 text-primary hover:text-secondary hover:bg-gray-50 rounded-lg transition-all duration-200 text-base font-medium"
+                >
+                  Blogs
+                </Link>
+              </div>
+            </div>
+          </div>
+        
 
         {/* Calculator Section */}
-        <div className="mb-8">
-          <h3 className="text-sm font-semibold text-gray-400 px-4 mb-2">CALCULATORS</h3>
-          <div className="space-y-1">
-            {calculatorOptions.map((option) => (
-              <Link 
-                key={option.name}
-                to={option.href} 
-                className="block px-4 py-2 text-primary hover:text-secondary hover:bg-gray-50 rounded-lg transition-all duration-200 text-base font-medium"
-              >
-                {option.name}
-              </Link>
-            ))}
+        <div>
+          <button 
+            onClick={() => setShowMobileCalculator(!showMobileCalculator)}
+            className="flex items-center justify-between w-full px-4 py-2 text-primary hover:text-secondary hover:bg-gray-50 rounded-lg transition-all duration-200 text-base font-medium"
+          >
+            <span>Calculator</span>
+            <div className="relative w-6 h-6">
+              <div className={`absolute inset-0 transform transition-transform duration-300 ${showMobileCalculator ? 'rotate-45' : 'rotate-0'}`}>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v12M6 12h12" />
+                </svg>
+              </div>
+            </div>
+          </button>
+          <div className={`transition-all duration-300 overflow-hidden ${showMobileCalculator ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
+            <div className="space-y-1">
+              {calculatorOptions.map((option) => (
+                <Link 
+                  key={option.name}
+                  to={option.href} 
+                  className="block px-6 py-2 text-primary hover:text-secondary hover:bg-gray-50 rounded-lg transition-all duration-200 text-base font-medium"
+                >
+                  {option.name}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Additional Links */}
-        <div className="space-y-4 pt-6 border-t border-gray-100">
-          {links.slice(4).map((link) => (
-            <Link 
-              key={link.name}
-              to={link.href} 
-              className="block px-4 py-2 text-primary hover:text-secondary hover:bg-gray-50 rounded-lg transition-all duration-200 text-base font-medium"
-            >
-              {link.name}
-            </Link>
-          ))}
+        <div className="pt-2 border-t border-gray-100">
+          <Link 
+            to="/about-us" 
+            className="block px-4 py-2 text-primary hover:text-secondary hover:bg-gray-50 rounded-lg transition-all duration-200 text-base font-medium"
+          >
+            About Us
+          </Link>
+          <Link 
+            to="/contact" 
+            className="block px-4 py-2 text-primary hover:text-secondary hover:bg-gray-50 rounded-lg transition-all duration-200 text-base font-medium"
+          >
+            Contact
+          </Link>
         </div>
       </div>
     )
@@ -118,102 +185,100 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
 
   return (
     <div className="hidden md:flex items-center space-x-8">
-      {links.slice(0, 4).map((link) => (
-        link.name === 'Services' ? (
-          <div key={link.name} className="relative group" ref={servicesRef}>
-            <button 
-              className="text-primary hover:text-secondary transition-colors text-base font-medium flex items-center gap-1"
-              onClick={() => setShowServicesDropdown(!showServicesDropdown)}
-            >
-              Services
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-            </button>
-            {showServicesDropdown && (
-              <div 
-                className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 bg-white rounded-xl shadow-xl py-8 w-[90vw] max-w-7xl border border-gray-100"
-              >
-                <ServicesMegaMenu isMobile={false} onClose={() => setShowServicesDropdown(false)} />
-              </div>
-            )}
-          </div>
-        ) : (
-          <Link 
-            key={link.name}
-            to={link.href} 
-            className="text-primary hover:text-secondary transition-colors text-base font-medium"
+      <Link 
+        to="/" 
+        className="text-primary hover:text-secondary transition-colors text-base font-medium"
+      >
+        Home
+      </Link>
+      <div className="relative group" ref={servicesRef}>
+        <button 
+          className="text-primary hover:text-secondary transition-colors text-base font-medium flex items-center gap-1"
+          onClick={() => setShowServicesDropdown(!showServicesDropdown)}
+        >
+          Services
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+          </svg>
+        </button>
+        {showServicesDropdown && (
+          <div 
+            className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 bg-white rounded-xl shadow-xl py-8 w-[90vw] max-w-7xl border border-gray-100"
           >
-            {link.name}
-          </Link>
-        )
-      ))}
+            <ServicesMegaMenu isMobile={false} onClose={() => setShowServicesDropdown(false)} />
+          </div>
+        )}
+      </div>
       <div className="relative group" ref={calculatorRef}>
         <button 
           className="text-primary hover:text-secondary transition-colors text-base font-medium flex items-center gap-1"
           onClick={() => setShowCalculatorDropdown(!showCalculatorDropdown)}
         >
           Calculator
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-            <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-          </svg>
+          
         </button>
         {showCalculatorDropdown && (
           <div 
-            className="absolute top-full right-0 mt-2 bg-white rounded-xl shadow-xl py-6 w-[600px] border border-gray-100"
+            className="absolute top-full right-0 mt-2 py-2 bg-white rounded-xl shadow-xl border border-gray-100 min-w-[200px]"
           >
-            <div className="px-6 py-3 border-b border-gray-100">
-              <h3 className="text-xl font-semibold text-primary">Financial Calculators</h3>
-              <p className="text-sm text-gray-500 mt-1">Professional tools to help you make informed financial decisions</p>
-            </div>
-            <div className="grid grid-cols-2 gap-6 p-6">
-              {calculatorOptions.map((option) => (
-                <Link 
-                  to={option.href}
-                  key={option.name} 
-                  className="block group p-4 rounded-lg hover:bg-gray-50 transition-all"
-                >
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="text-secondary group-hover:text-primary transition-colors">
-                      {option.icon}
-                    </div>
-                    <div>
-                      <h4 className="text-md font-medium text-primary group-hover:text-secondary transition-colors">{option.name}</h4>
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    {option.features.map((feature, index) => (
-                      <div key={index} className="flex items-center gap-2 text-sm text-gray-600">
-                        <svg className="w-4 h-4 text-secondary" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                        </svg>
-                        {feature}
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="flex items-center gap-1 text-sm font-medium text-secondary group-hover:text-primary transition-colors mt-4">
-                    Try Calculator
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
-                </Link>
-              ))}
-            </div>
+            {calculatorOptions.map((option) => (
+              <Link 
+                to={option.href}
+                key={option.name} 
+                className="block px-4 py-2 text-primary hover:text-secondary hover:bg-gray-50 transition-all text-base font-medium"
+              >
+                {option.name}
+              </Link>
+            ))}
           </div>
         )}
       </div>
-      {links.slice(4).map((link) => (
-        <Link 
-          key={link.name}
-          to={link.href} 
-          className="text-primary hover:text-secondary transition-colors text-base font-medium"
+      <div className="relative" ref={moreMenuRef}>
+        <button 
+          className="text-primary hover:text-secondary transition-colors text-base font-medium flex items-center gap-1"
+          onClick={() => setShowMoreMenu(!showMoreMenu)}
         >
-          {link.name}
-        </Link>
-      ))}
+          <div className="relative w-6 h-6">
+            <div className={`absolute inset-0 transform transition-transform duration-300 ${showMoreMenu ? 'rotate-45' : 'rotate-0'}`}>
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v12M6 12h12" />
+              </svg>
+            </div>
+          </div>
+        </button>
+        {showMoreMenu && (
+          <div className="absolute top-full right-0 mt-2 py-2 bg-white rounded-xl shadow-xl border border-gray-100 min-w-[200px]">
+            <Link 
+              to="/about-us" 
+              className="block px-4 py-2 text-primary hover:text-secondary hover:bg-gray-50 transition-all text-base font-medium"
+            >
+              About Us
+            </Link>
+            <div className="py-2 px-4 text-sm font-semibold text-gray-500">
+              Knowledge Point
+            </div>
+            <Link 
+              to="/faq" 
+              className="block px-6 py-2 text-primary hover:text-secondary hover:bg-gray-50 transition-all text-base font-medium"
+            >
+              FAQs
+            </Link>
+            <Link 
+              to="/blog" 
+              className="block px-6 py-2 text-primary hover:text-secondary hover:bg-gray-50 transition-all text-base font-medium"
+            >
+              Blogs
+            </Link>
+            <div className="my-1 border-t border-gray-100"></div>
+            <Link 
+              to="/contact" 
+              className="block px-4 py-2 text-primary hover:text-secondary hover:bg-gray-50 transition-all text-base font-medium"
+            >
+              Contact
+            </Link>
+          </div>
+        )}
+      </div>
     </div>
   )
 }

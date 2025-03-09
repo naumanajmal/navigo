@@ -9,7 +9,13 @@ const calculateAffordability = ({ monthlyIncome, monthlyDebts, creditCardLimit, 
     };
   }
 
-  // Rule 2: Check age limit
+  // Rule 2: Check age limits
+  if (age < 21) {
+    return {
+      error: "Minimum age requirement is 21 years",
+      isEligible: false
+    };
+  }
   if (age > 60) {
     return {
       error: "Age should not be more than 60 years",
@@ -35,7 +41,7 @@ const calculateAffordability = ({ monthlyIncome, monthlyDebts, creditCardLimit, 
   }
   
   // Rule 8: Calculate tenure based on age
-  const tenureInYears = 70 - age;
+  const tenureInYears = Math.min(70 - age, 25);
   
   // Rule 7: Fixed interest rate
   const annualInterestRate = 6.25;
@@ -64,9 +70,19 @@ const AffordabilityCalculator = () => {
   const [creditCardLimit, setCreditCardLimit] = useState(20000);
   const [age, setAge] = useState(38);
 
+  const formatValue = (value, isMonthly = false) => {
+    if (value === null) return '---';
+    return value.toLocaleString();
+  };
+
+  const formatInputValue = (value) => {
+    if (!value) return '';
+    return value.toLocaleString();
+  };
+
   const handleInputChange = (e, setter) => {
-    const value = e.target.value.replace(/[^0-9]/g, '');
-    setter(value === '' ? 0 : Number(value));
+    const rawValue = e.target.value.replace(/[^0-9]/g, '');
+    setter(rawValue === '' ? 0 : Number(rawValue));
   };
 
   const handleFocus = (value, setter) => {
@@ -93,122 +109,107 @@ const AffordabilityCalculator = () => {
   };
 
   return (
-    <div className="bg-white/80 backdrop-blur-lg rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-xl ring-1 ring-gray-100">
-      <div className="space-y-6">
-        <div>
-          <label className="block text-gray-700 mb-2 text-sm font-medium">
-            Monthly Income (AED)
-          </label>
-          <input
-            type="text"
-            value={monthlyIncome || ''}
-            onChange={(e) => handleInputChange(e, setMonthlyIncome)}
-            onFocus={() => handleFocus(monthlyIncome, setMonthlyIncome)}
-            className="w-full px-4 py-2 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
-          />
-          <p className="text-xs text-gray-500 mt-1">Minimum AED 10,000</p>
+    <div className="bg-white/80 backdrop-blur-lg rounded-2xl md:rounded-3xl p-3 md:p-4 shadow-xl ring-1 ring-gray-100 hover:shadow-2xl transition-shadow duration-500">
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-12">
+        {/* Left Side - Inputs */}
+        <div className="md:col-span-3 space-y-6">
+          <div>
+            <label className="block text-gray-700 mb-2 text-sm font-medium">
+              Monthly Income (AED)
+            </label>
+            <input
+              type="text"
+              value={formatInputValue(monthlyIncome)}
+              onChange={(e) => handleInputChange(e, setMonthlyIncome)}
+              onFocus={() => handleFocus(monthlyIncome, setMonthlyIncome)}
+              className="w-full px-4 py-2 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+            />
+           </div>
+
+          <div>
+            <label className="block text-gray-700 mb-2 text-sm font-medium">
+              Monthly Debt Obligations (Loan Installments) (AED)
+            </label>
+            <input
+              type="text"
+              value={formatInputValue(monthlyDebts)}
+              onChange={(e) => handleInputChange(e, setMonthlyDebts)}
+              onFocus={() => handleFocus(monthlyDebts, setMonthlyDebts)}
+              className="w-full px-4 py-2 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+            />
+          </div>
+
+          <div>
+            <label className="block text-gray-700 mb-2 text-sm font-medium">
+              Total Credit Card Limit (All cards) (AED)
+            </label>
+            <input
+              type="text"
+              value={formatInputValue(creditCardLimit)}
+              onChange={(e) => handleInputChange(e, setCreditCardLimit)}
+              onFocus={() => handleFocus(creditCardLimit, setCreditCardLimit)}
+              className="w-full px-4 py-2 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+            />
+          </div>
+
+          <div>
+            <label className="block text-gray-700 mb-2 text-sm font-medium">
+              Current Age (In years)
+            </label>
+            <input
+              type="text"
+              value={age || ''}
+              onChange={(e) => {
+                const value = e.target.value.replace(/[^0-9]/g, '');
+                const numValue = value === '' ? 0 : Number(value);
+                if (numValue <= 100) {  
+                  setAge(numValue);
+                }
+              }}
+              onFocus={() => handleFocus(age, setAge)}
+              className="w-full px-4 py-2 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+            />
+          </div>
         </div>
 
-        <div>
-          <label className="block text-gray-700 mb-2 text-sm font-medium">
-            Monthly Debt Obligations (Loan Installments) (AED)
-          </label>
-          <input
-            type="text"
-            value={monthlyDebts || ''}
-            onChange={(e) => handleInputChange(e, setMonthlyDebts)}
-            onFocus={() => handleFocus(monthlyDebts, setMonthlyDebts)}
-            className="w-full px-4 py-2 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
-          />
-        </div>
-
-        <div>
-          <label className="block text-gray-700 mb-2 text-sm font-medium">
-            Total Credit Card Limit (All cards) (AED)
-          </label>
-          <input
-            type="text"
-            value={creditCardLimit || ''}
-            onChange={(e) => handleInputChange(e, setCreditCardLimit)}
-            onFocus={() => handleFocus(creditCardLimit, setCreditCardLimit)}
-            className="w-full px-4 py-2 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
-          />
-        </div>
-
-        <div>
-          <label className="block text-gray-700 mb-2 text-sm font-medium">
-            Current Age (In years)
-          </label>
-          <input
-            type="text"
-            value={age || ''}
-            onChange={(e) => {
-              const value = e.target.value.replace(/[^0-9]/g, '');
-              const numValue = value === '' ? 0 : Number(value);
-              if (numValue <= 100) {  
-                setAge(numValue);
-              }
-            }}
-            onFocus={() => handleFocus(age, setAge)}
-            className="w-full px-4 py-2 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
-          />
-          <p className="text-xs text-gray-500 mt-1">Age above 60 years will not be eligible for mortgage</p>
-        </div>
-
-        {/* Results Section */}
-        <div className="bg-gradient-to-br from-blue-50 to-blue-50/50 rounded-xl p-4 sm:p-6 mt-4 ring-1 ring-secondary/20 shadow-sm">
-          {result.isEligible ? (
-            <div className="space-y-4">
-              <div>
-                <p className="text-sm text-gray-600">Maximum Mortgage Amount</p>
-                <p className="text-3xl font-bold text-primary">
-                  {formatCurrency(result.maxLoanAmount)}
-                </p>
+        {/* Right Side - Results and CTA */}
+        <div className="md:col-span-2 flex flex-col justify-between h-full space-y-8">
+          {/* Results Section */}
+          <div className="flex-grow">
+            <div className="bg-gradient-to-br from-blue-50 to-blue-50/50 rounded-xl p-6 sm:p-8 ring-1 ring-secondary/20 shadow-sm h-full">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-6">Your Affordability Summary</h3>
+              <div className="space-y-8">
+                {result.isEligible ? (
+                  <>
+                    <div>
+                      <div className="text-sm sm:text-base text-gray-600 mb-2">Maximum Mortgage Amount</div>
+                      <div className="text-2xl sm:text-3xl md:text-4xl text-gray-900 font-semibold">
+                        {formatCurrency(result.maxLoanAmount)}
+                      </div>
+                    </div>
+                    <div className="pt-2">
+                      <p className="text-sm text-gray-500 italic">This calculation is based off of live products in our database</p>
+                    </div>
+                  </>
+                ) : (
+                  <div className="space-y-2">
+                    <p className="text-xl font-medium text-red-600">Not Eligible</p>
+                    <p className="text-sm text-red-600">{result.error}</p>
+                    {result.error === "Age should not be more than 60 years" && (
+                      <p className="text-sm text-gray-600 mt-2">
+                        Please note that the maximum age at loan maturity is 70 years. Therefore, applicants above 60 years of age are not eligible for a mortgage.
+                      </p>
+                    )}
+                  </div>
+                )}
               </div>
-{/*               
-              <div className="grid grid-cols-2 gap-4 text-sm text-gray-600">
-                <div>
-                  <p className="font-medium">Credit Card Monthly Debt (5%)</p>
-                  <p>{formatCurrency(result.creditCardDebt)}</p>
-                </div>
-                <div>
-                  <p className="font-medium">Total Current Debt (3%)</p>
-                  <p>{formatCurrency(result.totalCurrentDebt)}</p>
-                </div>
-                <div>
-                  <p className="font-medium">Maximum Monthly EMI</p>
-                  <p>{formatCurrency(result.maxEMI)}</p>
-                </div>
-                <div>
-                  <p className="font-medium">Debt Burden Ratio (DBR)</p>
-                  <p>{formatCurrency(result.dbr)} (50%)</p>
-                </div>
-                <div>
-                  <p className="font-medium">Interest Rate</p>
-                  <p>6.25% per annum</p>
-                </div>
-                <div>
-                  <p className="font-medium">Loan Tenure</p>
-                  <p>{result.tenureInYears} years</p>
-                </div>
-              </div> */}
             </div>
-          ) : (
-            <div className="space-y-2">
-              <p className="text-lg font-medium text-red-600">Not Eligible</p>
-              <p className="text-sm text-red-600">{result.error}</p>
-              {result.error === "Age should not be more than 60 years" && (
-                <p className="text-sm text-gray-600 mt-2">
-                  The maximum eligible age for a mortgage is 60 years. This ensures the loan can be completed before retirement age.
-                </p>
-              )}
-              {result.error === "Monthly income must be minimum AED 10,000" && (
-                <p className="text-sm text-gray-600 mt-2">
-                  A minimum monthly income of AED 10,000 is required to ensure adequate repayment capacity.
-                </p>
-              )}
-            </div>
-          )}
+          </div>
+
+          {/* CTA Button */}
+          <button className="w-full bg-gradient-to-r from-primary to-secondary text-white py-4 rounded-xl font-medium text-lg hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] transition-all duration-200 shadow-lg">
+            Get Started
+          </button>
         </div>
       </div>
     </div>

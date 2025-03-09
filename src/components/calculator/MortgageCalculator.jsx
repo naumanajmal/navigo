@@ -107,135 +107,79 @@ const MortgageCalculator = () => {
   
   return (
     <div className="bg-white/80 backdrop-blur-lg rounded-2xl md:rounded-3xl p-3 md:p-4 shadow-xl ring-1 ring-gray-100 hover:shadow-2xl transition-shadow duration-500">
-      {/* Residency Status */}
-      <div className="mb-8">
-        <label className="block text-gray-700 mb-3 text-sm font-medium">Residency status</label>
-        <div className="grid grid-cols-3 gap-3">
-          {['UAE National', 'UAE Resident', 'Non-Resident'].map((status) => (
-            <button
-              key={status}
-              onClick={() => setResidencyStatus(status)}
-              className={`relative py-2 px-4 rounded-xl text-sm font-medium transition-all duration-200 ${
-                residencyStatus === status
-                  ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-lg hover:shadow-xl hover:scale-[1.02]'
-                  : 'bg-white/80 text-gray-600 hover:text-gray-900 hover:bg-white hover:shadow-md ring-1 ring-gray-100'
-              }`}
-            >
-              {status}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Property Value & Down Payment */}
-      <PropertyDetails
-        propertyValue={propertyValue}
-        setPropertyValue={setPropertyValue}
-        downPayment={downPayment}
-        setDownPayment={setDownPayment}
-        residencyStatus={residencyStatus}
-      />
-
-      {/* Loan Duration */}
-      <LoanDuration
-        loanDuration={loanDuration}
-        setLoanDuration={setLoanDuration}
-      />
-
-      {/* Popular mortgage products */}
-      <MortgageProducts
-        mortgageType={mortgageType}
-        setMortgageType={setMortgageType}
-      />
-
-      {/* Year Range - Only show for Fixed rate */}
-      {mortgageType === 'Fixed' && (
-        <YearRange
-          yearRange={yearRange}
-          setYearRange={setYearRange}
-        />
-      )}
-
-      {/* Results */}
-      <Results
-        loanAmount={loanAmount}
-        monthlyPayment={monthlyPayment}
-        interestRate={interestRate}
-      />
-
-      {/* CTA Button */}
-      <button className="w-full bg-gradient-to-r from-primary to-secondary text-white py-4 rounded-xl font-medium text-lg hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] transition-all duration-200 shadow-lg mt-6">
-        Get Started
-      </button>
-    </div>
-  );
-
-  const pageTitle = activeCalculator === 'affordability' ? (
-    <>
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold pb-6 md:pb-10 text-primary">
-        How Much Can You Afford?
-      </h2>
-      <p className="text-base md:text-lg lg:text-xl text-gray-600">
-        Calculate the property value you can afford based on your income and expenses.
-      </p>
-    </>
-  ) : (
-    <>
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold pb-6 md:pb-10 text-primary">
-        Calculate Your Mortgage Instantly
-      </h2>
-      <p className="text-base md:text-lg lg:text-xl text-gray-600">
-        Enter your details and see exactly what your monthly mortgage payments could look like.
-      </p>
-    </>
-  );
-
-  return (
-    <section className="bg-gradient-to-b from-[#e5f6ff] to-white py-10 md:py-16 lg:py-20 relative overflow-hidden">
-      {/* Premium Background Elements */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_100%_100%,#00203f15_0%,transparent_50%)] mix-blend-soft-light" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_0%_0%,#008cc915_0%,transparent_50%)] mix-blend-soft-light" />
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative">
-          {/* Background decorative elements */}
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/5 rounded-full blur-3xl"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-secondary/5 rounded-full blur-3xl"></div>
-          {/* Left Side - Text */}
-          <div className="text-gray-900 space-y-6">
-            {/* Calculator Type Selector */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:space-x-4">
-              <button
-                onClick={() => setActiveCalculator('mortgage')}
-                className={`px-6 py-2 rounded-xl text-sm font-medium transition-all duration-200 w-full sm:w-auto ${
-                  activeCalculator === 'mortgage'
-                    ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-lg'
-                    : 'bg-white/80 text-gray-600 hover:text-gray-900 hover:bg-white hover:shadow-md ring-1 ring-gray-100'
-                }`}
-              >
-                Mortgage Calculator
-              </button>
-              <button
-                onClick={() => setActiveCalculator('affordability')}
-                className={`px-6 py-2 rounded-xl text-sm font-medium transition-all duration-200 w-full sm:w-auto ${
-                  activeCalculator === 'affordability'
-                    ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-lg'
-                    : 'bg-white/80 text-gray-600 hover:text-gray-900 hover:bg-white hover:shadow-md ring-1 ring-gray-100'
-                }`}
-              >
-                Affordability Calculator
-              </button>
-            </div>
-            <div>
-              {pageTitle}
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-12">
+        {/* Left Side - Inputs */}
+        <div className="md:col-span-3 space-y-6">
+          {/* Residency Status */}
+          <div>
+            <label className="block text-gray-700 mb-3 text-sm font-medium">Residency status</label>
+            <div className="grid grid-cols-3 gap-3">
+              {['UAE National', 'UAE Resident', 'Non-Resident'].map((status) => (
+                <button
+                  key={status}
+                  onClick={() => setResidencyStatus(status)}
+                  className={`relative py-2 px-4 rounded-xl text-sm font-medium transition-all duration-200 ${
+                    residencyStatus === status
+                      ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-lg hover:shadow-xl hover:scale-[1.02]'
+                      : 'bg-white/80 text-gray-600 hover:text-gray-900 hover:bg-white hover:shadow-md ring-1 ring-gray-100'
+                  }`}
+                >
+                  {status}
+                </button>
+              ))}
             </div>
           </div>
 
-          {/* Right Side - Calculator */}
-          {calculatorContent}
+          {/* Property Value & Down Payment */}
+          <PropertyDetails
+            propertyValue={propertyValue}
+            setPropertyValue={setPropertyValue}
+            downPayment={downPayment}
+            setDownPayment={setDownPayment}
+            residencyStatus={residencyStatus}
+          />
+
+          {/* Loan Duration */}
+          <LoanDuration
+            loanDuration={loanDuration}
+            setLoanDuration={setLoanDuration}
+          />
+
+          {/* Popular mortgage products */}
+          <MortgageProducts
+            mortgageType={mortgageType}
+            setMortgageType={setMortgageType}
+          />
+
+          {/* Year Range - Only show for Fixed rate */}
+          {mortgageType === 'Fixed' && (
+            <YearRange
+              yearRange={yearRange}
+              setYearRange={setYearRange}
+            />
+          )}
+        </div>
+
+        {/* Right Side - Results and CTA */}
+        <div className="md:col-span-2 flex flex-col justify-between h-full space-y-8">
+          {/* Results */}
+          <div className="flex-grow">
+            <Results
+              loanAmount={loanAmount}
+              monthlyPayment={monthlyPayment}
+              interestRate={interestRate}
+            />
+          </div>
+
+          {/* CTA Button */}
+          <button className="w-full bg-gradient-to-r from-primary to-secondary text-white py-4 rounded-xl font-medium text-lg hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] transition-all duration-200 shadow-lg">
+            Get Started
+          </button>
         </div>
       </div>
-    </section>
-  )
+    </div>
+  );
+ 
 }
 
 export default MortgageCalculator

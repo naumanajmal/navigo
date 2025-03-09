@@ -9,12 +9,12 @@ const initialFormState = {
   phone: '',
   countryCode: '',
   mortgageAmount: '',
-  propertyType: 'apartment',
-  residencyStatus: 'resident',
+  propertyType: '',
+  residencyStatus: '',
   age: '',
-  employmentType: 'salaried',
+  employmentType: '',
   propertyValue: 400000,
-  purchaseTimeline: 'Less than a month'
+  purchaseTimeline: ''
 }
 
 const QuoteForm = ({ isMobile, onClose }) => {
@@ -26,12 +26,12 @@ const QuoteForm = ({ isMobile, onClose }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target
-    if (name === 'age') {
+    if (name === 'age' && value) {  
       const age = parseInt(value)
-      if (age < 18 || age > 60) {
+      if (age < 20 || age > 61) {
         setErrors(prev => ({
           ...prev,
-          age: 'Age must be between 18 and 60 years'
+          age: 'Age must be between 21 and 60 years'
         }))
       } else {
         setErrors(prev => {
@@ -195,52 +195,8 @@ const QuoteForm = ({ isMobile, onClose }) => {
             <div className={`${step === 2 ? 'h-[400px] overflow-y-auto pr-4 -mr-4' : ''}`}>
               {step === 1 ? (
                 <div className="space-y-6">
-                  <div className="space-y-5">
-                    <div className="relative">
-                      <label htmlFor="mortgageAmount" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-1.5">
-                        Mortgage Amount <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        required
-                        type="number"
-                        id="mortgageAmount"
-                        name="mortgageAmount"
-                        value={formData.mortgageAmount}
-                        onChange={handleChange}
-                        className={`block w-full h-[42px] sm:h-[46px] px-3 sm:px-4 text-sm sm:text-base rounded-xl border-2 ${errors.mortgageAmount ? 'border-red-500' : 'border-gray-200'} bg-white text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 placeholder:text-gray-400 appearance-none`}
-                        style={{ WebkitAppearance: 'none', borderRadius: '12px' }}
-                        placeholder="Enter amount"
-                      />
-                      {errors.mortgageAmount && (
-                        <p className="mt-1 text-xs text-red-500">{errors.mortgageAmount}</p>
-                      )}
-                    </div>
-
-                    <div className="relative">
-                      <label htmlFor="propertyType" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-1.5">
-                        Property Type
-                      </label>
-                      <div className="relative">
-                        <select
-                          id="propertyType"
-                          name="propertyType"
-                          value={formData.propertyType}
-                          onChange={handleChange}
-                          className="block w-full h-[42px] sm:h-[46px] px-3 sm:px-4 pr-10 rounded-xl border-2 border-gray-200 bg-white text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 text-sm sm:text-base appearance-none"
-                          style={{ WebkitAppearance: 'none' }}
-                        >
-                          <option value="apartment">Apartment</option>
-                          <option value="villa">Villa</option>
-                          <option value="shop">Shop</option>
-                        </select>
-                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-700">
-                          <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-
+                    <div className="space-y-5">
+                      
                     <div className="relative">
                       <label htmlFor="name" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-1.5">
                         Your Name <span className="text-red-500">*</span>
@@ -317,6 +273,52 @@ const QuoteForm = ({ isMobile, onClose }) => {
                         <p className="mt-1 text-xs text-red-500">{errors.phone}</p>
                       )}
                     </div>
+                    <div className="relative">
+                      <label htmlFor="mortgageAmount" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-1.5">
+                        Mortgage Amount <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        required
+                        type="number"
+                        id="mortgageAmount"
+                        name="mortgageAmount"
+                        value={formData.mortgageAmount}
+                        onChange={handleChange}
+                        className={`block w-full h-[42px] sm:h-[46px] px-3 sm:px-4 text-sm sm:text-base rounded-xl border-2 ${errors.mortgageAmount ? 'border-red-500' : 'border-gray-200'} bg-white text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 placeholder:text-gray-400 appearance-none`}
+                        style={{ WebkitAppearance: 'none', borderRadius: '12px' }}
+                        placeholder="Enter amount"
+                      />
+                      {errors.mortgageAmount && (
+                        <p className="mt-1 text-xs text-red-500">{errors.mortgageAmount}</p>
+                      )}
+                    </div>
+
+                    <div className="relative">
+                      <label htmlFor="propertyType" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-1.5">
+                        Property Type
+                      </label>
+                      <div className="relative">
+                        <select
+                          id="propertyType"
+                          name="propertyType"
+                          value={formData.propertyType}
+                          onChange={handleChange}
+                          className="block w-full h-[42px] sm:h-[46px] px-3 sm:px-4 pr-10 rounded-xl border-2 border-gray-200 bg-white text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 text-sm sm:text-base appearance-none"
+                          style={{ WebkitAppearance: 'none' }}
+                        >
+                          <option value="">Select Property Type</option>
+                          <option value="apartment">Apartment</option>
+                          <option value="villa">Villa</option>
+                          <option value="shop">Commercial</option>
+                        </select>
+                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-700">
+                          <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+
                   </div>
                 </div>
               ) : (
@@ -356,20 +358,19 @@ const QuoteForm = ({ isMobile, onClose }) => {
                     {/* Age */}
                     <div className="relative">
                       <label htmlFor="age" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-1.5">
-                        What is your current age? <span className="text-red-500">*</span>
+                        What is your current age?
                       </label>
                       <input
-                        required
                         type="number"
                         id="age"
                         name="age"
-                        min="18"
+                        min="21"
                         max="60"
                         value={formData.age}
                         onChange={handleChange}
                         className={`block w-full h-[42px] sm:h-[46px] px-3 sm:px-4 text-sm sm:text-base rounded-xl border-2 ${errors.age ? 'border-red-500' : 'border-gray-200'} bg-white text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 placeholder:text-gray-400 appearance-none`}
                         style={{ WebkitAppearance: 'none', borderRadius: '12px' }}
-                        placeholder="Enter your age (18-60)"
+                        placeholder="Enter your age (21-60)"
                       />
                       {errors.age && (
                         <p className="mt-1 text-xs text-red-500">{errors.age}</p>
@@ -407,28 +408,7 @@ const QuoteForm = ({ isMobile, onClose }) => {
                       </div>
                     </div>
 
-                    {/* Property Value */}
-                    <div className="relative">
-                      <label htmlFor="propertyValue" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-1.5">
-                        What is the approximate value of the property you are planning to purchase?
-                      </label>
-                      <input
-                        type="range"
-                        id="propertyValue"
-                        name="propertyValue"
-                        min="400000"
-                        max="2000000"
-                        step="50000"
-                        value={formData.propertyValue}
-                        onChange={handleChange}
-                        className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                      />
-                      <div className="flex justify-between mt-2">
-                        <span className="text-xs text-gray-500">AED 400,000</span>
-                        <span className="text-xs text-gray-500">Selected: AED {formData.propertyValue.toLocaleString()}</span>
-                        <span className="text-xs text-gray-500">AED 2,000,000+</span>
-                      </div>
-                    </div>
+                 
 
                     {/* Purchase Timeline */}
                     <div className="relative">

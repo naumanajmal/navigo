@@ -14,22 +14,12 @@ const MortgageCalculatorPage = () => {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Main Content Container */}
-          <div className="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-start">
-            {/* Left Side - Title and Description */}
-            <div className="h-full flex flex-col justify-center items-center mb-10">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold pb-6 md:pb-10 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Calculate Your Mortgage Instantly
-              </h2>
-              <p className="text-base md:text-lg lg:text-xl text-gray-600">
-                Enter your details and see exactly what your monthly mortgage payments could look like.
-              </p>
-            </div>
-
+          
             {/* Right Side - Calculator */}
-            <div>
+          
               <MortgageCalculator />
-            </div>
-          </div>
+           
+        
         </div>
       </section>
 
