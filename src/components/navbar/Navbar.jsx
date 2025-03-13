@@ -8,9 +8,9 @@ const Navbar = () => {
   const [showCalculatorDropdown, setShowCalculatorDropdown] = useState(false)
 
   return (
-    <nav className="bg-white fixed w-full z-50 text-primary shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+    <nav className="bg-white/80 fixed w-[95%] backdrop-blur-sm z-50 text-primary shadow-sm top-4 left-1/2 -translate-x-1/2 rounded-full px-10">
+      <div className="  px-4 sm:px-6 lg:px-8 py-1">
+        <div className="flex justify-between items-center h-20 ">
           <NavLogo />
           <div className="hidden md:block">
             <NavLinks 

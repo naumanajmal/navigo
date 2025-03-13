@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react';
+import { useQuoteForm } from '../../context/useQuoteForm';
 
 const calculateAffordability = ({ monthlyIncome, monthlyDebts, creditCardLimit, age }) => {
   // Rule 1: Check minimum monthly income
@@ -69,11 +70,8 @@ const AffordabilityCalculator = () => {
   const [monthlyDebts, setMonthlyDebts] = useState(3000);
   const [creditCardLimit, setCreditCardLimit] = useState(20000);
   const [age, setAge] = useState(38);
+  const { openQuoteForm } = useQuoteForm();
 
-  const formatValue = (value, isMonthly = false) => {
-    if (value === null) return '---';
-    return value.toLocaleString();
-  };
 
   const formatInputValue = (value) => {
     if (!value) return '';
@@ -207,7 +205,11 @@ const AffordabilityCalculator = () => {
           </div>
 
           {/* CTA Button */}
-          <button className="w-full bg-gradient-to-r from-primary to-secondary text-white py-4 rounded-xl font-medium text-lg hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] transition-all duration-200 shadow-lg">
+          <button 
+            onClick={() => openQuoteForm(result.maxLoanAmount, 'affordability_calculator')}
+            className="w-full bg-gradient-to-r from-primary to-secondary text-white py-4 rounded-xl font-medium text-lg hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] transition-all duration-200 shadow-lg"
+            disabled={!result.isEligible}
+          >
             Get Started
           </button>
         </div>

@@ -25,6 +25,9 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
       if (moreMenuRef.current && !moreMenuRef.current.contains(event.target)) {
         setShowMoreMenu(false)
       }
+      if (knowledgeRef.current && !knowledgeRef.current.contains(event.target)) {
+        setShowKnowledgeDropdown(false)
+      }
     }
 
     document.addEventListener('mousedown', handleClickOutside)
@@ -65,6 +68,11 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
     },
   ]
 
+  const knowledgeOptions = [
+    { name: 'FAQs', href: '/faq' },
+    { name: 'Blogs', href: '/blog' },
+  ];
+
   if (isMobile) {
     return (
       <div className="flex flex-col space-y-2">
@@ -75,7 +83,7 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
               <div key={link.name}>
                 <button 
                   onClick={() => setShowMobileServices(!showMobileServices)}
-                  className="flex items-center justify-between w-full px-4 py-2 text-primary hover:text-secondary hover:bg-gray-50 rounded-lg transition-all duration-200 text-base font-medium"
+                  className="flex items-center justify-between w-full px-4 py-2 text-primary hover:text-white hover:bg-primary transition-all duration-200 rounded-full text-base font-medium"
                 >
                   <span>Services</span>
                   <div className="relative w-6 h-6">
@@ -94,7 +102,7 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
               <Link 
                 key={link.name}
                 to={link.href} 
-                className="block px-4 py-2 text-primary hover:text-secondary hover:bg-gray-50 rounded-lg transition-all duration-200 text-base font-medium"
+                className="block px-4 py-2 text-primary hover:text-white hover:bg-primary transition-all duration-200 rounded-full text-base font-medium"
               >
                 {link.name}
               </Link>
@@ -104,7 +112,7 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
           <div>
             <button 
               onClick={() => setShowMobileKnowledge(!showMobileKnowledge)}
-              className="flex items-center justify-between w-full px-4 py-2 text-primary hover:text-secondary hover:bg-gray-50 rounded-lg transition-all duration-200 text-base font-medium"
+              className="flex items-center justify-between w-full px-4 py-2 text-primary hover:text-white hover:bg-primary transition-all duration-200 rounded-full text-base font-medium"
             >
               <span>Knowledge Point</span>
               <div className="relative w-6 h-6">
@@ -119,13 +127,13 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
               <div className="space-y-1">
                 <Link 
                   to="/faq" 
-                  className="block px-6 py-2 text-primary hover:text-secondary hover:bg-gray-50 rounded-lg transition-all duration-200 text-base font-medium"
+                  className="block px-6 py-2 text-primary hover:text-white hover:bg-primary transition-all duration-200 rounded-t-lg text-base font-medium"
                 >
                   FAQs
                 </Link>
                 <Link 
                   to="/blog" 
-                  className="block px-6 py-2 text-primary hover:text-secondary hover:bg-gray-50 rounded-lg transition-all duration-200 text-base font-medium"
+                  className="block px-6 py-2 text-primary hover:text-white hover:bg-primary transition-all duration-200 rounded-b-lg text-base font-medium"
                 >
                   Blogs
                 </Link>
@@ -138,11 +146,11 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
         <div>
           <button 
             onClick={() => setShowMobileCalculator(!showMobileCalculator)}
-            className="flex items-center justify-between w-full px-4 py-2 text-primary hover:text-secondary hover:bg-gray-50 rounded-lg transition-all duration-200 text-base font-medium"
+            className="flex items-center justify-between w-full px-4 py-2 text-primary hover:text-white hover:bg-primary transition-all duration-200 rounded-full text-base font-medium"
           >
             <span>Calculator</span>
             <div className="relative w-6 h-6">
-              <div className={`absolute inset-0 transform transition-transform duration-300 ${showMobileCalculator ? 'rotate-45' : 'rotate-0'}`}>
+              <div className={`absolute inset-0 transform transition-transform duration-300`}>
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v12M6 12h12" />
                 </svg>
@@ -151,11 +159,11 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
           </button>
           <div className={`transition-all duration-300 overflow-hidden ${showMobileCalculator ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
             <div className="space-y-1">
-              {calculatorOptions.map((option) => (
+              {calculatorOptions.map((option, index) => (
                 <Link 
                   key={option.name}
                   to={option.href} 
-                  className="block px-6 py-2 text-primary hover:text-secondary hover:bg-gray-50 rounded-lg transition-all duration-200 text-base font-medium"
+                  className={`block px-6 py-2 text-primary hover:text-white hover:bg-primary transition-all duration-200 text-base font-medium ${index === 0 ? 'rounded-t-lg' : ''} ${index === calculatorOptions.length - 1 ? 'rounded-b-lg' : ''}`}
                 >
                   {option.name}
                 </Link>
@@ -168,13 +176,13 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
         <div className="pt-2 border-t border-gray-100">
           <Link 
             to="/about-us" 
-            className="block px-4 py-2 text-primary hover:text-secondary hover:bg-gray-50 rounded-lg transition-all duration-200 text-base font-medium"
+            className="block px-4 py-2 text-primary hover:text-white hover:bg-primary transition-all duration-200 rounded-t-lg text-base font-medium"
           >
             About Us
           </Link>
           <Link 
             to="/contact" 
-            className="block px-4 py-2 text-primary hover:text-secondary hover:bg-gray-50 rounded-lg transition-all duration-200 text-base font-medium"
+            className="block px-4 py-2 text-primary hover:text-white hover:bg-primary transition-all duration-200 rounded-b-lg text-base font-medium"
           >
             Contact
           </Link>
@@ -184,95 +192,104 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
   }
 
   return (
-    <div className="hidden md:flex items-center space-x-8">
-      <Link 
-        to="/" 
-        className="text-primary hover:text-secondary transition-colors text-base font-medium"
-      >
-        Home
-      </Link>
-      <div className="relative group" ref={servicesRef}>
+    <div className="hidden md:flex items-center">
+      <div className="px-12 flex items-center">
+        <Link 
+          to="/" 
+          className="text-primary hover:text-white hover:bg-secondary transition-all duration-200 text-base font-medium px-4 py-2 rounded-full"
+        >
+          Home
+        </Link>
+        <div className="h-4 w-[1px] bg-gray-300 ml-12"></div>
+      </div>
+      <div className="relative group pr-12 flex items-center" ref={servicesRef}>
         <button 
-          className="text-primary hover:text-secondary transition-colors text-base font-medium flex items-center gap-1"
+          className="text-primary hover:text-white hover:bg-secondary transition-all duration-200 text-base font-medium flex items-center gap-1 px-4 py-2 rounded-full"
           onClick={() => setShowServicesDropdown(!showServicesDropdown)}
         >
           Services
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-            <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+          <svg className={`w-4 h-4 transition-transform duration-200 ${showServicesDropdown ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
           </svg>
         </button>
+        <div className="h-4 w-[1px] bg-gray-300 ml-12"></div>
         {showServicesDropdown && (
           <div 
-            className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 bg-white rounded-xl shadow-xl py-8 w-[90vw] max-w-7xl border border-gray-100"
+            className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 bg-white rounded-xl shadow-xl py-8  w-[50vw]  border border-gray-100"
           >
             <ServicesMegaMenu isMobile={false} onClose={() => setShowServicesDropdown(false)} />
           </div>
         )}
       </div>
-      <div className="relative group" ref={calculatorRef}>
+      
+      <div className="relative group pr-12 flex items-center" ref={calculatorRef}>
         <button 
-          className="text-primary hover:text-secondary transition-colors text-base font-medium flex items-center gap-1"
+          className="text-primary hover:text-white hover:bg-secondary transition-all duration-200 text-base font-medium flex items-center gap-1 px-4 py-2 rounded-full"
           onClick={() => setShowCalculatorDropdown(!showCalculatorDropdown)}
         >
-          Calculator
-          
+          Calculator  
+          <svg className={`w-4 h-4 transition-transform duration-200 ${showCalculatorDropdown ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
         </button>
+        <div className="h-4 w-[1px] bg-gray-300 ml-12"></div>
         {showCalculatorDropdown && (
           <div 
-            className="absolute top-full right-0 mt-2 py-2 bg-white rounded-xl shadow-xl border border-gray-100 min-w-[200px]"
+            className="absolute top-full right-0 mt-2  bg-white rounded-xl shadow-xl border border-gray-100 min-w-[200px] overflow-hidden"
           >
-            {calculatorOptions.map((option) => (
-              <Link 
+            {calculatorOptions.map((option, index) => (
+              <Link
+                key={option.name}
                 to={option.href}
-                key={option.name} 
-                className="block px-4 py-2 text-primary hover:text-secondary hover:bg-gray-50 transition-all text-base font-medium"
+                className={`flex items-center px-4 py-2 text-primary hover:text-white hover:bg-secondary transition-all duration-200 ${index === 0 ? 'rounded-t-lg' : ''} ${index === calculatorOptions.length - 1 ? 'rounded-b-lg' : ''}`}
               >
+ 
                 {option.name}
               </Link>
             ))}
           </div>
         )}
       </div>
-      <div className="relative" ref={moreMenuRef}>
+      <div className="relative  flex items-center" ref={moreMenuRef}>
         <button 
-          className="text-primary hover:text-secondary transition-colors text-base font-medium flex items-center gap-1"
+          className="text-primary hover:text-white hover:bg-secondary transition-all duration-200 text-base font-medium flex items-center gap-1 p-2 rounded-full"
           onClick={() => setShowMoreMenu(!showMoreMenu)}
         >
-          <div className="relative w-6 h-6">
+          <div className="relative w-8 h-8">
             <div className={`absolute inset-0 transform transition-transform duration-300 ${showMoreMenu ? 'rotate-45' : 'rotate-0'}`}>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v12M6 12h12" />
               </svg>
             </div>
           </div>
         </button>
         {showMoreMenu && (
-          <div className="absolute top-full right-0 mt-2 py-2 bg-white rounded-xl shadow-xl border border-gray-100 min-w-[200px]">
+          <div 
+            className="absolute top-full right-0 mt-2 py-2 bg-white rounded-xl shadow-xl border border-gray-100 min-w-[200px] overflow-hidden"
+          >
+            <div className="px-4 py-2 text-sm font-semibold text-gray-400">KNOWLEDGE POINT</div>
             <Link 
-              to="/about-us" 
-              className="block px-4 py-2 text-primary hover:text-secondary hover:bg-gray-50 transition-all text-base font-medium"
-            >
-              About Us
-            </Link>
-            <div className="py-2 px-4 text-sm font-semibold text-gray-500">
-              Knowledge Point
-            </div>
-            <Link 
-              to="/faq" 
-              className="block px-6 py-2 text-primary hover:text-secondary hover:bg-gray-50 transition-all text-base font-medium"
+              to="/faq"
+              className="block px-4 py-2 text-primary hover:text-white hover:bg-secondary transition-all duration-200 rounded-t-lg"
             >
               FAQs
             </Link>
             <Link 
-              to="/blog" 
-              className="block px-6 py-2 text-primary hover:text-secondary hover:bg-gray-50 transition-all text-base font-medium"
+              to="/blog"
+              className="block px-4 py-2 text-primary hover:text-white hover:bg-secondary transition-all duration-200"
             >
               Blogs
             </Link>
-            <div className="my-1 border-t border-gray-100"></div>
+            <div className="h-[1px] bg-gray-100 my-2"></div>
             <Link 
-              to="/contact" 
-              className="block px-4 py-2 text-primary hover:text-secondary hover:bg-gray-50 transition-all text-base font-medium"
+              to="/about-us"
+              className="block px-4 py-2 text-primary hover:text-white hover:bg-secondary transition-all duration-200"
+            >
+              About Us
+            </Link>
+            <Link 
+              to="/contact"
+              className="block px-4 py-2 text-primary hover:text-white hover:bg-secondary transition-all duration-200 rounded-b-lg"
             >
               Contact
             </Link>

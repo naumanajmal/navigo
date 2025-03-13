@@ -21,16 +21,17 @@ function navigo_form_activate() {
     $sql = "CREATE TABLE IF NOT EXISTS $table_name (
         id mediumint(9) NOT NULL AUTO_INCREMENT,
         submission_date datetime DEFAULT CURRENT_TIMESTAMP,
-        name varchar(100),
-        email varchar(100),
-        phone varchar(50),
-        mortgage_amount decimal(15,2),
+        name varchar(100) NOT NULL,
+        email varchar(100) NOT NULL,
+        phone varchar(50) NOT NULL,
+        mortgage_amount decimal(15,2) NOT NULL,
         property_type varchar(50),
         residency_status varchar(50),
         age int,
         employment_type varchar(50),
         property_value decimal(15,2),
         purchase_timeline varchar(50),
+        source varchar(50),
         PRIMARY KEY  (id)
     ) $charset_collate;";
 
@@ -202,6 +203,10 @@ function navigo_form_submissions_page() {
                             <th>Purchase Timeline:</th>
                             <td><?php echo esc_html($submission->purchase_timeline); ?></td>
                         </tr>
+                        <tr>
+                            <th>Source:</th>
+                            <td><?php echo esc_html($submission->source); ?></td>
+                        </tr>
                     </table>
                     <div style="margin-top: 20px;">
                         <form method="post" style="display: inline;">
@@ -316,8 +321,32 @@ function navigo_form_handle_submission($request) {
     global $wpdb;
     $table_name = $wpdb->prefix . 'navigo_form_submissions';
     
+    // Log incoming request data
+    error_log('Navigo Form - Incoming request data: ' . print_r($request->get_params(), true));
+    
     // Get parameters from request
     $params = $request->get_params();
+    
+    // Required fields
+    $required_fields = ['name', 'email', 'phone', 'mortgageAmount'];
+    foreach ($required_fields as $field) {
+        if (!isset($params[$field]) || empty($params[$field])) {
+            return new WP_Error(
+                'missing_field',
+                sprintf('Missing required field: %s', $field),
+                array('status' => 400)
+            );
+        }
+    }
+    
+    // Validate email
+    if (!is_email($params['email'])) {
+        return new WP_Error(
+            'invalid_email',
+            'Invalid email address',
+            array('status' => 400)
+        );
+    }
     
     // Sanitize input data
     $data = array(
@@ -325,20 +354,25 @@ function navigo_form_handle_submission($request) {
         'email' => sanitize_email($params['email']),
         'phone' => sanitize_text_field($params['phone']),
         'mortgage_amount' => floatval($params['mortgageAmount']),
-        'property_type' => sanitize_text_field($params['propertyType']),
-        'residency_status' => sanitize_text_field($params['residencyStatus']),
-        'age' => intval($params['age']),
-        'employment_type' => sanitize_text_field($params['employmentType']),
-        'property_value' => floatval($params['propertyValue']),
-        'purchase_timeline' => sanitize_text_field($params['purchaseTimeline'])
+        'property_type' => isset($params['propertyType']) ? sanitize_text_field($params['propertyType']) : '',
+        'residency_status' => isset($params['residencyStatus']) ? sanitize_text_field($params['residencyStatus']) : '',
+        'age' => isset($params['age']) ? intval($params['age']) : null,
+        'employment_type' => isset($params['employmentType']) ? sanitize_text_field($params['employmentType']) : '',
+        'property_value' => isset($params['propertyValue']) ? floatval($params['propertyValue']) : null,
+        'purchase_timeline' => isset($params['purchaseTimeline']) ? sanitize_text_field($params['purchaseTimeline']) : '',
+        'source' => isset($params['source']) ? sanitize_text_field($params['source']) : ''
     );
     
+    // Log sanitized data
+    error_log('Navigo Form - Sanitized data: ' . print_r($data, true));
+
     // Insert into database
     $result = $wpdb->insert($table_name, $data);
     
     if ($result === false) {
-        error_log('Database insertion failed: ' . $wpdb->last_error);
-        return new WP_Error('db_error', 'Error saving form submission', array('status' => 500));
+        error_log('Navigo Form - Database insertion failed: ' . $wpdb->last_error);
+        error_log('Navigo Form - Last SQL query: ' . $wpdb->last_query);
+        return new WP_Error('db_error', 'Error saving form submission: ' . $wpdb->last_error, array('status' => 500));
     }
     
     // Send email notification to admin
@@ -349,13 +383,28 @@ function navigo_form_handle_submission($request) {
     $admin_message .= "Name: " . $data['name'] . "\n";
     $admin_message .= "Email: " . $data['email'] . "\n";
     $admin_message .= "Phone: " . $data['phone'] . "\n";
-    $admin_message .= "Mortgage Amount: " . $data['mortgage_amount'] . "\n";
-    $admin_message .= "Property Type: " . $data['property_type'] . "\n";
-    $admin_message .= "Residency Status: " . $data['residency_status'] . "\n";
-    $admin_message .= "Age: " . $data['age'] . "\n";
-    $admin_message .= "Employment Type: " . $data['employment_type'] . "\n";
-    $admin_message .= "Property Value: " . $data['property_value'] . "\n";
-    $admin_message .= "Purchase Timeline: " . $data['purchase_timeline'] . "\n";
+    $admin_message .= "Mortgage Amount: AED " . number_format($data['mortgage_amount'], 2) . "\n";
+    if ($data['property_type']) {
+        $admin_message .= "Property Type: " . $data['property_type'] . "\n";
+    }
+    if ($data['residency_status']) {
+        $admin_message .= "Residency Status: " . $data['residency_status'] . "\n";
+    }
+    if ($data['age']) {
+        $admin_message .= "Age: " . $data['age'] . "\n";
+    }
+    if ($data['employment_type']) {
+        $admin_message .= "Employment Type: " . $data['employment_type'] . "\n";
+    }
+    if ($data['property_value']) {
+        $admin_message .= "Property Value: AED " . number_format($data['property_value'], 2) . "\n";
+    }
+    if ($data['purchase_timeline']) {
+        $admin_message .= "Purchase Timeline: " . $data['purchase_timeline'] . "\n";
+    }
+    if ($data['source']) {
+        $admin_message .= "Source: " . $data['source'] . "\n";
+    }
 
     $headers = array(
         'Content-Type: text/html; charset=UTF-8',
@@ -365,7 +414,9 @@ function navigo_form_handle_submission($request) {
     // Try sending admin email and log any errors
     $admin_mail_sent = wp_mail($admin_email, $admin_subject, $admin_message, $headers);
     if (!$admin_mail_sent) {
-        error_log('Failed to send admin notification email to: ' . $admin_email);
+        error_log('Navigo Form - Failed to send admin notification email to: ' . $admin_email);
+    } else {
+        error_log('Navigo Form - Successfully sent admin notification email to: ' . $admin_email);
     }
     
     // Send thank you email to user

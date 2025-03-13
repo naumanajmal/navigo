@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect } from 'react'
+import { useQuoteForm } from '../../context/useQuoteForm'
 import PropertyDetails from './PropertyDetails'
 import LoanDuration from './LoanDuration'
 import MortgageProducts from './MortgageProducts'
@@ -55,6 +56,7 @@ const calculateMonthlyPayment = ({ propertyValue, downPayment, loanDuration, mor
 };
 
 const MortgageCalculator = () => {
+  const { openQuoteForm } = useQuoteForm()
   const [residencyStatus, setResidencyStatus] = useState('UAE National')
   const [propertyValue, setPropertyValue] = useState(1000000)
   const [downPayment, setDownPayment] = useState(150000) // 15% of 1000000 for UAE National
@@ -71,7 +73,7 @@ const MortgageCalculator = () => {
     if (downPayment < minDownPayment) {
       setDownPayment(minDownPayment);
     }
-  }, [residencyStatus, propertyValue]);
+  }, [residencyStatus, propertyValue, downPayment]);
   const [loanDuration, setLoanDuration] = useState(25)
   const [mortgageType, setMortgageType] = useState('Fixed')
   const [yearRange, setYearRange] = useState('1-2 yrs')
@@ -172,7 +174,11 @@ const MortgageCalculator = () => {
           </div>
 
           {/* CTA Button */}
-          <button className="w-full bg-gradient-to-r from-primary to-secondary text-white py-4 rounded-xl font-medium text-lg hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] transition-all duration-200 shadow-lg">
+          <button 
+            onClick={() => openQuoteForm(loanAmount, 'mortgage_calculator')}
+            className="w-full bg-gradient-to-r from-primary to-secondary text-white py-4 rounded-xl font-medium text-lg hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] transition-all duration-200 shadow-lg"
+            disabled={!isValidInput}
+          >
             Get Started
           </button>
         </div>

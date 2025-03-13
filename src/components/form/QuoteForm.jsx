@@ -96,9 +96,18 @@ const QuoteForm = ({ isMobile, onClose }) => {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            ...formData,
-            phone: formData.phone, // Phone number already includes country code
-            countryCode: formData.countryCode // Optional: if you need it separately
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            countryCode: formData.countryCode,
+            mortgageAmount: parseFloat(formData.mortgageAmount) || 0,
+            propertyType: formData.propertyType,
+            residencyStatus: formData.residencyStatus,
+            age: parseInt(formData.age) || 0,
+            employmentType: formData.employmentType,
+            propertyValue: parseFloat(formData.propertyValue) || 0,
+            purchaseTimeline: formData.purchaseTimeline,
+            source: 'hero_section'
           })
         })
 
