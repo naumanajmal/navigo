@@ -5,7 +5,7 @@ import ServicesMegaMenu from './ServicesMegaMenu'
 const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorDropdown }) => {
   const [showServicesDropdown, setShowServicesDropdown] = useState(false)
   const [showMoreMenu, setShowMoreMenu] = useState(false)
-  const [showKnowledgeDropdown, setShowKnowledgeDropdown] = useState(false)
+  const [showKnowledgeSubMenu, setShowKnowledgeSubMenu] = useState(false)
   const [showMobileServices, setShowMobileServices] = useState(false);
   const [showMobileCalculator, setShowMobileCalculator] = useState(false);
   const [showMobileKnowledge, setShowMobileKnowledge] = useState(false);
@@ -24,9 +24,6 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
       }
       if (moreMenuRef.current && !moreMenuRef.current.contains(event.target)) {
         setShowMoreMenu(false)
-      }
-      if (knowledgeRef.current && !knowledgeRef.current.contains(event.target)) {
-        setShowKnowledgeDropdown(false)
       }
     }
 
@@ -253,7 +250,10 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
       <div className="relative  flex items-center" ref={moreMenuRef}>
         <button 
           className="text-primary hover:text-white hover:bg-secondary transition-all duration-200 text-base font-medium flex items-center gap-1 p-2 rounded-full"
-          onClick={() => setShowMoreMenu(!showMoreMenu)}
+          onClick={() => {
+            setShowMoreMenu(!showMoreMenu);
+            setShowKnowledgeSubMenu(false);
+          }}
         >
           <div className="relative w-8 h-8">
             <div className={`absolute inset-0 transform transition-transform duration-300 ${showMoreMenu ? 'rotate-45' : 'rotate-0'}`}>
@@ -265,21 +265,40 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
         </button>
         {showMoreMenu && (
           <div 
-            className="absolute top-full right-0 mt-2 py-2 bg-white rounded-xl shadow-xl border border-gray-100 min-w-[200px] overflow-hidden"
+            className="absolute top-full right-0 mt-2 bg-white rounded-xl shadow-2xl border border-gray-200 min-w-[200px] overflow-visible z-10"
           >
-            <div className="px-4 py-2 text-sm font-semibold text-gray-400">KNOWLEDGE POINT</div>
-            <Link 
-              to="/faq"
-              className="block px-4 py-2 text-primary hover:text-white hover:bg-secondary transition-all duration-200 rounded-t-lg"
-            >
-              FAQs
-            </Link>
-            <Link 
-              to="/blog"
-              className="block px-4 py-2 text-primary hover:text-white hover:bg-secondary transition-all duration-200"
-            >
-              Blogs
-            </Link>
+             <div 
+              className="relative"
+             >
+              <button
+                className="w-full text-left px-4 py-2 text-primary hover:text-white hover:bg-secondary transition-all duration-200 rounded-t-xl cursor-pointer flex items-center justify-between"
+                onClick={() => setShowKnowledgeSubMenu(!showKnowledgeSubMenu)}
+              >
+                <span >KNOWLEDGE POINT</span>
+                <svg className={`w-4 h-4 transition-transform duration-200 ${showKnowledgeSubMenu ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+              
+              {showKnowledgeSubMenu && (
+                <div 
+                  className="absolute right-full top-0 mr-2 bg-white rounded-xl shadow-2xl border border-gray-200 min-w-[200px] z-50 "
+                >
+                  <Link 
+                    to="/faq"
+                    className="block px-4 py-2 text-primary hover:text-white hover:bg-secondary transition-all duration-200 rounded-t-xl  "
+                  >
+                    FAQs
+                  </Link>
+                  <Link 
+                    to="/blog"
+                    className="block px-4 py-2 text-primary hover:text-white hover:bg-secondary transition-all duration-200 rounded-b-xl "
+                  >
+                    Blogs
+                  </Link>
+                </div>
+              )}
+            </div>
             <div className="h-[1px] bg-gray-100 my-2"></div>
             <Link 
               to="/about-us"
