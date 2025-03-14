@@ -24,54 +24,167 @@ const BlogDetail = () => {
   // Extract table of contents from the blog content
   useEffect(() => {
     if (post && contentRef.current) {
+      console.log('Extracting table of contents...');
+      
+      // This will run after the content is rendered with dangerouslySetInnerHTML
       const extractHeadings = () => {
-        // Create a temporary div to parse the HTML content
-        const tempDiv = document.createElement('div');
-        tempDiv.innerHTML = post.content.rendered;
-
-        // Find all list item headers (based on your sample content)
-        const headings = [];
-        const olElements = tempDiv.querySelectorAll('ol.wp-block-list');
+        const content = contentRef.current;
+        if (!content) return [];
         
-        olElements.forEach((ol, index) => {
-          // Get the first li which contains the heading
-          const li = ol.querySelector('li');
-          if (li) {
-            const headingText = li.textContent.split('<br>')[0].trim();
-            const id = `section-${index + 1}`;
-            
-            headings.push({
-              id,
-              text: headingText,
-              level: 1, // Main heading
-            });
+        console.log('Content ref exists, searching for sections...');
+        
+        // Find paragraphs with strong text
+        const paragraphs = content.querySelectorAll('p strong');
+        console.log('Found paragraphs with strong text:', paragraphs.length);
+        
+        const headings = [];
+        
+        paragraphs.forEach((p, index) => {
+          if (p && p.textContent.trim()) {
+            // Find the parent paragraph
+            const paragraph = p.closest('p');
+            if (paragraph) {
+              const id = `section-${index + 1}`;
+              paragraph.id = id;
+              
+              headings.push({
+                id,
+                text: p.textContent.trim(),
+                index: index + 1
+              });
+              
+              console.log(`Added paragraph section ${id}: ${p.textContent.trim()}`);
+            }
           }
         });
         
         return headings;
       };
       
-      setTableOfContents(extractHeadings());
-      
-      // Add IDs to the content headings for scroll functionality
-      setTimeout(() => {
-        if (contentRef.current) {
-          const content = contentRef.current;
-          const olElements = content.querySelectorAll('ol.wp-block-list');
-          
-          olElements.forEach((ol, index) => {
-            ol.id = `section-${index + 1}`;
-          });
-        }
-      }, 100);
+      // Initial extraction attempt
+      let headings = extractHeadings();
+      if (headings.length > 0) {
+        console.log('Setting table of contents with', headings.length, 'items');
+        setTableOfContents(headings);
+      } else {
+        // If no headings found initially, use MutationObserver to wait for content to load
+        console.log('No headings found initially, setting up MutationObserver');
+        
+        const observer = new MutationObserver(() => {
+          headings = extractHeadings();
+          if (headings.length > 0) {
+            console.log('MutationObserver found headings, setting table of contents');
+            setTableOfContents(headings);
+            observer.disconnect();
+          }
+        });
+        
+        observer.observe(contentRef.current, { childList: true, subtree: true });
+        
+        // Fallback with timeout in case MutationObserver doesn't catch everything
+        setTimeout(() => {
+          if (tableOfContents.length === 0) {
+            console.log('Timeout reached, trying one more extraction');
+            headings = extractHeadings();
+            if (headings.length > 0) {
+              console.log('Final extraction found headings, setting table of contents');
+              setTableOfContents(headings);
+            } else {
+              console.log('No headings found after all attempts');
+            }
+          }
+          observer.disconnect();
+        }, 2000);
+        
+        return () => observer.disconnect();
+      }
     }
-  }, [post]);
+  }, [post, tableOfContents.length]);
+
+  // Create a separate effect to assign IDs after content is rendered
+  useEffect(() => {
+    if (tableOfContents.length > 0 && contentRef.current) {
+      console.log('Assigning IDs to sections based on table of contents');
+      
+      // Find paragraphs with strong text that match our table of contents
+      const paragraphs = contentRef.current.querySelectorAll('p strong');
+      
+      tableOfContents.forEach(item => {
+        // Find the paragraph with matching text
+        let matchFound = false;
+        
+        paragraphs.forEach(p => {
+          if (p.textContent.trim() === item.text) {
+            const paragraph = p.closest('p');
+            if (paragraph) {
+              paragraph.id = item.id;
+              console.log(`Assigned ID ${item.id} to paragraph with text: ${item.text}`);
+              matchFound = true;
+            }
+          }
+        });
+        
+        if (!matchFound) {
+          console.log(`Could not find matching paragraph for: ${item.text}`);
+        }
+      });
+    }
+  }, [tableOfContents]);
 
   // Scroll to section when TOC item is clicked
   const scrollToSection = (id) => {
+    console.log('Scrolling to section:', id);
+    
+    // Re-assign IDs just before scrolling to ensure they exist
+    if (contentRef.current && tableOfContents.length > 0) {
+      const paragraphs = contentRef.current.querySelectorAll('p strong');
+      
+      tableOfContents.forEach(item => {
+        if (item.id === id) {
+          // Find the paragraph with matching text
+          paragraphs.forEach(p => {
+            if (p.textContent.trim() === item.text) {
+              const paragraph = p.closest('p');
+              if (paragraph) {
+                paragraph.id = item.id;
+                console.log(`Re-assigned ID ${item.id} to paragraph before scrolling`);
+              }
+            }
+          });
+        }
+      });
+    }
+    
     const element = document.getElementById(id);
+    console.log('Found element:', element);
+    
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      // Get the navbar height to use as offset
+      const navbar = document.querySelector('nav') || { offsetHeight: 80 };
+      const navbarHeight = navbar.offsetHeight || 80;
+      console.log('Navbar height:', navbarHeight);
+      
+      // Scroll to the element with offset for navbar
+      const yOffset = -(navbarHeight + 20); // Additional 20px buffer
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      console.log('Scrolling to position:', y);
+      
+      window.scrollTo({
+        top: y,
+        behavior: 'smooth'
+      });
+      
+      // Add a highlight effect
+      element.classList.add('highlight-section');
+      setTimeout(() => {
+        element.classList.remove('highlight-section');
+      }, 2000);
+    } else {
+      console.error(`Element with id ${id} not found`);
+      
+      // Debug: list all IDs in the document
+      const allElements = document.querySelectorAll('[id]');
+      console.log('All elements with IDs:', Array.from(allElements).map(el => ({ id: el.id, tagName: el.tagName })));
     }
   };
 
@@ -299,9 +412,9 @@ const BlogDetail = () => {
                           <li key={item.id}>
                             <button
                               onClick={() => scrollToSection(item.id)}
-                              className="text-gray-600 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-all w-full text-left"
+                              className="text-gray-600 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-all duration-300 w-full text-left"
                             >
-                              {item.text}
+                              {item.index}. {item.text}
                             </button>
                           </li>
                         ))}
@@ -330,11 +443,13 @@ const BlogDetail = () => {
               .prose p {
                 margin-bottom: 1.5em;
               }
-              .prose h2, .prose h3, .prose h4 {
+              .prose h2, .prose h3, .prose h4, .prose h5, .prose h6,
+              .wp-block-heading {
                 color: #1a365d;
                 margin-top: 2em;
                 margin-bottom: 1em;
                 font-weight: 600;
+                scroll-margin-top: 100px; /* Add scroll margin for better positioning */
               }
               .prose a {
                 color: #2563eb;
@@ -345,6 +460,14 @@ const BlogDetail = () => {
               }
               .wp-block-list {
                 margin-bottom: 1.5em;
+                scroll-margin-top: 100px; /* Add scroll margin for better positioning */
+              }
+              .highlight-section {
+                animation: highlight-fade 2s ease-in-out;
+              }
+              @keyframes highlight-fade {
+                0%, 15% { background-color: rgba(59, 130, 246, 0.2); }
+                100% { background-color: transparent; }
               }
             `}</style>
           </div>
