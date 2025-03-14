@@ -30,11 +30,11 @@ function Home() {
   console.log('Current form state:', showMobileForm) // Debug log
 
   return (
-    <div className="font-lexend">
+    <div className="font-lexend overflow-hidden">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative h-[100vh] bg-black pt-20">
+      <section className="relative h-[100vh] bg-black pt-20 overflow-hidden">
         {/* Hero Slider */}
         <div className="absolute inset-0 z-0">
           <HeroSlider onSlideChange={setActiveIndex} />

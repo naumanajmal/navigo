@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Navbar from '../components/navbar/Navbar';
 import Footer from '../components/Footer';
@@ -10,6 +10,8 @@ const BlogDetail = () => {
   const [relatedPosts, setRelatedPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [tableOfContents, setTableOfContents] = useState([]);
+  const contentRef = useRef(null);
 
   // WordPress API base URL
   const WP_API_BASE = '/wp-api/wp/v2';
@@ -18,6 +20,60 @@ const BlogDetail = () => {
     fetchPost();
     fetchCategories();
   }, [slug]);
+
+  // Extract table of contents from the blog content
+  useEffect(() => {
+    if (post && contentRef.current) {
+      const extractHeadings = () => {
+        // Create a temporary div to parse the HTML content
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = post.content.rendered;
+
+        // Find all list item headers (based on your sample content)
+        const headings = [];
+        const olElements = tempDiv.querySelectorAll('ol.wp-block-list');
+        
+        olElements.forEach((ol, index) => {
+          // Get the first li which contains the heading
+          const li = ol.querySelector('li');
+          if (li) {
+            const headingText = li.textContent.split('<br>')[0].trim();
+            const id = `section-${index + 1}`;
+            
+            headings.push({
+              id,
+              text: headingText,
+              level: 1, // Main heading
+            });
+          }
+        });
+        
+        return headings;
+      };
+      
+      setTableOfContents(extractHeadings());
+      
+      // Add IDs to the content headings for scroll functionality
+      setTimeout(() => {
+        if (contentRef.current) {
+          const content = contentRef.current;
+          const olElements = content.querySelectorAll('ol.wp-block-list');
+          
+          olElements.forEach((ol, index) => {
+            ol.id = `section-${index + 1}`;
+          });
+        }
+      }, 100);
+    }
+  }, [post]);
+
+  // Scroll to section when TOC item is clicked
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   const fetchPost = async () => {
     try {
@@ -32,6 +88,7 @@ const BlogDetail = () => {
       }
 
       const data = await response.json();
+      console.log('Fetched post:', data); // Debug log
       if (data.length > 0) {
         setPost(data[0]);
         // Fetch related posts after getting the main post
@@ -220,13 +277,40 @@ const BlogDetail = () => {
               </div>
             )}
 
-            {/* Content */}
-            <div 
-              className="prose prose-lg max-w-none text-gray-700"
-              dangerouslySetInnerHTML={{ 
-                __html: post.content.rendered 
-              }}
-            />
+            {/* Content with Table of Contents */}
+            <div className="flex flex-col lg:flex-row gap-8">
+              {/* Blog Content */}
+              <div 
+                ref={contentRef}
+                className="prose prose-lg max-w-none text-gray-700 lg:flex-1"
+                dangerouslySetInnerHTML={{ 
+                  __html: post.content.rendered 
+                }}
+              />
+              
+              {/* Table of Contents - Right Side */}
+              {tableOfContents.length > 0 && (
+                <div className="w-full lg:w-72 mt-8 lg:mt-0">
+                  <div className="sticky top-24 bg-white shadow-sm rounded-xl p-5">
+                    <h3 className="text-xl font-bold text-primary mb-4">Table of Contents</h3>
+                    <nav className="toc-nav">
+                      <ul className="space-y-3">
+                        {tableOfContents.map((item) => (
+                          <li key={item.id}>
+                            <button
+                              onClick={() => scrollToSection(item.id)}
+                              className="text-gray-600 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-all w-full text-left"
+                            >
+                              {item.text}
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+              )}
+            </div>
 
             {/* Add custom styles for WordPress content */}
             <style jsx global>{`
