@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import WhatsAppButton from './components/WhatsAppButton'
+import FloatingQuoteForm from './components/FloatingQuoteForm'
 import SimpleQuoteForm from './components/form/SimpleQuoteForm'
 import { QuoteFormProvider } from './context/QuoteFormProvider'
 import Home from './pages/Home'
@@ -20,6 +21,7 @@ function App() {
     <Router>
       <QuoteFormProvider>
         <WhatsAppButton />
+        <FloatingQuoteForm />
         <SimpleQuoteForm />
         <Routes>
         <Route path="/" element={<Home />} />

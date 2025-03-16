@@ -1,16 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '../components/navbar/Navbar';
 import Footer from '../components/Footer';
 import { motion } from 'framer-motion';
 
 const AboutUs = () => {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }, []);
+
   return (
     <div className="bg-white min-h-screen font-lexend">
       <Navbar />
       
       {/* Hero Section - About Us */}
-      <section className="py-8 md:py-16 bg-white pt-28 md:pt-32" id="about">
-        <div className="container mx-auto px-4 max-w-7xl">
+      <section className="py-8 md:py-16 bg-white pt-28 md:pt-32" id="about-hero-section">
+        <div className="container mx-auto px-4 max-w-7xl space-y-20">
           <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-16 lg:gap-24 pt-8 md:pt-12">
             <motion.div 
               className="w-full lg:w-1/2"
@@ -39,7 +47,13 @@ const AboutUs = () => {
               <p className="text-gray-600 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed text-left sm:text-justify">
                 Our dedicated team of experts works tirelessly to provide clear, straightforward guidance at every step. Whether you&apos;re a first-time homebuyer or looking to upgrade your living space, we&apos;re here to make the journey seamless. We firmly believe that purchasing a home should be a moment of celebration, not a source of anxiety. That&apos;s why our motto is, <span className="font-semibold text-primary">&quot;Making home buying a moment of celebration, not a stressful event.&quot;</span>
               </p>
-              <p className="text-gray-600 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed text-left sm:text-justify">
+
+              
+
+            </motion.div>
+          </div>
+          <div>
+          <p className="text-gray-600 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed text-left sm:text-justify">
                 Navigo was founded with a vision to transform the home buying experience. Through innovative digital tools, a user-friendly platform, and personalized support, we&apos;ve redefined what it means to find a home. We focus on transparency, communication, and trust, ensuring that you are empowered with the knowledge and confidence you need to make informed decisions.
               </p>
               <p className="text-gray-600 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed text-left sm:text-justify">
@@ -48,7 +62,6 @@ const AboutUs = () => {
               <p className="text-gray-600 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed text-left sm:text-justify">
                 At Navigo, we&apos;re not just making home buying easier—we&apos;re making it a joyful experience. Let us help you turn your dreams of homeownership into reality, with ease, transparency, and support every step of the way.
               </p>
-            </motion.div>
           </div>
         </div>
       </section>

@@ -186,7 +186,7 @@ export const services = [
   {
     id: 4,
     title: 'Refinance - Balance Transfer',
-    picture:'Project_Finance.webp',
+    picture: 'refinance.jpg',
     subtitle: 'Better Rates, Better Terms',
     list_sub_title: 'Better Rates, Better Terms',
     description_1: `Refinancing, or balance transfer, is a process where an individual transfers an existing mortgage or loan to a new lender to secure better terms. Whether the goal is to reduce monthly payments, lower the interest rate, or consolidate debt, refinancing allows homeowners to adjust their loan structure to better fit their financial situation.`,
@@ -745,7 +745,7 @@ export const services = [
   {
     id: 13,
     title: 'Plot & Land Loans',
-    picture: 'Project_Finance.webp',
+    picture: 'plot_.jpg',
     list_sub_title: 'Land Acquisition Financing',
     features: ['Residential plots', 'Agricultural land', 'Commercial land', 'Expert guidance'],
     subtitle: `Looking to purchase land for personal, commercial, or development purposes? Our specialized land loans provide the financing you need.`,
@@ -871,7 +871,7 @@ export const services = [
   {
     id: 15,
     title: 'Portfolio Consolidation',
-    picture: 'Project_Finance.webp',
+    picture: 'portfolio.jpeg',
     list_sub_title: 'Streamlined Financial Management',
     features: ['Multiple loan consolidation', 'Simplified payments', 'Reduced interest rates', 'Improved cash flow'],
     subtitle: `Simplify your finances by consolidating multiple loans into one manageable solution.`,
@@ -933,7 +933,7 @@ export const services = [
   {
     id: 16,
     title: 'Islamic Finance',
-    picture: 'Project_Finance.webp',
+    picture: 'islamic_finance.jpg',
     list_sub_title: 'Sharia-Compliant Solutions',
     features: ['Sharia-compliant', 'No interest (riba)', 'Ethical investments', 'Transparent terms'],
     subtitle: `Financial solutions that comply with Islamic principles and ethical standards.`,

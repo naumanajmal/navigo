@@ -11,6 +11,69 @@ const Footer = () => {
     services_item_4: 'Expert Mortgage Advisory',
   };
 
+  // Function to scroll to hero section
+  const scrollToHeroSection = (e) => {
+    e.preventDefault();
+    const heroSection = document.getElementById('hero-section');
+    if (heroSection) {
+      window.scrollTo({
+        top: heroSection.offsetTop,
+        behavior: 'smooth'
+      });
+    } else {
+      // If hero section not found on current page, navigate to home page
+      window.location.href = '/';
+    }
+  };
+
+  // Function to handle About Us navigation
+  const navigateToAboutUs = (e) => {
+    e.preventDefault();
+    // Navigate to About Us page
+    window.location.href = '/about-us';
+    // The useEffect in AboutUs component will handle scrolling to top
+  };
+
+  // Function to handle Mortgage Calculator navigation
+  const navigateToMortgageCalculator = (e) => {
+    e.preventDefault();
+    // Navigate to Mortgage Calculator page
+    window.location.href = '/mortgage-calculator';
+    // The useEffect in MortgageCalculatorPage component will handle scrolling to top
+  };
+
+  // Function to handle Contact Us navigation
+  const navigateToContact = (e) => {
+    e.preventDefault();
+    // Navigate to Contact page
+    window.location.href = '/contact';
+    // The useEffect in ContactPage component will handle scrolling to top
+  };
+
+  // Function to handle FAQ navigation
+  const navigateToFaq = (e) => {
+    e.preventDefault();
+    // Navigate to FAQ page
+    window.location.href = '/faq';
+    // The useEffect in FaqPage component will handle scrolling to top
+  };
+
+  // Function to handle Privacy Policy navigation
+  const navigateToPrivacyPolicy = (e) => {
+    e.preventDefault();
+    // Navigate to Privacy Policy page
+    window.location.href = '/privacy-policy';
+    // The useEffect in Privacy Policy component will handle scrolling to top
+  };
+
+  // Function to handle Terms & Conditions navigation
+  const navigateToTermsConditions = (e) => {
+    e.preventDefault();
+    // Navigate to Terms & Conditions page
+    window.location.href = '/terms-conditions';
+    // The useEffect in Terms component will handle scrolling to top
+  };
+
   return (
     <footer className="bg-primary border-t border-gray-100 text-white">
       <div className="pt-12 sm:pt-8 lg:pt-16 flex flex-col items-center justify-center">
@@ -33,22 +96,34 @@ const Footer = () => {
             <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-white tracking-wider uppercase mb-3 sm:mb-4">SITEMAP</h3>
             <ul className="space-y-2 sm:space-y-3">
               <li>
-                <Link to="/" className="text-sm sm:text-base text-white/80 hover:text-secondary transition-colors">
+                <Link 
+                  to="/" 
+                  onClick={scrollToHeroSection}
+                  className="text-sm sm:text-base text-white/80 hover:text-white hover:bg-primary hover:rounded-full hover:px-4 hover:py-2 transition-all duration-300"
+                >
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/about-us" className="text-sm sm:text-base text-white/80 hover:text-secondary transition-colors">
+                <Link 
+                  to="/about-us" 
+                  onClick={navigateToAboutUs}
+                  className="text-sm sm:text-base text-white/80 hover:text-white hover:bg-primary hover:rounded-full hover:px-4 hover:py-2 transition-all duration-300"
+                >
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="text-sm sm:text-base text-white/80 hover:text-secondary transition-colors">
+                <Link to="/services" className="text-sm sm:text-base text-white/80 hover:text-white hover:bg-primary hover:rounded-full hover:px-4 hover:py-2 transition-all duration-300">
                   Services
                 </Link>
               </li>
               <li>
-                <Link to="/calculator" className="text-sm sm:text-base text-white/80 hover:text-secondary transition-colors">
+                <Link 
+                  to="/mortgage-calculator" 
+                  onClick={navigateToMortgageCalculator}
+                  className="text-sm sm:text-base text-white/80 hover:text-white hover:bg-primary hover:rounded-full hover:px-4 hover:py-2 transition-all duration-300"
+                >
                   Mortgage Calculator
                 </Link>
               </li>
@@ -60,22 +135,30 @@ const Footer = () => {
             <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-white tracking-wider uppercase mb-3 sm:mb-4">USEFUL LINKS</h3>
             <ul className="space-y-2 sm:space-y-3">
               <li>
-                <Link to="/services" className="text-sm sm:text-base text-white/80 hover:text-secondary transition-colors">
+                <Link to="/services" className="text-sm sm:text-base text-white/80 hover:text-white hover:bg-primary hover:rounded-full hover:px-4 hover:py-2 transition-all duration-300">
                   Services
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className="text-sm sm:text-base text-white/80 hover:text-secondary transition-colors">
+                <Link to="/blog" className="text-sm sm:text-base text-white/80 hover:text-white hover:bg-primary hover:rounded-full hover:px-4 hover:py-2 transition-all duration-300">
                   Blog
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-sm sm:text-base text-white/80 hover:text-secondary transition-colors">
+                <Link 
+                  to="/contact" 
+                  onClick={navigateToContact}
+                  className="text-sm sm:text-base text-white/80 hover:text-white hover:bg-primary hover:rounded-full hover:px-4 hover:py-2 transition-all duration-300"
+                >
                   Contact Us
                 </Link>
               </li>
               <li>
-                <Link to="/faq" className="text-sm sm:text-base text-white/80 hover:text-secondary transition-colors">
+                <Link 
+                  to="/faq" 
+                  onClick={navigateToFaq}
+                  className="text-sm sm:text-base text-white/80 hover:text-white hover:bg-primary hover:rounded-full hover:px-4 hover:py-2 transition-all duration-300"
+                >
                   FAQs
                 </Link>
               </li>
@@ -117,14 +200,16 @@ const Footer = () => {
             </p>
             <div className="flex items-center space-x-4 relative">
               <Link
-                to="/privacy"
+                to="/privacy-policy"
+                onClick={navigateToPrivacyPolicy}
                 className="text-xs text-white hover:text-secondary transition-colors font-medium"
               >
                 Privacy Policy
               </Link>
               <span className="text-gray-400">|</span>
               <Link
-                to="/terms"
+                to="/terms-conditions"
+                onClick={navigateToTermsConditions}
                 className="text-xs text-white hover:text-secondary transition-colors font-medium"
               >
                 Terms & Conditions

@@ -34,7 +34,7 @@ function Home() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative h-[100vh] bg-black pt-20 overflow-hidden">
+      <section id="hero-section" className="relative h-[100vh] bg-black pt-20 overflow-hidden">
         {/* Hero Slider */}
         <div className="absolute inset-0 z-0">
           <HeroSlider onSlideChange={setActiveIndex} />

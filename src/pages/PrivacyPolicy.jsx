@@ -67,9 +67,9 @@ const PrivacyPolicy = () => {
               <p className="text-gray-600">
                 If you have any questions about this Privacy Policy, please contact us at:
                 <br />
-                Email: info@company.com
+                Email: admin@navigo.ae
                 <br />
-                Phone: +1 (234) 567-890
+                Phone: +971 55 252 2508
               </p>
             </section>
           </div>

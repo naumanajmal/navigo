@@ -1,11 +1,20 @@
-import React from 'react';
+import { useEffect } from 'react';
 import Navbar from '../components/navbar/Navbar';
 import Footer from '../components/Footer';
+
 const Terms = () => {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }, []);
+
   return (
     <div className="bg-white min-h-screen">
       <Navbar />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-40 pb-20">
+      <div id="terms-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-40 pb-20">
           <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl mb-8">Terms & Conditions</h1>
           
           <div className="prose prose-lg">
@@ -13,10 +22,10 @@ const Terms = () => {
               Last updated: March 2, 2025
             </p>
 
-            <section className="mb-8">
+            <section id="acceptance-of-terms" className="mb-8">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">1. Acceptance of Terms</h2>
               <p className="text-gray-600">
-                By accessing and using Navigo's website and services, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions. If you do not agree to these terms, please do not use our services.
+                By accessing and using Navigo&apos;s website and services, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions. If you do not agree to these terms, please do not use our services.
               </p>
             </section>
 
@@ -78,9 +87,9 @@ const Terms = () => {
               <p className="text-gray-600">
                 For any questions about these Terms & Conditions, please contact us at:
                 <br />
-                Email: info@company.com
+                Email: admin@navigo.ae
                 <br />
-                Phone: +1 (234) 567-890
+                Phone: +971 55 252 2508
               </p>
             </section>
           </div>

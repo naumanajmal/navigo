@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Navbar from '../components/navbar/Navbar';
 import Footer from '../components/Footer';
 import { motion } from 'framer-motion';
@@ -6,12 +6,20 @@ import { FiMapPin, FiPhone, FiMail, FiClock } from 'react-icons/fi';
 import QuoteForm from '../components/form/QuoteForm';
 
 export default function ContactPage() {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }, []);
+
   return (
     <div className="min-h-screen bg-white font-lexend">
       <Navbar />
       
       {/* Main Contact Section */}
-      <section className="py-16 pt-40 relative">
+      <section id="contact-section" className="py-16 pt-40 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
             {/* Contact Information */}

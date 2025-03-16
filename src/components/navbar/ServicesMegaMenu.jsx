@@ -73,7 +73,7 @@ const ServicesMegaMenu = ({ isMobile, onClose }) => {
     <div className="grid grid-cols-1 md:grid-cols-3 px-8 max-w-7xl mx-auto">
       {/* Mortgage Services */}
       <div>
-        <h3 className="text-lg font-semibold text-primary mb-4">Mortgage Services</h3>
+        {/* <h3 className="text-lg font-semibold text-primary mb-4">Mortgage Services</h3> */}
         <div className="space-y-2">
           {getServicesByIds(mortgageServices).map((service) => (
             <Link 
@@ -90,7 +90,7 @@ const ServicesMegaMenu = ({ isMobile, onClose }) => {
 
       {/* Financial Services */}
       <div>
-        <h3 className="text-lg font-semibold text-primary mb-4">Financial Services</h3>
+        {/* <h3 className="text-lg font-semibold text-primary mb-4">Financial Services</h3> */}
         <div className="space-y-2">
           {getServicesByIds(financialServices).map((service) => (
             <Link 
@@ -107,7 +107,7 @@ const ServicesMegaMenu = ({ isMobile, onClose }) => {
 
       {/* Legal Services */}
       <div>
-        <h3 className="text-lg font-semibold text-primary mb-4">Legal Services</h3>
+        {/* <h3 className="text-lg font-semibold text-primary mb-4">Legal Services</h3> */}
         <div className="space-y-2">
           {getServicesByIds(legalServices).map((service) => (
             <Link 

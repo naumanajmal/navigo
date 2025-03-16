@@ -82,12 +82,40 @@ const ServiceDetail = () => {
           
           {/* Description and Image Grid with enhanced styling */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Right Side - Image with enhanced styling */}
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="order-1 lg:order-2"
+            >
+              <div className="relative h-[500px] rounded-xl overflow-hidden shadow-xl border-2 border-white">
+                <img 
+                  src={`/services/${service.picture}`}
+                  alt={service.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
+                
+                {/* Service highlights overlay */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-primary/90 to-primary/0 p-6 pt-20">
+                  <ul className="flex flex-wrap gap-3">
+                    {service.features.map((feature, idx) => (
+                      <li key={idx} className="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium">
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </motion.div>
+            
             {/* Left Side - Descriptions with card styling */}
             <motion.div 
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="flex flex-col space-y-8"
+              className="flex flex-col space-y-8 order-2 lg:order-1"
             >
               <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-lg border border-primary/10">
                 <div className="prose max-w-none">
@@ -105,33 +133,6 @@ const ServiceDetail = () => {
                     Get Started Now
                     <IoArrowForward className="w-5 h-5" />
                   </button>
-                </div>
-              </div>
-            </motion.div>
-            
-            {/* Right Side - Image with enhanced styling */}
-            <motion.div 
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <div className="relative h-[500px] rounded-xl overflow-hidden shadow-xl border-2 border-white">
-                <img 
-                  src={service.id === 4 || service.id === 11 ? `/images/${service.picture}` : `/services/${service.picture}`}
-                  alt={service.title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
-                
-                {/* Service highlights overlay */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-primary/90 to-primary/0 p-6 pt-20">
-                  <ul className="flex flex-wrap gap-3">
-                    {service.features.map((feature, idx) => (
-                      <li key={idx} className="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium">
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
                 </div>
               </div>
             </motion.div>
@@ -188,29 +189,20 @@ const ServiceDetail = () => {
 
       {/* Quote Form Dialog */}
       {showQuoteForm && (
-        <>
-          <div
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50"
-            onClick={() => handleCloseForm()}
-          />
-          <div
-            className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2     overflow-auto z-50 bg-white rounded-2xl shadow-2xl  "
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex justify-end items-center  p-4">
-              <button
-                type="button"
-                onClick={handleCloseForm}
-                className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-              >
-                <svg className="w-6 h-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[9999] flex items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-white rounded-2xl shadow-xl   w-full max-w-md relative  ">
+            <button
+              type="button"
+              onClick={handleCloseForm}
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition-colors duration-200"
+            >
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
             <QuoteForm onClose={handleCloseForm} />
           </div>
-        </>
+        </div>
       )}
 
       {/* Eligibility Criteria - White Background */}
