@@ -313,47 +313,35 @@ const BlogDetail = () => {
     <div className="min-h-screen bg-gray-50 font-lexend">
       <Navbar />
       
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-24 sm:pt-32 pb-8 sm:pb-12">
-        <div className="flex flex-col lg:flex-row gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-32 pb-8 sm:pb-12">
+        <div className="flex flex-col lg:flex-row space-x-20">
           {/* Sidebar */}
-          <div className="w-full lg:w-64 lg:flex-shrink-0 order-2 lg:order-1">
+          <div className="hidden lg:block w-full lg:w-64 lg:flex-shrink-0 order-2 lg:order-1 sticky top-30">
             {/* Categories */}
-            <div className="mb-6 sm:mb-8">
-              <h3 className="text-lg sm:text-xl font-bold text-primary mb-3 sm:mb-4">Categories</h3>
-              <ul className="space-y-2">
-                {categories.map(category => (
-                  <li key={category.id}>
-                    <Link 
-                      to={`/blog?category=${category.slug}`} 
-                      className="text-gray-600 hover:text-primary transition-colors"
-                    >
-                      {category.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          
 
             {/* Related Posts */}
-            {relatedPosts.length > 0 && (
-              <div>
-                <h3 className="text-lg sm:text-xl font-bold text-primary mb-3 sm:mb-4">Related Posts</h3>
-                <div className="space-y-3">
-                  {relatedPosts.map(relatedPost => (
-                    <Link 
-                      key={relatedPost.id} 
-                      to={`/blog/${relatedPost.slug}`}
-                      className="block group"
-                    >
-                      <h4 
-                        className="text-sm font-medium text-gray-600 group-hover:text-primary transition-colors line-clamp-2"
-                        dangerouslySetInnerHTML={{ __html: relatedPost.title.rendered }}
-                      />
-                    </Link>
-                  ))}
+            {tableOfContents.length > 0 && (
+                <div className="w-full lg:w-72 mt-8 lg:mt-0 sticky top-30">
+                  <div className="bg-white shadow-sm rounded-xl p-5">
+                    <h3 className="text-xl font-bold text-primary mb-4">Table of Contents</h3>
+                    <nav className="toc-nav">
+                      <ul className="space-y-3">
+                        {tableOfContents.map((item) => (
+                          <li key={item.id}>
+                            <button
+                              onClick={() => scrollToSection(item.id)}
+                              className="text-gray-600 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-all duration-300 w-full text-left"
+                            >
+                              {item.index}. {item.text}
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    </nav>
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
           </div>
 
           {/* Main Content */}
@@ -402,27 +390,7 @@ const BlogDetail = () => {
               />
               
               {/* Table of Contents - Right Side */}
-              {tableOfContents.length > 0 && (
-                <div className="w-full lg:w-72 mt-8 lg:mt-0">
-                  <div className="sticky top-24 bg-white shadow-sm rounded-xl p-5">
-                    <h3 className="text-xl font-bold text-primary mb-4">Table of Contents</h3>
-                    <nav className="toc-nav">
-                      <ul className="space-y-3">
-                        {tableOfContents.map((item) => (
-                          <li key={item.id}>
-                            <button
-                              onClick={() => scrollToSection(item.id)}
-                              className="text-gray-600 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-all duration-300 w-full text-left"
-                            >
-                              {item.index}. {item.text}
-                            </button>
-                          </li>
-                        ))}
-                      </ul>
-                    </nav>
-                  </div>
-                </div>
-              )}
+             
             </div>
 
             {/* Add custom styles for WordPress content */}
