@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const FAQItem = ({ question, answer, isOpen, onClick, index, anyOpen }) => {
+const FAQItem = ({ question, answer, isOpen, onClick, index }) => {
   const isExpanded = isOpen;
   return (
     <div 
@@ -38,8 +40,18 @@ const FAQItem = ({ question, answer, isOpen, onClick, index, anyOpen }) => {
   );
 };
 
-const FAQ = ({ faqData = [] }) => {
+FAQItem.propTypes = {
+  question: PropTypes.string.isRequired,
+  answer: PropTypes.string.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
+  index: PropTypes.number.isRequired,
+};
+
+const FAQ = ({ faqData = [], limitCount = false }) => {
   const [openIndex, setOpenIndex] = useState(0);
+  const location = useLocation();
+  const isFaqPage = location.pathname === '/faq';
 
   const defaultFaqData = [
     {
@@ -65,11 +77,76 @@ const FAQ = ({ faqData = [] }) => {
     {
       question: "What is the minimum down payment required for a mortgage in the UAE?",
       answer: "For completed properties, the down payment ranges from 20% to 40% depending on the borrower's nationality and purpose (self-occupancy or investment). For under-construction properties, a 50% down payment is required."
+    },
+    {
+      question: "What role does the Dubai Land Department play in real estate transactions?",
+      answer: "The Dubai Land Department is responsible for regulating, documenting, and registering all real estate transactions in Dubai."
+    },
+    {
+      question: "What is an early settlement fee, and how is it regulated in the UAE?",
+      answer: "An early settlement fee is a charge imposed when a borrower repays their mortgage before the end of the loan term. The UAE Central Bank regulates the maximum fee a bank can charge."
+    },
+    {
+      question: "What does it mean to settle a mortgage early, and what are the benefits?",
+      answer: "Early settlement allows a borrower to repay their loan in full or make extra payments toward the principal before the loan term ends, reducing interest payments and overall debt."
+    },
+    {
+      question: "What is a fixed-rate mortgage, and how does it work?",
+      answer: "A fixed-rate mortgage maintains the same interest rate throughout the loan term, providing stability in monthly payments."
+    },
+    {
+      question: "Where can UAE and GCC nationals purchase freehold properties?",
+      answer: "UAE and GCC nationals can buy freehold properties across various designated areas in the UAE."
+    },
+    {
+      question: "What is freehold property, and where can foreigners buy it in the UAE?",
+      answer: "Freehold property allows full ownership rights. Foreign nationals can purchase freehold properties in designated areas like Dubai Marina, Downtown Dubai, and Palm Jumeirah."
+    },
+    {
+      question: "What is leasehold property, and how does it differ from freehold in the UAE?",
+      answer: "Leasehold property grants ownership rights for a fixed period, typically 99 years. The rights are registered with the Dubai Land Department under a Lease Deed."
+    },
+    {
+      question: "What is a loan against property, and how does it work?",
+      answer: "A loan against property, also known as equity release, allows a property owner to borrow money by mortgaging an already owned property."
+    },
+    {
+      question: "What is the Loan to Value (LTV) ratio, and what are its limits in the UAE?",
+      answer: "LTV is the ratio between the loan amount and the property's value. In the UAE, the Central Bank caps LTV at 60% to 80% for completed properties and 50% for under-construction properties."
+    },
+    {
+      question: "What is a mortgage, and how does it function as a loan?",
+      answer: "A mortgage is a loan secured against a property, where the property serves as collateral. The borrower makes regular payments toward the loan principal and interest."
+    },
+    {
+      question: "What is mortgage life insurance, and how does it protect borrowers?",
+      answer: "Mortgage life insurance covers the outstanding mortgage balance in the event of the borrower's death, ensuring the loan is repaid without burdening the family."
+    },
+    {
+      question: "What is mortgage pre-approval, and why is it important?",
+      answer: "Mortgage pre-approval is a bank's commitment to lend a specific amount based on the borrower's financial profile. It helps homebuyers negotiate better and secure a property confidently."
+    },
+    {
+      question: "What is the mortgage registration fee, and who charges it?",
+      answer: "The mortgage registration fee is charged by the Dubai Land Department to officially register the mortgage in favor of the lending bank."
+    },
+    {
+      question: "Can non-residents obtain mortgages in the UAE, and what are the conditions?",
+      answer: "Yes, non-residents can access mortgages from select UAE banks, although they may face higher down payments and slightly higher interest rates."
+    },
+    {
+      question: "What does property insurance cover, and is it mandatory for mortgage borrowers in the UAE?",
+      answer: "Property insurance covers the structure of the property against damage or loss. It is mandatory when securing a mortgage in the UAE."
     }
   ];
 
   // Use provided faqData if available, otherwise use default
-  const faqs = faqData.length > 0 ? faqData : defaultFaqData;
+  let faqs = faqData.length > 0 ? faqData : defaultFaqData;
+  
+  // Limit FAQs to 6 on pages other than the FAQ page, unless explicitly told not to limit
+  if (!isFaqPage && limitCount !== false && faqs.length > 6) {
+    faqs = faqs.slice(0, 6);
+  }
 
   return (
     <section className="relative bg-gradient-to-br from-[#e5f6ff] via-white to-[#f0f7ff] py-6 sm:py-8 md:py-12 lg:py-16 overflow-hidden">
@@ -104,7 +181,6 @@ const FAQ = ({ faqData = [] }) => {
                 question={faq.question}
                 answer={faq.answer}
                 isOpen={index === openIndex}
-                anyOpen={openIndex !== -1}
                 onClick={() => setOpenIndex(index === openIndex ? -1 : index)}
               />
             ))}
@@ -117,7 +193,6 @@ const FAQ = ({ faqData = [] }) => {
                 question={faq.question}
                 answer={faq.answer}
                 isOpen={index + Math.ceil(faqs.length / 2) === openIndex}
-                anyOpen={openIndex !== -1}
                 onClick={() => setOpenIndex((index + Math.ceil(faqs.length / 2)) === openIndex ? -1 : index + Math.ceil(faqs.length / 2))}
               />
             ))}
@@ -126,6 +201,14 @@ const FAQ = ({ faqData = [] }) => {
       </div>
     </section>
   );
+};
+
+FAQ.propTypes = {
+  faqData: PropTypes.arrayOf(PropTypes.shape({
+    question: PropTypes.string.isRequired,
+    answer: PropTypes.string.isRequired
+  })),
+  limitCount: PropTypes.bool
 };
 
 export default FAQ;

@@ -81,7 +81,7 @@ const Services = () => {
 
       {/* Contact Section */}
       {/* FAQ Section */}
-      <FAQ />
+      <FAQ limitCount={true} />
 
  
       
