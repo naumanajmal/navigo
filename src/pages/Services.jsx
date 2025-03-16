@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../components/navbar/Navbar'
 import Footer from '../components/Footer'
 import { services } from '../components/services/servicesData.jsx'
-import ContactSection from '../components/ContactSection'
 import FAQ from '../components/FAQ'
 
 const Services = () => {
@@ -81,7 +80,7 @@ const Services = () => {
 
       {/* Contact Section */}
       {/* FAQ Section */}
-      <FAQ />
+      <FAQ limitCount={true} />
 
  
       

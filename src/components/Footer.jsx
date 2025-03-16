@@ -13,7 +13,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-primary border-t border-gray-100 text-white">
-      <div className="pt-8 lg:pt-16 flex flex-col items-center justify-center">
+      <div className="pt-12 sm:pt-8 lg:pt-16 flex flex-col items-center justify-center">
         {/* Content Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 w-full sm:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Company Info */}
@@ -38,7 +38,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-sm sm:text-base text-white/80 hover:text-secondary transition-colors">
+                <Link to="/about-us" className="text-sm sm:text-base text-white/80 hover:text-secondary transition-colors">
                   About Us
                 </Link>
               </li>
@@ -75,7 +75,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/faqs" className="text-sm sm:text-base text-white/80 hover:text-secondary transition-colors">
+                <Link to="/faq" className="text-sm sm:text-base text-white/80 hover:text-secondary transition-colors">
                   FAQs
                 </Link>
               </li>
@@ -116,19 +116,19 @@ const Footer = () => {
               &copy; {currentYear} {footerData.company_name}. All rights reserved.
             </p>
             <div className="flex items-center space-x-4 relative">
-              <a
-                href="/privacy-policy"
+              <Link
+                to="/privacy"
                 className="text-xs text-white hover:text-secondary transition-colors font-medium"
               >
                 Privacy Policy
-              </a>
+              </Link>
               <span className="text-gray-400">|</span>
-              <a
-                href="/terms-conditions"
+              <Link
+                to="/terms"
                 className="text-xs text-white hover:text-secondary transition-colors font-medium"
               >
                 Terms & Conditions
-              </a>
+              </Link>
             </div>
           </div>
         </div>

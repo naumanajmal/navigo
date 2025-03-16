@@ -140,13 +140,11 @@ const FAQ = ({ faqData = [], limitCount = false }) => {
     }
   ];
 
-  // Use provided faqData if available, otherwise use default
-  let faqs = faqData.length > 0 ? faqData : defaultFaqData;
+  // Use provided faqData or default data
+  const allFaqs = faqData.length > 0 ? faqData : defaultFaqData;
   
-  // Limit FAQs to 6 on pages other than the FAQ page, unless explicitly told not to limit
-  if (!isFaqPage && limitCount !== false && faqs.length > 6) {
-    faqs = faqs.slice(0, 6);
-  }
+  // Limit to 6 FAQs on homepage, show all on FAQ page
+  const faqs = (!isFaqPage && limitCount) ? allFaqs.slice(0, 6) : allFaqs;
 
   return (
     <section className="relative bg-gradient-to-br from-[#e5f6ff] via-white to-[#f0f7ff] py-6 sm:py-8 md:py-12 lg:py-16 overflow-hidden">
