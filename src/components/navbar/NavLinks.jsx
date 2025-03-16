@@ -91,7 +91,7 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
                     </div>
                   </div>
                 </button>
-                <div className={`transition-all duration-300 overflow-hidden ${showMobileServices ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                <div className={`transition-all duration-300 overflow-hidden ${showMobileServices ? ' opacity-100' : 'max-h-0 opacity-0'}`}>
                   <ServicesMegaMenu isMobile={true} onClose={() => setShowMobileServices(false)} />
                 </div>
               </div>

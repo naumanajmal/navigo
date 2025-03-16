@@ -4,9 +4,9 @@ import PropTypes from 'prop-types'
 
 const ServicesMegaMenu = ({ isMobile, onClose }) => {
   // Group services into categories
-  const mortgageServices = [1, 2, 3, 4, 10, 11, 12, 13, 14]; // Residential, Commercial, Non-Resident, Refinance, UAE/GCC, Mega Loans, Equity Release, Plot & Land, Under Construction
-  const financialServices = [6, 7, 8, 9, 15, 16]; // Corporate & SME, Personal Loans, Project Finance, Trade Finance, Portfolio Consolidation, Islamic Finance
-  const legalServices = [5]; // Professional Legal Support
+  const mortgageServices = [1, 2, 3, 4, 10, 11]; // Residential, Commercial, Non-Resident, Refinance, UAE/GCC, Mega Loans, Equity Release, Plot & Land, Under Construction
+  const financialServices = [6, 7, 8, 9, 15]; // Corporate & SME, Personal Loans, Project Finance, Trade Finance, Portfolio Consolidation, Islamic Finance
+  const legalServices = [5, 16, 12, 13, 14]; // Professional Legal Support
 
   const getServicesByIds = (ids) => {
     return services.filter(service => ids.includes(service.id));
@@ -14,11 +14,11 @@ const ServicesMegaMenu = ({ isMobile, onClose }) => {
 
   if (isMobile) {
     return (
-      <div className="pl-4 space-y-4 mt-4">
+      <div className="pl-4   mt-4">
         {/* Mortgage Services */}
         <div>
-          <h3 className="text-sm font-semibold text-gray-400 px-4">MORTGAGE SERVICES</h3>
-          <div className="mt-2 space-y-1">
+          {/* <h3 className="text-sm font-semibold text-gray-400 px-4">MORTGAGE SERVICES</h3> */}
+          <div className=" space-y-1">
             {getServicesByIds(mortgageServices).map((service) => (
               <Link 
                 key={service.id}
@@ -34,8 +34,8 @@ const ServicesMegaMenu = ({ isMobile, onClose }) => {
 
         {/* Financial Services */}
         <div>
-          <h3 className="text-sm font-semibold text-gray-400 px-4">FINANCIAL SERVICES</h3>
-          <div className="mt-2 space-y-1">
+          {/* <h3 className="text-sm font-semibold text-gray-400 px-4">FINANCIAL SERVICES</h3> */}
+          <div className=" space-y-1">
             {getServicesByIds(financialServices).map((service) => (
               <Link 
                 key={service.id}
@@ -51,8 +51,8 @@ const ServicesMegaMenu = ({ isMobile, onClose }) => {
 
         {/* Legal Services */}
         <div>
-          <h3 className="text-sm font-semibold text-gray-400 px-4">LEGAL SERVICES</h3>
-          <div className="mt-2 space-y-1">
+          {/* <h3 className="text-sm font-semibold text-gray-400 px-4">LEGAL SERVICES</h3> */}
+          <div className=" space-y-1">
             {getServicesByIds(legalServices).map((service) => (
               <Link 
                 key={service.id}
