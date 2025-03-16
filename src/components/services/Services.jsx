@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { services, mainTitle, mainSubtitle } from './servicesData.jsx'
 
 const Services = () => {
-  const [showAllServices, setShowAllServices] = useState(false)
   const [activeIndex, setActiveIndex] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
   const carouselRef = useRef(null)
@@ -203,12 +202,10 @@ const Services = () => {
           {/* Cards Container */}
           <div
             ref={carouselRef}
-            className={`${showAllServices 
-              ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8' 
-              : 'flex gap-2 sm:gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-8 sm:pb-12 scrollbar-hide pl-[calc(50%-150px)] sm:pl-[max(2rem,calc((100%-1280px)/2))] pr-[calc(50%-150px)] sm:pr-8'}`}
+            className="flex gap-2 sm:gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-8 sm:pb-12 scrollbar-hide pl-[calc(50%-150px)] sm:pl-[max(2rem,calc((100%-1280px)/2))] pr-[calc(50%-150px)] sm:pr-8"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             onMouseEnter={() => {
-              !showAllServices && setIsPaused(true)
+              setIsPaused(true)
               if (intervalRef.current) {
                 clearInterval(intervalRef.current)
               }
@@ -229,34 +226,43 @@ const Services = () => {
                     : 'opacity-70'
                 }`}
               >
-                <div className={`bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 h-[470px] sm:h-[500px] md:h-[550px] group transition-all duration-500 border shadow-sm ${activeIndex === index ? 'bg-gradient-to-br from-primary/5 to-secondary/5 border-secondary/20 shadow-md' : 'border-gray-100 shadow-sm hover:shadow-md'}`}>
-                  <div className="h-full flex flex-col">
-                    <div className="mb-4 sm:mb-6 transition-all duration-500">
-                      <div className={`w-16 h-16 rounded-2xl flex items-center justify-center bg-gradient-to-br transition-all duration-500 ${activeIndex === index ? 'from-secondary/10 to-primary/10 scale-110' : 'from-primary/5 to-secondary/5 group-hover:scale-110'}`}>
-                        <div className={`transition-colors duration-500 ${activeIndex === index ? 'text-secondary' : 'text-primary group-hover:text-secondary'}`}>
-                          {service.icon}
+                <Link 
+                  to={`/services/${service.id}`}
+                  onClick={(e) => {
+                    e.stopPropagation(); // Prevent triggering the parent onClick
+                    window.scrollTo(0, 0); // Scroll to top when navigating
+                  }}
+                  className="block h-full"
+                >
+                  <div className={`bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 h-[470px] sm:h-[500px] md:h-[550px] group transition-all duration-500 border shadow-sm ${activeIndex === index ? 'bg-gradient-to-br from-primary/5 to-secondary/5 border-secondary/20 shadow-md' : 'border-gray-100 shadow-sm hover:shadow-md'}`}>
+                    <div className="h-full flex flex-col">
+                      <div className="mb-4 sm:mb-6 transition-all duration-500">
+                        <div className={`w-16 h-16 rounded-2xl flex items-center justify-center bg-gradient-to-br transition-all duration-500 ${activeIndex === index ? 'from-secondary/10 to-primary/10 scale-110' : 'from-primary/5 to-secondary/5 group-hover:scale-110'}`}>
+                          <div className={`transition-colors duration-500 ${activeIndex === index ? 'text-secondary' : 'text-primary group-hover:text-secondary'}`}>
+                            {service.icon}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="space-y-4 mb-8">
-                      <h3 className={`text-xl sm:text-2xl font-bold transition-colors duration-300 ${activeIndex === index ? 'text-primary' : 'text-gray-900 group-hover:text-primary'}`}>{service.title}</h3>
-                      <p className="text-base sm:text-lg text-secondary font-medium">{service.list_sub_title}</p>
-                      <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{service.description}</p>
-                    </div>
-                    <div className="">
-                      <ul className="space-y-2 sm:space-y-3">
-                        {service.features.map((feature, idx) => (
-                          <li key={idx} className="flex items-center text-gray-600">
-                            <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span className="text-sm sm:text-base">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
+                      <div className="space-y-4 mb-8">
+                        <h3 className={`text-xl sm:text-2xl font-bold transition-colors duration-300 ${activeIndex === index ? 'text-primary' : 'text-gray-900 group-hover:text-primary'}`}>{service.title}</h3>
+                        <p className="text-base sm:text-lg text-secondary font-medium">{service.list_sub_title}</p>
+                        <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{service.description}</p>
+                      </div>
+                      <div className="">
+                        <ul className="space-y-2 sm:space-y-3">
+                          {service.features.map((feature, idx) => (
+                            <li key={idx} className="flex items-center text-gray-600">
+                              <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                              </svg>
+                              <span className="text-sm sm:text-base">{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               </div>
             ))}
           </div>

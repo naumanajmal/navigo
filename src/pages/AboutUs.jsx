@@ -41,23 +41,61 @@ const AboutUs = () => {
             </motion.div>
           </div>
           
-          <motion.div 
-            className="mt-12 md:mt-16 max-w-4xl mx-auto"
-            initial={{ y: 50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.4 }}
-          >
-            <p className="text-gray-600 mb-4 text-base sm:text-lg leading-relaxed text-center">
-              Navigo was founded with a vision to transform the home buying experience. Through innovative digital tools, a user-friendly platform, and personalized support, we&apos;ve redefined what it means to find a home. We focus on transparency, communication, and trust, ensuring that you are empowered with the knowledge and confidence you need to make informed decisions.
-            </p>
-            <p className="text-gray-600 mb-4 text-base sm:text-lg leading-relaxed text-center">
-              Our team combines years of expertise in real estate with cutting-edge technology to create a more accessible, efficient, and enjoyable process for our clients. By fostering open and honest relationships, we build long-lasting partnerships that extend beyond just a transaction – we&apos;re here to guide you on your journey to finding a place to call home.
-            </p>
-            <p className="text-gray-600 text-base sm:text-lg leading-relaxed text-center">
-              At Navigo, we&apos;re not just making home buying easier—we&apos;re making it a joyful experience. Let us help you turn your dreams of homeownership into reality, with ease, transparency, and support every step of the way.
-            </p>
-          </motion.div>
+          <div className="mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <motion.div 
+              className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: 'easeOut', delay: 0.3 }}
+            >
+              <div className="text-primary mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold mb-3 text-gray-800">Our Vision</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Navigo was founded with a vision to transform the home buying experience. Through innovative digital tools, a user-friendly platform, and personalized support, we&apos;ve redefined what it means to find a home.
+              </p>
+            </motion.div>
+            
+            <motion.div 
+              className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: 'easeOut', delay: 0.4 }}
+            >
+              <div className="text-primary mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold mb-3 text-gray-800">Our Expertise</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Our team combines years of expertise in real estate with cutting-edge technology to create a more accessible, efficient, and enjoyable process for our clients. By fostering open and honest relationships, we build long-lasting partnerships.
+              </p>
+            </motion.div>
+            
+            <motion.div 
+              className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: 'easeOut', delay: 0.5 }}
+            >
+              <div className="text-primary mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold mb-3 text-gray-800">Our Promise</h3>
+              <p className="text-gray-600 leading-relaxed">
+                At Navigo, we&apos;re not just making home buying easier—we&apos;re making it a joyful experience. Let us help you turn your dreams of homeownership into reality, with ease, transparency, and support every step of the way.
+              </p>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -140,7 +178,7 @@ const AboutUs = () => {
                 content: 'We prioritize honesty and transparency in all our dealings. Our commitment to integrity ensures that clients can trust us to provide clear, reliable advice and services.',
                 icon: (
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 )
               }
