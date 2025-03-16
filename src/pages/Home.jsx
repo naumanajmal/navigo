@@ -132,7 +132,7 @@ function Home() {
       
       
       <AnimateOnScroll>
-        <FAQ limitCount={true} />
+        <FAQ />
       </AnimateOnScroll>
 
       {/* <ContactSection/> */}

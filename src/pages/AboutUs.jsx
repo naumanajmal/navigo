@@ -1,3 +1,4 @@
+import React from 'react';
 import Navbar from '../components/navbar/Navbar';
 import Footer from '../components/Footer';
 import { motion } from 'framer-motion';
@@ -33,66 +34,7 @@ const AboutUs = () => {
             >
               <h2 className="text-3xl sm:text-4xl md:text-[42px] lg:text-[52px] font-bold pb-4 sm:pb-6 md:pb-10 text-primary text-center lg:text-left">About Us</h2>
               <p className="text-gray-600 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed text-left sm:text-justify">
-                At Navigo, we understand that the journey to homeownership can be overwhelming and costly, filled with uncertainties and complexities. Our mission is to simplify this process, ensuring that every individual can experience the joy of home buying without the stress.
-              </p>
-              <p className="text-gray-600 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed text-left sm:text-justify">
-                Our dedicated team of experts works tirelessly to provide clear, straightforward guidance at every step. Whether you&apos;re a first-time homebuyer or looking to upgrade your living space, we&apos;re here to make the journey seamless. We firmly believe that purchasing a home should be a moment of celebration, not a source of anxiety. That&apos;s why our motto is, &quot;Making home buying a moment of celebration, not a stressful event.&quot;
-              </p>
-            </motion.div>
-          </div>
-          
-          <div className="mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <motion.div 
-              className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, ease: 'easeOut', delay: 0.3 }}
-            >
-              <div className="text-primary mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-800">Our Vision</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Navigo was founded with a vision to transform the home buying experience. Through innovative digital tools, a user-friendly platform, and personalized support, we&apos;ve redefined what it means to find a home.
-              </p>
-            </motion.div>
-            
-            <motion.div 
-              className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, ease: 'easeOut', delay: 0.4 }}
-            >
-              <div className="text-primary mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-800">Our Expertise</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Our team combines years of expertise in real estate with cutting-edge technology to create a more accessible, efficient, and enjoyable process for our clients. By fostering open and honest relationships, we build long-lasting partnerships.
-              </p>
-            </motion.div>
-            
-            <motion.div 
-              className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, ease: 'easeOut', delay: 0.5 }}
-            >
-              <div className="text-primary mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-800">Our Promise</h3>
-              <p className="text-gray-600 leading-relaxed">
-                At Navigo, we&apos;re not just making home buying easier—we&apos;re making it a joyful experience. Let us help you turn your dreams of homeownership into reality, with ease, transparency, and support every step of the way.
+                The Navigo team understands how complicated and expensive the process is. Our team is dedicated to making the process of home buying easy for everyone. Our motto is "making home buying a moment of celebration not a stressful event." Navigo brought this dream to life making home buying a simple process and easy for everyone. Our digitized and expert team builds transparent relationships.
               </p>
             </motion.div>
           </div>
@@ -119,18 +61,64 @@ const AboutUs = () => {
             className="text-center mb-16"
           >
             <h2 className="text-[38px] font-bold mb-6 text-primary inline-block">
-              Our Core Values
+              Why Choose Us?
             </h2>
             <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-              At Navigo, our core values shape how we operate and guide our interactions with clients and partners. These principles ensure we deliver exceptional service and results.
+              We are a company of proactive, professional and commitment. We are not just a team,
+              but committed to make the mortgage process easy for everyone.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
-                title: 'Client-Centric Approach',
-                content: "We prioritize our clients' needs, ensuring a smooth and rewarding home-buying journey through personalized solutions and attentive support.",
+                title: 'Mortgage Access',
+                content: 'Access to all mortgage and home loan plans',
+                icon: (
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                )
+              },
+              {
+                title: 'Financial Solutions',
+                content: 'Plans for all type of financial needs',
+                icon: (
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                )
+              },
+              {
+                title: '24/7 Support',
+                content: 'Experts available 24X7',
+                icon: (
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                )
+              },
+              {
+                title: 'Best Plans',
+                content: 'Negotiating the best plans',
+                icon: (
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                )
+              },
+              {
+                title: 'Transparent Fees',
+                content: 'No hidden fees',
+                icon: (
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                )
+              },
+              {
+                title: 'Long-term Partnership',
+                content: 'Long-term relationship',
                 icon: (
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
@@ -138,47 +126,11 @@ const AboutUs = () => {
                 )
               },
               {
-                title: 'Respect & Empathy',
-                content: "We value every client's unique experience and treat them with kindness and understanding to build lasting relationships.",
+                title: 'Expert Team',
+                content: 'Experienced people on department',
                 icon: (
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                  </svg>
-                )
-              },
-              {
-                title: 'Excellence in Service',
-                content: 'We are committed to delivering top-notch service at every step, constantly improving to exceed expectations.',
-                icon: (
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                )
-              },
-              {
-                title: 'Collaboration & Partnerships',
-                content: 'We believe in the power of collaboration. By building strong partnerships, we combine expertise and resources to create the best solutions for our clients.',
-                icon: (
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                  </svg>
-                )
-              },
-              {
-                title: 'Commitment to Growth & Innovation',
-                content: 'We are dedicated to continuous growth and innovation, staying ahead of industry trends to provide the most efficient and modern home-buying experience.',
-                icon: (
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                )
-              },
-              {
-                title: 'Integrity & Transparency',
-                content: 'We prioritize honesty and transparency in all our dealings. Our commitment to integrity ensures that clients can trust us to provide clear, reliable advice and services.',
-                icon: (
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 )
               }
@@ -206,7 +158,6 @@ const AboutUs = () => {
    
 
       {/* Founder Section */}
-      {/* Temporarily hidden as requested
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -221,10 +172,10 @@ const AboutUs = () => {
                 Message from Our Managing Partner
               </h2>
               <blockquote className="text-xl sm:text-2xl font-light italic text-gray-600 mb-6 text-center md:text-left">
-                &quot;Dream about your home, we&apos;ll make it a reality!&quot;
+                "Dream about your home, we'll make it a reality!"
               </blockquote>
               <p className="text-base sm:text-lg text-gray-600 mb-8 text-center md:text-left">
-                At Navigo, we understand that buying a home is more than just a transaction - it&apos;s a milestone in your life&apos;s journey. Our commitment goes beyond providing mortgage solutions; we&apos;re here to make your dream of homeownership a celebration, not a source of stress.
+                At Navigo, we understand that buying a home is more than just a transaction - it's a milestone in your life's journey. Our commitment goes beyond providing mortgage solutions; we're here to make your dream of homeownership a celebration, not a source of stress.
               </p>
               <div className="flex items-center gap-4 justify-center md:justify-start">
                 <div>
@@ -246,8 +197,8 @@ const AboutUs = () => {
             </div>
           </motion.div>
         </div>
+      
       </section>
-      */}
 
       <Footer />
     </div>

@@ -1,3 +1,4 @@
+import React from 'react'
 import Navbar from '../components/navbar/Navbar';
 import Footer from '../components/Footer';
 import { motion } from 'framer-motion';
@@ -38,8 +39,7 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-2">Office Address</h3>
                       <p className="text-gray-600 text-sm">
-                        Clover Bay Tower, 6a Marasi Dr<br />
-                        Business Bay, Dubai, UAE
+                        511, Clover Bay, Business Bay, Dubai, UAE
                       </p>
                     </div>
                   </div>
@@ -59,8 +59,7 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-2">Phone Number</h3>
                       <p className="text-gray-600 text-sm">
-                        <a href="tel:+97145676789" className="hover:text-primary transition-colors">+971 4 567 6789</a><br />
-                        <a href="tel:+971501234567" className="hover:text-primary transition-colors">+971 50 123 4567</a>
+                        <a href="tel:+971552522508" className="hover:text-primary transition-colors">+971 55 252 2508</a>
                       </p>
                     </div>
                   </div>
@@ -80,8 +79,7 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-2">Email Address</h3>
                       <p className="text-gray-600 text-sm">
-                        <a href="mailto:info@navigo.ae" className="hover:text-primary transition-colors">info@navigo.ae</a><br />
-                        <a href="mailto:support@navigo.ae" className="hover:text-primary transition-colors">support@navigo.ae</a>
+                        <a href="mailto:admin@navigo.ae" className="hover:text-primary transition-colors">admin@navigo.ae</a>
                       </p>
                     </div>
                   </div>
@@ -137,7 +135,7 @@ export default function ContactPage() {
                   Fill out the form below, and our team will get back to you within 24 hours.
                 </p>
                 <div className="pr-0">
-                  <QuoteForm />
+                  <QuoteForm isContactPage={true} />
                 </div>
               </div>
             </div>
@@ -146,7 +144,7 @@ export default function ContactPage() {
           {/* Map Section - Full Width */}
           <div className="rounded-2xl overflow-hidden shadow-xl h-[400px] relative">
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.1783896247!2d55.2729!3d25.1865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f69d353d52701%3A0xea5908e654d1ea82!2sClover%20Bay%20Tower%20-%206a%20Marasi%20Dr%20-%20Business%20Bay%20-%20Dubai!5e0!3m2!1sen!2sae!4v1742097910032!5m2!1sen!2sae&maptype=roadmap&style=element:geometry%7Ccolor:0xf5f5f5&style=element:labels.icon%7Cvisibility:off&style=element:labels.text.fill%7Ccolor:0x616161&style=element:labels.text.stroke%7Ccolor:0xf5f5f5&style=feature:administrative.land_parcel%7Celement:labels.text.fill%7Ccolor:0xbdbdbd&style=feature:poi%7Celement:geometry%7Ccolor:0xeeeeee&style=feature:poi%7Celement:labels.text.fill%7Ccolor:0x757575&style=feature:poi.park%7Celement:geometry%7Ccolor:0xe5e5e5&style=feature:poi.park%7Celement:labels.text.fill%7Ccolor:0x9e9e9e&style=feature:road%7Celement:geometry%7Ccolor:0xffffff&style=feature:road.arterial%7Celement:labels.text.fill%7Ccolor:0x757575&style=feature:road.highway%7Celement:geometry%7Ccolor:0x1e40af&style=feature:road.highway%7Celement:labels.text.fill%7Ccolor:0x616161&style=feature:road.local%7Celement:labels.text.fill%7Ccolor:0x9e9e9e&style=feature:transit.line%7Celement:geometry%7Ccolor:0xe5e5e5&style=feature:transit.station%7Celement:geometry%7Ccolor:0xeeeeee&style=feature:water%7Celement:geometry%7Ccolor:0xc8e1ff&style=feature:water%7Celement:labels.text.fill%7Ccolor:0x9e9e9e" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.1783896247!2d55.2729!3d25.1865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f69d353d52701%3A0xea5908e654d1ea82!2sClover%20Bay%20Tower%20-%206a%20Marasi%20Dr%20-%20Business%20Bay%20-%20Dubai!5e0!3m2!1sen!2sae!4v1742097910032!5m2!1sen!2sae&maptype=roadmap&style=element:geometry%7Ccolor:0xf5f5f5&style=element:labels.icon%7Cvisibility:off&style=element:labels.text.fill%7Ccolor:0x616161&style=feature:administrative.land_parcel%7Celement:labels.text.fill%7Ccolor:0xbdbdbd&style=feature:poi%7Celement:geometry%7Ccolor:0xeeeeee&style=feature:poi%7Celement:labels.text.fill%7Ccolor:0x757575&style=feature:poi.park%7Celement:geometry%7Ccolor:0xe5e5e5&style=feature:poi.park%7Celement:labels.text.fill%7Ccolor:0x9e9e9e&style=feature:road%7Celement:geometry%7Ccolor:0xffffff&style=feature:road.arterial%7Celement:labels.text.fill%7Ccolor:0x757575&style=feature:road.highway%7Celement:geometry%7Ccolor:0x1e40af&style=feature:road.highway%7Celement:labels.text.fill%7Ccolor:0x616161&style=feature:road.local%7Celement:labels.text.fill%7Ccolor:0x9e9e9e&style=feature:transit.line%7Celement:geometry%7Ccolor:0xe5e5e5&style=feature:transit.station%7Celement:geometry%7Ccolor:0xeeeeee&style=feature:water%7Celement:geometry%7Ccolor:0xc8e1ff&style=feature:water%7Celement:labels.text.fill%7Ccolor:0x9e9e9e" 
               width="100%" 
               height="100%" 
               style={{ border: 0 }} 
@@ -168,75 +166,7 @@ export default function ContactPage() {
         </div>
       </section>
       
-      {/* FAQ Section */}
-      <section className="py-16 bg-gradient-to-r from-primary/10 to-secondary/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-primary">
-              Common Questions
-            </h2>
-            <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
-              Find answers to frequently asked questions about our services and processes.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* FAQ Item 1 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-primary/20"
-            >
-              <h3 className="text-lg font-semibold text-primary mb-3">How quickly can I get pre-approved for a mortgage?</h3>
-              <p className="text-gray-600 text-sm">
-                Our pre-approval process typically takes 24-48 hours once we have all your documents. We prioritize efficiency without compromising thoroughness.
-              </p>
-            </motion.div>
-            
-            {/* FAQ Item 2 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-primary/20"
-            >
-              <h3 className="text-lg font-semibold text-primary mb-3">Do you offer services for first-time homebuyers?</h3>
-              <p className="text-gray-600 text-sm">
-                Yes, we specialize in helping first-time homebuyers navigate the mortgage process with dedicated support and educational resources.
-              </p>
-            </motion.div>
-            
-            {/* FAQ Item 3 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-primary/20"
-            >
-              <h3 className="text-lg font-semibold text-primary mb-3">What documents do I need to apply for a mortgage?</h3>
-              <p className="text-gray-600 text-sm">
-                You&apos;ll need identification, proof of income, bank statements, and details about the property. Our team will guide you through the specific requirements.
-              </p>
-            </motion.div>
-            
-            {/* FAQ Item 4 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-primary/20"
-            >
-              <h3 className="text-lg font-semibold text-primary mb-3">Can non-residents obtain mortgages in the UAE?</h3>
-              <p className="text-gray-600 text-sm">
-                Yes, non-residents can access mortgages from select UAE banks, although they may face higher down payments and slightly higher interest rates.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
       <Footer />
     </div>
-  )
+  );
 }
