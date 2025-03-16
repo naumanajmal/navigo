@@ -136,7 +136,9 @@ export default function ContactPage() {
                 <p className="text-gray-600 mb-8">
                   Fill out the form below, and our team will get back to you within 24 hours.
                 </p>
-                <QuoteForm />
+                <div className="pr-0">
+                  <QuoteForm />
+                </div>
               </div>
             </div>
           </div>

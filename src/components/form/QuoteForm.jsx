@@ -138,7 +138,7 @@ const QuoteForm = ({ isMobile, onClose }) => {
 
   const formClasses = isMobile
     ? 'fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4'
-    : 'w-full max-w-md bg-white rounded-2xl shadow-xl p-8'
+    : 'w-full max-w-none bg-white rounded-2xl'
 
   const formContentClasses = isMobile
     ? 'bg-white rounded-2xl shadow-xl p-6 sm:p-8 w-full max-w-md relative'
