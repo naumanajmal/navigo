@@ -131,7 +131,7 @@ const Services = () => {
   }, [handleScroll])
 
   return (
-    <section className="relative py-12 sm:py-16 md:py-20 overflow-hidden border-b border-gray-100">
+    <section className="relative py-6 sm:py-8 md:py-12 lg:pt-16 lg:pb-20 overflow-hidden border-b border-gray-100">
       {/* Background with SVG and fade effects */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Main background fade */}

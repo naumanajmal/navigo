@@ -2,7 +2,7 @@
 import QuoteForm from './form/QuoteForm';
 const ContactSection = () => {
   return (
-    <section className="relative min-h-[800px] flex items-center justify-center py-24 lg:py-32">
+    <section className="relative min-h-[800px] flex items-center justify-center py-16 lg:pt-40">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img

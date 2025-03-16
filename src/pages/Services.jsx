@@ -39,13 +39,13 @@ const Services = () => {
 
 
       {/* Services Grid */}
-      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-6 sm:py-8 md:py-12 lg:py-16 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 animate-fade-in-up animation-delay-400">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 animate-fade-in-up animation-delay-400 pb-5">
             {services.map((service) => (
               <div 
                 key={service.id}
-                className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden group hover:-translate-y-1 relative flex flex-col h-full"
+                className="bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-500 overflow-hidden group hover:-translate-y-1 relative flex flex-col h-full"
               >
                 <div className="p-5 sm:p-6 md:p-8 flex flex-col h-full">
                   <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-4 sm:mb-5 md:mb-6 group-hover:bg-primary/20 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
@@ -83,7 +83,7 @@ const Services = () => {
       {/* FAQ Section */}
       <FAQ />
 
-      <ContactSection />
+ 
       
       <Footer />
     </div>

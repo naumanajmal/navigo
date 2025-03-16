@@ -58,7 +58,7 @@ function Home() {
               {/* Contact CTAs */}
               <div className="flex flex-row gap-2 sm:gap-4  sm:w-auto w-4/5">
                 <a
-                  href="tel:+1234567890"
+                  href="tel:+971552522508"
                   className="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 sm:gap-2 bg-white text-primary px-3 sm:px-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl hover:bg-white/90 transition-all duration-200 text-sm sm:text-base font-medium shadow-lg hover:shadow-xl active:scale-[0.98] min-w-[140px]"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -67,7 +67,7 @@ function Home() {
                   Call Now
                 </a>
                 <a
-                  href="https://wa.me/1234567890"
+                  href="https://wa.me/971552522508"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 sm:gap-2 bg-secondary text-white px-3 sm:px-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl hover:bg-secondary/90 transition-all duration-200 text-sm sm:text-base font-medium shadow-lg hover:shadow-xl active:scale-[0.98] min-w-[140px]"
@@ -136,7 +136,7 @@ function Home() {
       </AnimateOnScroll>
 
       {/* <ContactSection/> */}
-      <div className="pt-10 md:pt-16 lg:pt-20">
+      <div className="">
         <Footer />
       </div>
     </div>

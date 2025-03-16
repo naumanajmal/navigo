@@ -107,7 +107,7 @@ const AffordabilityCalculator = () => {
   };
 
   return (
-    <div className="bg-white/80 backdrop-blur-lg rounded-2xl md:rounded-3xl p-3 md:p-4 shadow-xl ring-1 ring-gray-100 hover:shadow-2xl transition-shadow duration-500">
+    <div className="bg-white/80 backdrop-blur-lg rounded-2xl md:rounded-3xl p-3 md:p-6 shadow-xl ring-1 ring-gray-100 hover:shadow-2xl transition-shadow duration-500">
       <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-12">
         {/* Left Side - Inputs */}
         <div className="md:col-span-3 space-y-6">

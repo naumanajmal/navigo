@@ -1,0 +1,821 @@
+/* eslint-disable no-unused-vars */
+import * as React from 'react';
+/* eslint-enable no-unused-vars */
+
+export const mainTitle = "One-Stop Solution For All Financial Requirements";
+export const mainSubtitle = "No matter what your financing needs are, we've got you!";
+
+export const services = [
+  // Mortgage Services
+  {
+    id: 1,
+    title: 'Residential Property',
+    picture: 'Residential_Property.avif',
+    list_sub_title: 'Your Dream Home in UAE',
+    features: ['Looking for primary residential home', 'For first time home buyers', 'Best mortgage rates', 'Smooth process'],
+    subtitle: `Do you wish to make your own dream home in the UAE? Don't worry, we'll make it true!`,
+    description: 'Find your perfect home in the UAE with our comprehensive residential mortgage solutions, offering competitive rates and seamless processing for first-time buyers.',
+    description_1: `Residential property loans are a common way for individuals to finance the purchase of homes. These loans can be used for buying single-family homes, apartments, or other residential properties. Navigo provides residential property loan solutions with flexible terms, making home ownership a reality for many. Whether you are a first-time buyer or looking to upgrade, Navigo has the expertise to assist with financing the perfect home.`,
+    description_2: `Our expert team will guide you through the entire process, from application to closing, ensuring a smooth and hassle-free experience. We offer competitive rates and flexible terms to meet your unique financial needs.`,
+     benefits: {
+      title: 'Benefits of Choosing Navigo:',
+      items: [
+        'Competitive interest rates: Navigo offers highly competitive mortgage rates that help reduce monthly payments.',
+        'Customizable loan terms: The loan amount and repayment schedule can be tailored to meet the buyer\'s financial needs.',
+        'Fast approval process: Navigo\'s simple and quick application process allows for fast approvals and disbursement of funds.',
+        'Expert guidance: Navigo\'s team helps buyers navigate the entire process, from application to closing.',
+        'Flexible down payment options: Depending on the loan product, Navigo can offer flexibility with down payment requirements.',
+        'First-time homebuyer assistance: Navigo provides specialized products for first-time homebuyers, including low down payment options.'
+      ]
+    },
+    eligibility: {
+      title: 'Eligibility:',
+      items: [
+        'The applicant must have a stable source of income and a good credit score.',
+        'Proof of identity and residence.',
+        'A down payment, typically between 10-20% of the property value.',
+        'The applicant must demonstrate the ability to repay the loan through income statements or proof of employment.',
+        'Age requirements may apply, generally between 21 and 65 years old.'
+      ]
+    },
+    faqs: [
+      {
+        question: 'What is the minimum down payment for a residential mortgage?',
+        answer: 'Typically, the minimum down payment is 10-20% of the property\'s value, depending on the loan type and the applicant\'s financial profile.'
+      },
+      {
+        question: 'Can I apply for a residential mortgage if I have bad credit?',
+        answer: 'While bad credit can make it harder to qualify, Navigo may still be able to find options with higher interest rates or co-signer options.'
+      },
+      {
+        question: 'How long does it take to process a residential property loan?',
+        answer: 'The process usually takes 2-4 weeks depending on the lender and the complexity of the application.'
+      },
+      {
+        question: 'Can I refinance my residential property loan with Navigo?',
+        answer: 'Yes, Navigo offers refinancing options for homeowners looking to reduce their monthly payments or access equity.'
+      },
+      {
+        question: 'Are there any fees associated with applying for a residential mortgage?',
+        answer: 'Yes, there may be processing fees, valuation fees, or legal fees, but Navigo provides a transparent fee structure.'
+      },
+      {
+        question: 'Can I get a residential mortgage if I am self-employed?',
+        answer: 'Yes, self-employed individuals can apply, but they will need to provide proof of income such as tax returns and bank statements.'
+      }
+    ],
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+      </svg>
+    )
+  },
+  {
+    id: 2,
+    title: 'Commercial Property',
+    picture: 'Commercial_Property.webp',
+    list_sub_title: 'Business Property Solutions',
+    features: ['For commercial property buyers', 'Compared interest rates', 'Tailored solutions', 'Expert advice'],
+    subtitle: `Are you thinking of buying your own office or property for business? Let us help you with the best mortgage plans for offices, hotels, or other business property!`,
+    description: 'Expert guidance for commercial property investments in UAE, with tailored mortgage solutions for offices, retail spaces, and business properties.',
+    description_1: `Commercial property loans are designed for individuals or businesses that wish to purchase, refinance, or invest in commercial real estate. This includes office buildings, retail spaces, industrial properties, and multi-family units. Navigo offers commercial property financing with flexible loan terms to help businesses and investors secure prime commercial real estate.`,
+    description_2: `Our team of experts provides tailored solutions for your commercial property needs, ensuring you get the best financing options available in the market. We work with multiple financial institutions to secure competitive rates and terms for your investment.`,
+    benefits: {
+      title: 'Benefits of Choosing Navigo:',
+      items: [
+        'Expert advice: Navigo offers tailored solutions for commercial real estate investments, ensuring optimal returns.',
+        'Competitive interest rates: Commercial property loans come with competitive rates, ensuring affordable financing options.',
+        'Flexible loan amounts and terms: Navigo offers customizable loan amounts and repayment schedules that fit the needs of your business.',
+        'Quick approval process: With Navigo\'s streamlined process, business owners can secure loans faster to seize investment opportunities.',
+        'Access to a wide range of lenders: Navigo partners with multiple financial institutions to ensure you get the best deal.',
+        'Guidance through complex legal and regulatory requirements: Navigo helps clients navigate the complexities of commercial real estate law and compliance.'
+      ]
+    },
+    eligibility: {
+      title: 'Eligibility:',
+      items: [
+        'The business or individual must have a stable financial track record.',
+        'A solid business plan or investment strategy.',
+        'A down payment, typically between 20-30% of the property value.',
+        'Proof of income or business revenue (for commercial borrowers).',
+        'A good credit score is essential.'
+      ]
+    },
+    faqs: [
+      {
+        question: 'What is the minimum down payment required for a commercial property loan?',
+        answer: 'Typically, the minimum down payment is 20-30% of the property value, but it can vary depending on the lender.'
+      },
+      {
+        question: 'Can I apply for a commercial property loan if I have a new business?',
+        answer: 'Yes, new businesses can apply, but they must have a clear business plan and strong financial backing.'
+      },
+      {
+        question: 'How long does it take to get approved for a commercial property loan?',
+        answer: 'Approval times can range from 2-6 weeks, depending on the complexity of the application.'
+      },
+      {
+        question: 'Can I use a commercial property loan to buy residential properties?',
+        answer: 'No, commercial property loans are specifically designed for non-residential properties like offices, stores, and industrial spaces.'
+      },
+      {
+        question: 'What types of properties can be financed with a commercial loan?',
+        answer: 'You can finance office buildings, retail spaces, warehouses, multi-family units, and other non-residential properties.'
+      },
+      {
+        question: 'What documents are required to apply for a commercial property loan?',
+        answer: 'You\'ll need business financial statements, tax returns, a property purchase agreement, and a detailed business plan.'
+      }
+    ],
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+      </svg>
+    )
+  },
+  {
+    id: 3,
+    title: 'International Mortgages',
+    picture: 'International_Mortgages.jpg',
+    list_sub_title: 'Global Property Investment',
+    features: ['Property valuation', 'Currency solutions', 'Local expertise', 'Loan-to-value'],
+    subtitle: `Dreaming of owning a property in the UAE, but you're a non-resident? Don't worry, we've got you!`,
+    description: 'Specialized mortgage solutions for non-residents looking to invest in UAE property, with expert guidance on international financing and regulations.',
+    description_1: `International mortgages are loans that allow individuals to purchase property abroad. These mortgages are typically provided by financial institutions to non-residents or expats who wish to buy property in a foreign country. Navigo offers specialized international mortgage solutions, helping clients navigate the intricacies of foreign property purchases. These mortgages can be used for various purposes, including investment, relocation, or vacation homes.`,
+    description_2: `Our experts guide clients through the paperwork and application process, ensuring smooth transactions. We offer competitive rates and work with a wide range of international lenders to provide the best solutions for your unique needs.`,
+    benefits: {
+      title: 'Benefits of Choosing Navigo:',
+      items: [
+        'Access to global markets: Navigo offers mortgages for properties in numerous countries, helping clients invest in international real estate.',
+        'Competitive rates: Navigo works with a wide range of international lenders to offer competitive interest rates.',
+        'Streamlined application process: Navigo\'s experts guide clients through the paperwork and application process, ensuring smooth transactions.',
+        'Foreign currency options: Navigate different currencies with ease through Navigo\'s specialized loan services, making currency conversion simple.',
+        'Flexibility in loan terms: Loan amounts and repayment terms are tailored to suit each client\'s unique needs and financial situation.',
+        'Expert advice: Navigo offers expert advice on international property markets, helping clients make informed decisions about their investments.'
+      ]
+    },
+    eligibility: {
+      title: 'Eligibility:',
+      items: [
+        'Proof of income from the home country or international sources.',
+        'A solid credit history and a good credit score.',
+        'The ability to provide a down payment, which can vary by country (typically 20-30%).',
+        'Availability of the required legal documents such as passports, residency visas, and proof of employment.',
+        'The borrower may need to provide additional financial documentation based on the country they are purchasing in.'
+      ]
+    },
+    faqs: [
+      {
+        question: 'Can I get a mortgage for a property in a foreign country?',
+        answer: 'Yes, Navigo offers international mortgage solutions for purchasing properties in numerous countries worldwide.'
+      },
+      {
+        question: 'Do I need a larger deposit for an international mortgage?',
+        answer: 'Typically, international mortgages require a larger deposit (often 20-30%) compared to local mortgages.'
+      },
+      {
+        question: 'Will my foreign income count towards my mortgage application?',
+        answer: 'Yes, foreign income can be considered, but it must be properly documented and verified.'
+      },
+      {
+        question: 'How long does the approval process take for international mortgages?',
+        answer: 'The approval process can take several weeks to a few months depending on the country and property type.'
+      },
+      {
+        question: 'Are there any tax implications for owning property abroad?',
+        answer: 'Yes, owning property abroad may subject you to taxes in both the country of purchase and your home country.'
+      },
+      {
+        question: 'Can I refinance my international mortgage?',
+        answer: 'Yes, refinancing options may be available depending on the lender and the country where the property is located.'
+      }
+    ],
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    )
+  },
+  {
+    id: 4,
+    title: 'UAE/GCC Nationals',
+    picture: 'UAE_GCC_National.jpg',
+    list_sub_title: 'Specialized Mortgage Services',
+    features: ['Specialized mortgage services', 'Tailored solutions', 'Competitive rates', 'Expert guidance'],
+    subtitle: `Looking for a mortgage solution that understands your unique needs as a UAE/GCC national? We've got you covered!`,
+    description: 'Specialized mortgage services for UAE and GCC nationals, offering tailored solutions with competitive rates and expert guidance for property investments.',
+    description_1: `Navigo offers specialized mortgage services tailored for UAE/GCC nationals, allowing them to invest in real estate both domestically and abroad. With deep insights into the region's market and a keen understanding of local property laws, Navigo provides seamless mortgage solutions for nationals seeking to secure residential, commercial, or investment properties.`,
+    description_2: `UAE/GCC nationals often enjoy favorable terms due to their strong economic position, making them attractive clients for lenders. Navigo ensures these clients get the best terms available in a competitive market, providing expertise and strategic financial advice.`,
+    benefits: {
+      title: 'Benefits of Choosing Navigo:',
+      items: [
+        'Favorable Terms: UAE/GCC nationals are often eligible for preferential mortgage rates, lower down payments, and flexible repayment plans.',
+        'Local Market Expertise: Navigo has in-depth knowledge of the UAE and GCC property markets, helping nationals invest smartly in both local and international properties.',
+        'Streamlined Approval Process: The approval process is simplified for UAE/GCC nationals, ensuring faster application and approval timelines.',
+        'Tailored Solutions: Navigo offers customized mortgage options based on the unique financial landscape of UAE/GCC nationals.',
+        'Tax Benefits: Mortgages for UAE/GCC nationals often come with specific tax incentives and rebates, especially when purchasing residential properties.',
+        'Property Ownership Guidance: Navigo assists with understanding local property laws and regulations, ensuring a smooth transaction for nationals.'
+      ]
+    },
+    eligibility: {
+      title: 'Eligibility:',
+      items: [
+        'UAE/GCC Nationality: Only UAE or GCC nationals can apply for these mortgages.',
+        'Stable Income: Proof of income for the past 6-12 months from a reliable source (employment, business, or investments).',
+        'Property Type: The property type (residential, commercial) and its location should comply with local lending regulations.',
+        'Age: Applicants typically need to be between 21 and 65 years old.'
+      ]
+    },
+    faqs: [
+      {
+        question: 'What are the eligibility requirements for UAE/GCC nationals?',
+        answer: 'UAE/GCC nationals need to provide proof of nationality, stable income, and may need to show a clean credit history. The property type and its location also play a key role in eligibility.'
+      },
+      {
+        question: 'Can I buy property abroad with a mortgage as a UAE/GCC national?',
+        answer: 'Yes, UAE/GCC nationals can apply for international mortgages, and Navigo can help you secure financing for properties in countries around the world.'
+      },
+      {
+        question: 'Are interest rates different for UAE/GCC nationals?',
+        answer: 'Yes, UAE/GCC nationals typically benefit from lower interest rates due to their strong economic standing and the preferential treatment they receive from lenders.'
+      },
+      {
+        question: 'What is the maximum loan amount for UAE/GCC nationals?',
+        answer: 'The maximum loan amount can vary based on the property\'s value and the applicant\'s income. Typically, it can go up to 80-90% of the property value.'
+      },
+      {
+        question: 'Can I apply for a mortgage if I am self-employed in the UAE/GCC?',
+        answer: 'Yes, self-employed UAE/GCC nationals are eligible, but they may need to provide additional documents such as tax returns, business accounts, and proof of business viability.'
+      },
+      {
+        question: 'How long does it take to process a mortgage application for a UAE/GCC national?',
+        answer: 'The application process typically takes between 2 to 4 weeks, depending on the complexity of the case and the required documentation.'
+      }
+    ],
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+      </svg>
+    )
+  },
+  {
+    id: 5,
+    title: 'Refinancing',
+    picture:'Mortgage_Refinancing.jpg',
+    subtitle: 'Better rates, better terms',
+    list_sub_title: 'Better rates, better terms',
+    description_1: `Looking to optimize your existing mortgage? Refinancing can be an excellent way to secure better interest rates, reduce monthly payments, or access your home's equity. Our refinancing solutions are designed to help you make the most of your property investment while potentially saving thousands in interest payments.`,
+    description_2: `At Navigo, we analyze your current mortgage terms and market conditions to find the best refinancing options available. Whether you want to switch to a better rate, change your loan term, or cash out some equity, our expert team will guide you through the entire process, ensuring you make an informed decision that aligns with your financial goals.`,
+    description: 'Looking to get better rates or terms on your existing mortgage? Refinancing might be the perfect solution for you. We will help you explore your options and find the best refinancing solution.',
+    features: ['Interest rates analysis', 'Easy documentation', 'Legal advice', 'Mortgage negotiation'],
+    benefits: {
+      title: 'Benefits of Refinancing with Navigo',
+      items: [
+        'Lower interest rates: Get access to more competitive interest rates that could save you money over the life of your loan.',
+        'Reduced monthly payments: Restructure your loan terms to better fit your current financial situation.',
+        'Cash-out options: Access your home's equity for renovations, investments, or other financial needs.',
+        'Expert guidance: Our team will analyze your current mortgage and help find the best refinancing solution.',
+        'Streamlined process: We handle all the paperwork and negotiations to make refinancing as smooth as possible.'
+      ]
+    },
+    eligibility: {
+      title: 'Eligibility Criteria for Refinancing',
+      items: [
+        'Current mortgage status: Your existing mortgage should be in good standing with no missed payments.',
+        'Property value: The current market value of your property must support the refinancing amount.',
+        'Income proof: Stable income source with sufficient documentation.',
+        'Credit history: A good credit history showing responsible debt management.',
+        'Time since purchase: Minimum time period since the original mortgage was taken.'
+      ]
+    },
+    faqs: [
+      {
+        question: 'What is mortgage refinancing?',
+        answer: 'Mortgage refinancing is the process of replacing your existing mortgage with a new one, typically with better terms such as lower interest rates, different loan duration, or to access home equity.'
+      },
+      {
+        question: 'When is the best time to refinance?',
+        answer: 'The best time to refinance is typically when interest rates are lower than your current rate, when your credit score has improved significantly, or when you need to access your home's equity.'
+      },
+      {
+        question: 'What documents are needed for refinancing?',
+        answer: 'You'll need recent pay stubs, tax returns, bank statements, current mortgage statements, proof of assets, and information about your current property value.'
+      },
+      {
+        question: 'How long does the refinancing process take?',
+        answer: 'The refinancing process typically takes 30-45 days, depending on various factors such as property valuation, documentation verification, and lender processing times.'
+      },
+      {
+        question: 'Are there any costs involved in refinancing?',
+        answer: 'Yes, refinancing usually involves costs such as application fees, property valuation fees, and processing fees. However, these costs are often offset by the long-term savings from better loan terms.'
+      },
+      {
+        question: 'Can I refinance if I have bad credit?',
+        answer: 'While it's possible to refinance with less-than-perfect credit, you may not qualify for the best rates. We can help evaluate your situation and explore available options.'
+      }
+    ],
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+      </svg>
+    )
+  },
+  {
+    id: 6,
+    title: 'Professional Legal Support',
+    picture:'Legal_Services.webp',
+    subtitle: 'Expert Guidance',
+    list_sub_title: 'Expert Guidance',
+    description_1: `Navigating the legal aspects of property transactions in the UAE requires expert knowledge and attention to detail. Our professional legal support service ensures that your property dealings are conducted with the utmost care and in full compliance with UAE laws and regulations.`,
+    description_2: `Our network of experienced legal professionals specializes in UAE property law and can assist you with everything from contract review to dispute resolution. We work closely with you to understand your needs and provide tailored legal solutions that protect your interests throughout the property transaction process.`,
+    description: 'Our network of experienced legal professionals ensures your property transactions are handled with precision and care. ',
+    features: ['Contract review', 'Due diligence', 'Legal documentation', 'Dispute resolution'],
+    benefits: {
+      title: 'Benefits of Our Legal Support',
+      items: [
+        'Expert guidance: Access to experienced property law professionals who understand UAE regulations.',
+        'Risk mitigation: Thorough legal review to identify and address potential issues before they become problems.',
+        'Time efficiency: Streamlined legal processes to expedite your property transactions.',
+        'Complete compliance: Ensure all transactions meet UAE legal requirements and standards.',
+        'Peace of mind: Professional handling of all legal aspects of your property dealings.'
+      ]
+    },
+    eligibility: {
+      title: 'Service Requirements',
+      items: [
+        'Property documentation: All relevant property documents must be available for review.',
+        'Identity verification: Valid identification and necessary authorization documents.',
+        'Transaction details: Clear information about the intended property transaction.',
+        'Power of attorney: If applicable, properly authenticated power of attorney documents.',
+        'Previous agreements: Any existing contracts or agreements related to the property.'
+      ]
+    },
+    faqs: [
+      {
+        question: 'What legal services do you provide for property transactions?',
+        answer: 'We provide comprehensive legal services including contract review, due diligence, documentation preparation, legal compliance checks, and dispute resolution support.'
+      },
+      {
+        question: 'How long does the legal review process typically take?',
+        answer: 'The duration varies depending on the complexity of the transaction, but typically takes 5-7 working days for standard property transactions.'
+      },
+      {
+        question: 'Do you handle both residential and commercial property legal matters?',
+        answer: 'Yes, our legal team has extensive experience in both residential and commercial property transactions in the UAE.'
+      },
+      {
+        question: 'What documents are required for legal review?',
+        answer: 'Required documents typically include property title deed, purchase agreement, identification documents, and any existing contracts or agreements related to the property.'
+      },
+      {
+        question: 'Can you help with property dispute resolution?',
+        answer: 'Yes, our legal team can assist with property-related disputes through negotiation, mediation, or legal proceedings if necessary.'
+      },
+      {
+        question: 'Do you provide legal services in multiple languages?',
+        answer: 'Yes, we offer legal services in multiple languages to accommodate our diverse client base in the UAE.'
+      }
+    ],
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+      </svg>
+    )
+  },
+  {
+    id: 7,
+    title: 'Corporate & SME Lending',
+    picture:'Business_Lending.webp',
+    subtitle: 'Business Growth Solutions',
+    list_sub_title: 'Business Growth Solutions',
+    description_1: `Growing your business in the UAE requires reliable financial support. Our Corporate & SME Lending solutions are designed to meet the diverse needs of businesses, from small enterprises to large corporations. We understand that each business has unique requirements and challenges, which is why we offer customized lending solutions.`,
+    description_2: `Whether you need working capital, equipment financing, or expansion funding, our expert team will work with you to structure the right lending solution. We pride ourselves on quick processing times, competitive rates, and flexible terms that align with your business objectives and cash flow patterns.`,
+    description: 'Tailored lending solutions for businesses of all sizes, supporting growth and operational needs with flexible financing options.',
+    features: ['Working capital', 'Equipment financing', 'Business expansion', 'Trade finance'],
+    benefits: {
+      title: 'Benefits of Our Business Lending',
+      items: [
+        'Customized solutions: Lending packages tailored to your specific business needs and goals.',
+        'Competitive rates: Attractive interest rates with flexible repayment terms.',
+        'Quick processing: Streamlined application and approval process for faster access to funds.',
+        'Expert guidance: Dedicated relationship managers to support your business growth.',
+        'Flexible collateral: Multiple collateral options to secure your business loan.'
+      ]
+    },
+    eligibility: {
+      title: 'Eligibility Requirements',
+      items: [
+        'Business registration: Valid UAE trade license and commercial registration.',
+        'Operating history: Minimum business operation period in the UAE.',
+        'Financial statements: Audited financial statements for the past 2-3 years.',
+        'Bank statements: Recent business bank statements showing healthy cash flow.',
+        'Business plan: Detailed business plan for loan utilization and repayment.'
+      ]
+    },
+    faqs: [
+      {
+        question: 'What types of business loans do you offer?',
+        answer: 'We offer various types of business loans including working capital loans, equipment financing, business expansion loans, trade finance solutions, and project-specific funding.'
+      },
+      {
+        question: 'How long does the loan approval process take?',
+        answer: 'The approval process typically takes 7-14 working days, depending on the loan amount and complexity of the business structure.'
+      },
+      {
+        question: 'What is the maximum loan amount available?',
+        answer: 'Loan amounts vary based on your business size, financial health, and requirements. We can structure loans from AED 250,000 up to several million dirhams.'
+      },
+      {
+        question: 'What documents are required for a business loan?',
+        answer: 'Required documents include trade license, audited financial statements, bank statements, business plan, and other supporting documents depending on the loan type.'
+      },
+      {
+        question: 'Do you offer Islamic financing options?',
+        answer: 'Yes, we offer Sharia-compliant financing solutions for businesses seeking Islamic banking options.'
+      },
+      {
+        question: 'Can startups apply for business loans?',
+        answer: 'Yes, we have special financing programs for startups, though they may require additional security or have different terms compared to established businesses.'
+      }
+    ],
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    )
+  },
+  {
+    id: 8,
+    title: 'Personal Loans',
+    picture:'Personal_Loans.jpg',
+    subtitle: 'Individual Financial Solutions',
+    list_sub_title: 'Individual Financial Solutions',
+    description_1: `Life in the UAE often presents opportunities and needs that require additional financial support. Our Personal Loans are designed to help you achieve your personal goals, whether it's funding your education, renovating your home, or managing unexpected expenses. We understand that every individual's financial situation is unique.`,
+    description_2: `Our personal loan solutions offer competitive interest rates, flexible repayment terms, and quick processing to ensure you get the funds when you need them. Our dedicated team works closely with you to understand your requirements and financial capacity, helping you choose the most suitable loan option.`,
+    description: 'Flexible personal financing options to help you achieve your goals, whether it\'s for education, home improvement, or other personal needs.',
+    features: ['Quick approval', 'Flexible terms', 'Competitive rates', 'Multiple purposes'],
+    benefits: {
+      title: 'Benefits of Our Personal Loans',
+      items: [
+        'Competitive rates: Attractive interest rates with flexible repayment options.',
+        'Quick processing: Fast approval and disbursement process.',
+        'No collateral: Unsecured loans based on your income and creditworthiness.',
+        'Flexible usage: Freedom to use the loan for various personal needs.',
+        'Easy repayment: Convenient monthly installments that suit your budget.'
+      ]
+    },
+    eligibility: {
+      title: 'Eligibility Requirements',
+      items: [
+        'Employment: Stable employment with minimum monthly income of AED 5,000.',
+        'Age criteria: Between 21 and 60 years old at the time of loan maturity.',
+        'Residency: Valid UAE residence visa.',
+        'Credit history: Good credit history with no defaults.',
+        'Documentation: Valid Emirates ID, passport, visa, and income proof.'
+      ]
+    },
+    faqs: [
+      {
+        question: 'What is the maximum personal loan amount I can get?',
+        answer: 'The maximum loan amount depends on your income and creditworthiness, typically up to 20 times your monthly salary, subject to a maximum of AED 2 million.'
+      },
+      {
+        question: 'How long does it take to get approval for a personal loan?',
+        answer: 'Our streamlined process typically provides initial approval within 24 hours, with final approval and disbursement within 2-3 working days.'
+      },
+      {
+        question: 'What are the interest rates for personal loans?',
+        answer: 'Interest rates start from 4.99% per annum, varying based on your profile, loan amount, and tenure.'
+      },
+      {
+        question: 'What documents do I need to apply for a personal loan?',
+        answer: 'Required documents include Emirates ID, passport copy with valid visa, salary certificate, bank statements for the last 3-6 months, and other income proof documents.'
+      },
+      {
+        question: 'Can I settle my personal loan early?',
+        answer: 'Yes, you can settle your loan early. Early settlement charges may apply as per UAE Central Bank guidelines.'
+      },
+      {
+        question: 'Are there any processing fees?',
+        answer: 'Yes, there is a one-time processing fee of 1% of the loan amount (subject to a minimum of AED 500 and maximum of AED 2,500).'
+      }
+    ],
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2m-6-9h15a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2m-6 9v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6z" />
+      </svg>
+    )
+  },
+  {
+    id: 9,
+    title: 'Project Finance',
+    picture:'Project_Finance.webp',
+    subtitle: 'Large-Scale Development Funding',
+    list_sub_title: 'Large-Scale Development Funding',
+    description_1: `Major projects require sophisticated financing solutions. Our Project Finance service specializes in funding large-scale developments, from infrastructure and real estate to industrial ventures. We understand the complexities involved in project financing and provide structured solutions that align with project milestones and cash flow projections.`,
+    description_2: `Our experienced team works closely with project developers, contractors, and stakeholders to create customized financing packages. We consider various aspects including project viability, risk assessment, and market conditions to ensure optimal financing structure that supports successful project completion.`,
+    description: 'Comprehensive financing solutions for major projects, including infrastructure, real estate development, and industrial ventures.',
+    features: ['Structured finance', 'Long-term funding', 'Risk assessment', 'Project monitoring'],
+    benefits: {
+      title: 'Benefits of Our Project Finance',
+      items: [
+        'Customized solutions: Financing structures tailored to specific project requirements.',
+        'Flexible drawdown: Phased disbursement aligned with project milestones.',
+        'Extended tenure: Long-term financing options suitable for large projects.',
+        'Expert guidance: Dedicated project finance specialists to support your venture.',
+        'Comprehensive support: End-to-end assistance from planning to completion.'
+      ]
+    },
+    eligibility: {
+      title: 'Project Requirements',
+      items: [
+        'Project viability: Detailed feasibility study and project reports.',
+        'Developer track record: Proven experience in similar projects.',
+        'Financial strength: Strong sponsor support and equity contribution.',
+        'Regulatory compliance: All necessary permits and approvals.',
+        'Security structure: Adequate collateral and security arrangements.'
+      ]
+    },
+    faqs: [
+      {
+        question: 'What types of projects do you finance?',
+        answer: 'We finance various large-scale projects including real estate developments, infrastructure projects, industrial facilities, healthcare facilities, and educational institutions.'
+      },
+      {
+        question: 'What is the minimum project size for financing?',
+        answer: 'We typically consider projects with a minimum value of AED 50 million, though this may vary based on the project type and sector.'
+      },
+      {
+        question: 'How long does it take to process a project finance application?',
+        answer: 'The application process usually takes 4-8 weeks, depending on project complexity and documentation readiness.'
+      },
+      {
+        question: 'What is the maximum funding available?',
+        answer: 'Funding limits are determined by project viability, sponsor strength, and security structure. We can finance up to 70-80% of project costs.'
+      },
+      {
+        question: 'Do you provide Islamic project financing?',
+        answer: 'Yes, we offer Sharia-compliant project financing solutions structured according to Islamic banking principles.'
+      },
+      {
+        question: 'What documents are required for project finance?',
+        answer: 'Required documents include feasibility study, project reports, financial projections, sponsor information, regulatory approvals, and security documentation.'
+      }
+    ],
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+      </svg>
+    )
+  },
+  {
+    id: 10,
+    title: 'Trade Finance',
+    picture:'Trade_Finance.webp',
+    subtitle: 'International Trade Solutions',
+    list_sub_title: 'International Trade Solutions',
+
+    description_1: `In today's global marketplace, efficient trade finance solutions are crucial for business success. Our comprehensive trade finance services are designed to facilitate international trade operations, helping businesses manage risks and optimize working capital. We understand the complexities of cross-border transactions and provide tailored solutions.`,
+    description_2: `Whether you need letters of credit, trade loans, or supply chain financing, our expert team will work with you to structure the most suitable trade finance solution. We leverage our extensive network and expertise to ensure smooth international trade operations while managing associated risks effectively.`,
+    description: 'Facilitate international trade with our comprehensive trade finance solutions, including letters of credit, trade loans, and supply chain financing.',
+    features: ['Letters of credit', 'Trade loans', 'Supply chain finance', 'Export financing'],
+    benefits: {
+      title: 'Benefits of Our Trade Finance',
+      items: [
+        'Risk mitigation: Secure international trade transactions through proven financial instruments.',
+        'Working capital optimization: Improve cash flow management in trade operations.',
+        'Global network: Access to extensive international banking relationships.',
+        'Expert guidance: Specialized trade finance advisors to structure optimal solutions.',
+        'Digital solutions: Advanced online platforms for trade transaction management.'
+      ]
+    },
+    eligibility: {
+      title: 'Trade Finance Requirements',
+      items: [
+        'Business registration: Valid UAE trade license with import/export activity.',
+        'Trading history: Established track record in international trade.',
+        'Financial statements: Audited financial records for assessment.',
+        'Trade documentation: Valid trade contracts and shipping documents.',
+        'Banking relationship: Existing business banking relationship.'
+      ]
+    },
+    faqs: [
+      {
+        question: 'What trade finance products do you offer?',
+        answer: 'We offer a comprehensive suite of trade finance products including Letters of Credit (LC), Bank Guarantees, Documentary Collections, Trade Loans, Supply Chain Finance, and Export Finance solutions.'
+      },
+      {
+        question: 'How quickly can you issue a Letter of Credit?',
+        answer: 'Standard LCs can be issued within 24-48 hours after receiving complete documentation and necessary approvals.'
+      },
+      {
+        question: 'What are your trade finance limits?',
+        answer: 'Trade finance limits are determined based on your business volume, financial strength, and trading history. We offer flexible limits to match your business needs.'
+      },
+      {
+        question: 'Do you provide supply chain financing?',
+        answer: 'Yes, we offer comprehensive supply chain financing solutions to help optimize working capital for both buyers and suppliers in the trade cycle.'
+      },
+      {
+        question: 'What currencies do you support for trade finance?',
+        answer: 'We support major global currencies including USD, EUR, GBP, and local currency (AED) for trade finance transactions.'
+      },
+      {
+        question: 'How do you handle trade finance disputes?',
+        answer: 'We have a dedicated team to handle trade finance disputes and discrepancies, ensuring quick resolution while following international trade practices and regulations.'
+      }
+    ],
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    )
+  },
+  {
+    id: 11,
+    title: 'Mega Loans',
+    picture: 'megaloan.jpg',
+    list_sub_title: 'Large-Scale Financing Solutions',
+    features: ['Multi-million dollar loans', 'Customized solutions', 'Competitive rates', 'Expert guidance'],
+    subtitle: `Need substantial capital for your major project or acquisition? Our mega loan solutions are designed for high-value investments.`,
+    description: 'Large-scale financing options for high-net-worth individuals and businesses seeking substantial capital for major projects or acquisitions with customized solutions.',
+    description_1: `Mega loans are large-scale financing options typically designed for high-net-worth individuals or businesses seeking substantial capital to fund major projects or acquisitions. These loans are usually multi-million-dollar agreements and require highly customized financial solutions. Navigo specializes in securing these large-scale loans for clients across various sectors, including real estate, business expansion, and large-scale investments.`,
+    description_2: `With a strong track record in facilitating mega loans, Navigo ensures clients receive the necessary capital with flexible terms and competitive interest rates. Our team of experts works closely with you to structure the loan according to your specific needs and financial capacity.`,
+    benefits: {
+      title: 'Benefits of Choosing Navigo:',
+      items: [
+        'Access to Large Capital: Navigo provides access to multi-million-dollar loans, empowering clients to pursue significant investments or projects.',
+        'Competitive Rates: Despite the large sums involved, Navigo helps secure the best interest rates available in the market.',
+        'Flexible Terms: Loan structures can be tailored to suit the client\'s financial capacity and repayment preferences.',
+        'Expert Advice: Navigo offers strategic financial advice to ensure that the loan is used efficiently and the client achieves their investment goals.',
+        'Fast Approval: Navigo\'s extensive network of lenders and financial institutions helps expedite the approval process for large loans.',
+        'Risk Management: With experience in large financing, Navigo assists clients in managing risks related to currency fluctuations, market shifts, and repayment plans.'
+      ]
+    },
+    eligibility: {
+      title: 'Eligibility:',
+      items: [
+        'High Net-Worth Individuals or Established Businesses: Applicants must demonstrate the financial ability to manage large loans.',
+        'Strong Financial History: A solid credit history, including high income, assets, and business stability.',
+        'Project or Acquisition Details: Clear plans for how the loan will be used (property development, business expansion, etc.).',
+        'Collateral Requirements: High-value assets or properties may be required as collateral.'
+      ]
+    },
+    faqs: [
+      {
+        question: 'What is considered a mega loan?',
+        answer: 'A mega loan typically refers to loans that exceed several million dollars and are used for large-scale investments or acquisitions, such as purchasing commercial properties, business expansions, or funding massive development projects.'
+      },
+      {
+        question: 'What collateral is required for a mega loan?',
+        answer: 'Collateral requirements vary depending on the loan size and type. High-value properties, investments, or business assets are commonly used as collateral to secure a mega loan.'
+      },
+      {
+        question: 'What types of projects can be financed with a mega loan?',
+        answer: 'Mega loans can be used for a wide range of projects, including real estate development, large business expansions, mergers and acquisitions, and other capital-intensive ventures.'
+      },
+      {
+        question: 'Are interest rates higher for mega loans?',
+        answer: 'Interest rates for mega loans are generally lower than for smaller loans, as they are often secured by substantial collateral. However, rates depend on the specific project and the borrower\'s financial standing.'
+      },
+      {
+        question: 'Can I get a mega loan if I\'m not a resident of the country?',
+        answer: 'Yes, non-residents can secure mega loans, particularly if they have significant assets and a solid financial history. Navigo can help with navigating the specific requirements.'
+      },
+      {
+        question: 'How long does it take to process a mega loan?',
+        answer: 'Processing a mega loan typically takes longer than standard loans due to the extensive due diligence, financial analysis, and negotiations involved. The process can take 4 to 8 weeks, depending on the complexity.'
+      }
+    ],
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    )
+  },
+  {
+    id: 12,
+    title: 'Equity Release',
+    picture: 'Mortgage_Refinancing.jpg',
+    list_sub_title: 'Unlock Your Property Value',
+    features: ['No monthly repayments', 'Stay in your home', 'Tax-free cash', 'Professional advice'],
+    subtitle: `Access the equity tied up in your property without having to sell it. Our equity release solutions provide financial flexibility for homeowners.`,
+    description: 'Financial solutions that allow homeowners to access the equity in their property while continuing to live there, ideal for retirement planning and supplementing income.',
+    description_1: `Equity release is a financial product that allows homeowners, typically retirees, to access the equity tied up in their properties without having to sell them. This is often done via a lifetime mortgage or home reversion plan. Navigo's equity release solutions are designed to help clients unlock cash from their property, providing funds for a variety of purposes, such as home improvements, medical expenses, or supplementing retirement income.`,
+    description_2: `Navigo ensures that clients fully understand the implications of equity release, providing transparent advice and support throughout the process. Our team of experts will guide you through all available options, helping you make an informed decision that best suits your financial needs and future plans.`,
+    benefits: {
+      title: 'Benefits of Choosing Navigo:',
+      items: [
+        'Unlock Your Property\'s Value: Equity release allows you to access the cash tied up in your home, providing financial flexibility.',
+        'No Monthly Repayments: With many equity release options, no monthly repayments are required, as the loan is typically repaid when the homeowner moves into long-term care or passes away.',
+        'Stay in Your Home: The homeowner can remain living in the property while still accessing the equity.',
+        'Tax-Free Cash: The money released through equity release is generally tax-free, providing financial relief without the burden of additional tax obligations.',
+        'Flexible Usage: The funds from equity release can be used for various purposes, including home improvements, paying off debts, or enhancing retirement funds.',
+        'Professional Advice: Navigo provides expert guidance to ensure clients understand all the risks and benefits associated with equity release.'
+      ]
+    },
+    eligibility: {
+      title: 'Eligibility:',
+      items: [
+        'Age: Generally, the applicant must be at least 55 years old (depending on the type of equity release).',
+        'Property Type: The property must be residential and in good condition.',
+        'No Outstanding Mortgage: Typically, the property should be mortgage-free or have a low outstanding mortgage balance.',
+        'Residency: The applicant must be a resident of the country in which the equity release product is being offered.'
+      ]
+    },
+    faqs: [
+      {
+        question: 'What is equity release?',
+        answer: 'Equity release allows homeowners to access the equity (value) in their home without having to sell the property. The loan is typically repaid when the homeowner passes away or moves into long-term care.'
+      },
+      {
+        question: 'Who is eligible for equity release?',
+        answer: 'Generally, homeowners aged 55 and older are eligible for equity release. The property should be residential, and the homeowner should not have a significant mortgage balance remaining.'
+      },
+      {
+        question: 'What are the different types of equity release?',
+        answer: 'The two main types are a lifetime mortgage (where you borrow against the value of your property) and a home reversion plan (where you sell part of your property in exchange for a lump sum).'
+      },
+      {
+        question: 'Do I need to repay the equity release loan monthly?',
+        answer: 'No, most equity release plans do not require monthly repayments. The loan and interest are repaid when the homeowner sells the property, moves into care, or passes away.'
+      },
+      {
+        question: 'Can I still leave an inheritance if I use equity release?',
+        answer: 'Yes, but it may reduce the value of the inheritance, as the loan and interest are deducted from the property sale proceeds. Navigo can help structure plans to maximize the inheritance for your loved ones.'
+      },
+      {
+        question: 'How does equity release affect my estate?',
+        answer: 'Equity release reduces the value of your estate as the loan, including any accumulated interest, will be repaid upon your death or if you move into long-term care. However, this depends on the type of equity release product you choose.'
+      }
+    ],
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+      </svg>
+    )
+  },
+  {
+    id: 13,
+    title: 'Plot & Land Loans',
+    picture: 'Land_Loans.jpg',
+    list_sub_title: 'Land Acquisition Financing',
+    features: ['Residential plots', 'Commercial land', 'Agricultural land', 'Expert guidance'],
+    subtitle: `Looking to purchase land for personal, commercial, or development purposes? Our specialized land loan solutions can help you acquire the perfect plot.`,
+    description: 'Specialized financing options for acquiring land or plots for residential, commercial, or agricultural purposes with competitive rates and expert guidance.',
+    description_1: `Plot and land loans are specifically designed for individuals or companies looking to purchase land, whether for personal, commercial, or development purposes. These loans can be used for acquiring residential plots, agricultural land, or land for commercial and industrial purposes. Navigo's land loans cater to both first-time buyers and seasoned investors.`,
+    description_2: `With a strong understanding of local property laws, market conditions, and land acquisition processes, Navigo offers customized loan options for those looking to make land acquisitions. Our team of experts will guide you through the entire process, from selecting the right land to finalizing the purchase.`,
+    benefits: {
+      title: 'Benefits of Choosing Navigo:',
+      items: [
+        'Tailored Loan Solutions: Navigo provides customized land loan options that cater to the unique needs of land buyers, whether for development, personal use, or investment.',
+        'Competitive Rates: Secure affordable rates for land purchases, which may be higher due to the nature of the asset but are competitive in the market.',
+        'Flexible Terms: Navigo offers flexibility in terms of loan amount, repayment schedules, and down payment to suit your financial capacity.',
+        'Expert Advice: Navigo assists with navigating legalities and zoning regulations associated with land acquisition, ensuring that you make informed decisions.',
+        'Easy Approval Process: With an extensive network of financial institutions, Navigo helps streamline the land loan approval process, ensuring quicker turnaround times.',
+        'Investment Opportunities: Land is often a strong investment, and Navigo helps ensure clients select land with the potential for long-term appreciation.'
+      ]
+    },
+    eligibility: {
+      title: 'Eligibility:',
+      items: [
+        'Property Type: The land should be designated for the intended use (residential, commercial, agricultural).',
+        'Location: The location of the land must comply with local zoning and land-use regulations.',
+        'Down Payment: A higher down payment is generally required compared to home loans, usually around 20-30% of the land value.',
+        'Income: Proof of stable income to ensure repayment capacity.',
+        'Creditworthiness: A good credit history is typically necessary.'
+      ]
+    },
+    faqs: [
+      {
+        question: 'Can I use a land loan for agricultural land?',
+        answer: 'Yes, land loans can be used for agricultural purposes, provided that the land is zoned for agricultural use and complies with local regulations.'
+      },
+      {
+        question: 'What is the minimum down payment required for a plot or land loan?',
+        answer: 'The down payment typically ranges from 20% to 30% of the land value, depending on the type of loan and the lender.'
+      },
+      {
+        question: 'Are interest rates higher for land loans than for residential mortgages?',
+        answer: 'Yes, land loans often carry higher interest rates due to the perceived higher risk associated with land as collateral.'
+      },
+      {
+        question: 'Can I use the loan to develop the land after purchasing it?',
+        answer: 'Some loans may offer development options or allow you to finance development costs as part of the loan. Navigo can assist in structuring a loan to suit your needs.'
+      },
+      {
+        question: 'Can I get a land loan if I am a non-resident?',
+        answer: 'Yes, non-residents can apply for land loans, provided they meet the financial criteria and the land is within a location where international buyers are permitted to purchase.'
+      },
+      {
+        question: 'How long does the approval process take for land loans?',
+        answer: 'The approval process typically takes 3-6 weeks, depending on the complexity of the loan and the documentation provided.'
+      }
+    ],
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+      </svg>
+    )
+  }
+];

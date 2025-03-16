@@ -75,7 +75,7 @@ const ServiceDetail = () => {
                 className="relative h-[500px] rounded-xl overflow-hidden shadow-xl"
               >
                 <img 
-                  src={`/services/${service.picture}`}
+                  src={service.id === 4 || service.id === 11 ? `/images/${service.picture}` : `/services/${service.picture}`}
                   alt={service.title}
                   className="w-full h-full object-cover"
                 />
@@ -90,7 +90,7 @@ const ServiceDetail = () => {
       {/* <ProcessSection /> */}
 
       {/* Benefits Section */}
-      <section className="bg-gradient-to-br from-[#e5f6ff] via-white to-[#f0f7ff] py-32 relative">
+      <section className="bg-gradient-to-br from-[#e5f6ff] via-white to-[#f0f7ff] py-6 sm:py-8 md:py-12 lg:py-16 relative">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_100%_100%,#00203f15_0%,transparent_50%)] mix-blend-soft-light pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_0%_0%,#008cc915_0%,transparent_50%)] mix-blend-soft-light pointer-events-none" />
         
@@ -161,7 +161,7 @@ const ServiceDetail = () => {
       )}
 
       {/* Eligibility Criteria - White Background */}
-      <section className="bg-white py-32">
+      <section className="bg-white py-6 sm:py-8 md:py-12 lg:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">{service.eligibility?.title || 'Eligibility Criteria'}</h2>

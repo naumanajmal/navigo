@@ -3,25 +3,25 @@ import { useState } from 'react';
 const sliderContent = [
   {
     title: {
-      start: "You find the home, ",
-      highlight: "we'll find",
-      end: " the mortgage plan for you"
+      start: "",
+      highlight: "Your Search",
+      end: " for the UAE's Most Affordable Mortgage Rate Ends Here!"
     },
     description: "We are your one stop solution for finding the best home loan in UAE"
   },
   {
     title: {
-      start: "Expert of homebuying, ",
-      highlight: "we shape",
-      end: " the future of your living"
+      start: "",
+      highlight: "Navigate",
+      end: " Your Wealth Journey with Expert Financial Advisory."
     },
     description: "The best mortgage rates in UAE at your fingertips!"
   },
   {
     title: {
-      start: "Find your dream home, ",
-      highlight: "we provide",
-      end: " the best mortgage rates"
+      start: "",
+      highlight: "Unlock",
+      end: " Your Financial Potential with Expert Consultation."
     },
     description: "Improving your homebuying experience, we work with the best banks"
   }

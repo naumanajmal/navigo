@@ -43,28 +43,28 @@ const FAQ = ({ faqData = [] }) => {
 
   const defaultFaqData = [
     {
-      question: "What documents do I need for a mortgage application?",
-      answer: "For a mortgage application in the UAE, you typically need: Valid passport and Emirates ID, Visa (for expats), Salary certificate or employment contract, Bank statements (last 6 months), Property details, and down payment proof. Additional documents may be required based on your employment status and residency."
+      question: "What is the process of breaking down mortgage payments into interest and principal?",
+      answer: "Amortization refers to the gradual reduction of a mortgage loan balance through scheduled payments that cover both interest and principal."
     },
     {
-      question: "How much down payment do I need?",
-      answer: "The minimum down payment varies based on your residency status and property value. UAE Nationals need 15%, UAE Residents need 20%, and Non-Residents need 40% of the property value as down payment. For properties above AED 5 million, higher down payments may be required."
+      question: "How does a combination mortgage rate work in the UAE?",
+      answer: "A combination mortgage rate in the UAE offers a fixed interest rate for an initial period, which then transitions into a variable rate for the remaining loan term."
     },
     {
-      question: "What affects my mortgage eligibility?",
-      answer: "Several factors affect your mortgage eligibility: Income level, employment stability, credit history, existing debt obligations (DSCR), age, residency status, and the property's value. Banks also consider your debt burden ratio, which shouldn't exceed 50% of your monthly income."
+      question: "What types of properties are classified as commercial in the UAE?",
+      answer: "Commercial properties include offices, retail shops, warehouses, industrial sheds, labor camps, and commercial plots."
     },
     {
-      question: "What's the difference between fixed and variable rates?",
-      answer: "Fixed rates remain constant for a specific period (usually 1-5 years), providing predictable monthly payments. Variable rates fluctuate with market conditions, potentially offering lower initial rates but with the risk of increasing over time. After the fixed period, rates typically convert to variable."
+      question: "What does content insurance cover, and is it mandatory in the UAE?",
+      answer: "Content insurance covers personal belongings within a property, such as furniture and electronics. It is optional and not a mandatory requirement in the UAE."
     },
     {
-      question: "Can I pay off my mortgage early?",
-      answer: "Yes, you can make early mortgage payments in the UAE. However, most banks charge an early settlement fee (typically 1-3% of the outstanding amount). Some banks also have a minimum period before allowing early settlement. It's important to check these terms with your specific lender."
+      question: "What is the Debt Burden Ratio (DBR), and how is it regulated in the UAE?",
+      answer: "DBR is the percentage of a borrower's total monthly debt repayments compared to their income. The UAE Central Bank caps this ratio at 50%."
     },
     {
-      question: "How long can my mortgage term be?",
-      answer: "Mortgage terms in the UAE typically range from 5 to 25 years. The maximum term often depends on your age at maturity (usually shouldn't exceed 65-70 years old for UAE residents or 75 for UAE nationals). Longer terms mean lower monthly payments but more interest paid overall."
+      question: "What is the minimum down payment required for a mortgage in the UAE?",
+      answer: "For completed properties, the down payment ranges from 20% to 40% depending on the borrower's nationality and purpose (self-occupancy or investment). For under-construction properties, a 50% down payment is required."
     }
   ];
 
@@ -72,7 +72,7 @@ const FAQ = ({ faqData = [] }) => {
   const faqs = faqData.length > 0 ? faqData : defaultFaqData;
 
   return (
-    <section className="relative bg-gradient-to-br from-[#e5f6ff] via-white to-[#f0f7ff] py-12 sm:py-20 lg:py-32 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-[#e5f6ff] via-white to-[#f0f7ff] py-6 sm:py-8 md:py-12 lg:py-16 overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_100%_100%,#00203f15_0%,transparent_50%)] mix-blend-soft-light" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_0%_0%,#008cc915_0%,transparent_50%)] mix-blend-soft-light" />

@@ -8,7 +8,7 @@ export default function ContactPage() {
     <div className="min-h-screen bg-gray-50 font-lexend">
     <Navbar />
     
-    <div className=" pt-16">
+    <div className=" ">
      <ContactSection/>
 
     </div>

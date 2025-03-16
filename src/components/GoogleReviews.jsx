@@ -1,8 +1,15 @@
 import { useState, useEffect } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import PropTypes from 'prop-types';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import './reviews/reviews-slider.css';
 
 const ReviewCard = ({ review }) => {
   return (
-    <div className="backdrop-blur-xl bg-white/80 rounded-2xl p-6 shadow-lg ring-1 ring-gray-200/50 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+    <div className="backdrop-blur-xl bg-white/80 rounded-2xl p-6 shadow-lg ring-1 ring-gray-200/50 h-full flex flex-col">
       <div className="flex items-start">
         <img
           src={review.profileImage}
@@ -30,7 +37,7 @@ const ReviewCard = ({ review }) => {
           </div>
         </div>
       </div>
-      <p className="mt-4 text-gray-600 leading-relaxed">{review.text}</p>
+      <p className="mt-4 text-gray-600 leading-relaxed flex-grow">{review.text}</p>
       <div className="mt-4 flex items-center">
         <img
           src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"
@@ -43,55 +50,113 @@ const ReviewCard = ({ review }) => {
   );
 };
 
+ReviewCard.propTypes = {
+  review: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    profileImage: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
+    date: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired
+  }).isRequired
+};
+
 const GoogleReviews = () => {
+  const [slidesPerView, setSlidesPerView] = useState(3);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setSlidesPerView(1);
+      } else if (window.innerWidth < 1024) {
+        setSlidesPerView(2);
+      } else {
+        setSlidesPerView(3);
+      }
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const reviews = [
     {
       name: "Sarah Thompson",
       profileImage: "https://randomuser.me/api/portraits/women/1.jpg",
       rating: 5,
       date: "2 weeks ago",
-      text: "Exceptional service! The team at Navigo made my mortgage journey smooth and stress-free. Their expertise and attention to detail are unmatched. Highly recommend for anyone looking for mortgage solutions in the UAE."
+      text: "I honestly couldn't have done this without Navigo. They handled everything from A to Z and made the mortgage process feel like a breeze. Super thankful for their support!"
     },
     {
       name: "Mohammed Al-Hassan",
       profileImage: "https://randomuser.me/api/portraits/men/2.jpg",
       rating: 5,
       date: "1 month ago",
-      text: "Professional and efficient service. They helped me secure the best mortgage rate and explained everything clearly. The online calculator tool was particularly helpful in planning my finances."
+      text: "I was so confused about mortgage options in the UAE, but the team at Navigo really took the time to explain everything and find me the best deal. Highly recommend them!"
     },
     {
       name: "Emily Chen",
       profileImage: "https://randomuser.me/api/portraits/women/3.jpg",
       rating: 5,
       date: "2 months ago",
-      text: "Outstanding mortgage advisory service! The team's knowledge of the UAE property market is impressive. They found me a great deal and made the whole process seamless."
+      text: "Hands down, the best service I've experienced. The Navigo team made me feel confident and stress-free throughout the entire mortgage process. Couldn't be happier!"
     },
     {
       name: "James Wilson",
       profileImage: "https://randomuser.me/api/portraits/men/4.jpg",
       rating: 5,
       date: "3 months ago",
-      text: "Very impressed with the level of service. The team was always available to answer my questions and provided excellent guidance throughout the mortgage application process."
+      text: "From the first call to the final approval, Navigo was amazing. They answered all my questions and found me an unbeatable rate. So glad I chose them!"
     },
     {
       name: "Fatima Al-Sayed",
       profileImage: "https://randomuser.me/api/portraits/women/5.jpg",
       rating: 5,
       date: "3 months ago",
-      text: "Fantastic experience with Navigo! Their expertise in UAE mortgages is exceptional. They helped me understand all my options and secured a great rate. Highly recommended!"
+      text: "I never thought getting a mortgage could be this smooth. The Navigo team was super helpful, patient, and really knew their stuff. 10/10 would recommend!"
+    },
+    {
+      name: "Ahmed Khan",
+      profileImage: "https://randomuser.me/api/portraits/men/6.jpg",
+      rating: 5,
+      date: "4 months ago",
+      text: "These guys are the real deal. They guided me step by step and made sure I got the best mortgage rate in the market. Thank you, Navigo!"
+    },
+    {
+      name: "Lisa Johnson",
+      profileImage: "https://randomuser.me/api/portraits/women/7.jpg",
+      rating: 5,
+      date: "4 months ago",
+      text: "Honestly, I was stressed about the whole mortgage thing, but Navigo made it easy. They handled everything efficiently and kept me updated throughout. Amazing service!"
+    },
+    {
+      name: "David Smith",
+      profileImage: "https://randomuser.me/api/portraits/men/8.jpg",
+      rating: 5,
+      date: "5 months ago",
+      text: "Navigo was recommended by a friend, and I'm so glad I reached out to them. They took care of everything and saved me a ton of money. Huge thanks to the team!"
+    },
+    {
+      name: "Aisha Rahman",
+      profileImage: "https://randomuser.me/api/portraits/women/9.jpg",
+      rating: 5,
+      date: "5 months ago",
+      text: "Professional, friendly, and super knowledgeable. Navigo made the mortgage process seamless and stress-free. Would definitely recommend them to anyone in the UAE!"
+    },
+    {
+      name: "Michael Brown",
+      profileImage: "https://randomuser.me/api/portraits/men/10.jpg",
+      rating: 5,
+      date: "6 months ago",
+      text: "I had no idea where to start with my mortgage, but Navigo made it simple. They explained all my options and helped me secure the best rate. Couldn't ask for more!"
     }
   ];
 
-  const displayedReviews = reviews.slice(0, 3);
-
   return (
-    <section className="relative bg-white py-20 sm:py-24 lg:py-32 overflow-hidden">
-
+    <section className="relative bg-white py-6 sm:py-8 md:py-12 lg:pt-16 lg:pb-20 overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-         
           <h2 className="text-[28px] sm:text-[32px] md:text-[38px] lg:text-[46px] font-bold pb-4 text-primary">
-
             What Our Clients Say
           </h2>
           <div className="mt-6 flex items-center justify-center">
@@ -113,12 +178,31 @@ const GoogleReviews = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
-          {displayedReviews.map((review, index) => (
-            <ReviewCard key={index} review={review} />
-          ))}
+        <div className="max-w-7xl mx-auto">
+          <Swiper
+            spaceBetween={20}
+            slidesPerView={slidesPerView}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
+            pagination={{
+              clickable: true,
+              dynamicBullets: true,
+            }}
+            navigation={false}
+            modules={[Autoplay, Pagination, Navigation]}
+            className="reviews-slider pb-12"
+          >
+            {reviews.map((review, index) => (
+              <SwiperSlide key={index} className="h-auto">
+                <ReviewCard review={review} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
 
+        {/* Temporarily hidden "View All Reviews" button
         <div className="mt-12 text-center">
           <a
             href="https://www.google.com/maps/place/Navigo+Mortgage+Broker+Dubai/@25.2119189,55.2773799,17z/data=!4m8!3m7!1s0x3e5f42d05a745015:0x8c7a57f6f3c6e8c4!8m2!3d25.2119189!4d55.2799548!9m1!1b1!16s%2Fg%2F11t6_c_5yw?entry=ttu"
@@ -142,7 +226,7 @@ const GoogleReviews = () => {
             </svg>
           </a>
         </div>
-
+        */}
       </div>
     </section>
   );
