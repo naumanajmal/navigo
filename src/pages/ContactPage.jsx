@@ -19,7 +19,7 @@ export default function ContactPage() {
       <Navbar />
       
       {/* Main Contact Section */}
-      <section id="contact-section" className="py-16 pt-40 relative">
+      <section id="contact-section" className="py-16 pt-20 sm:pt-40 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
             {/* Contact Information */}

@@ -105,38 +105,7 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
               </Link>
             )
           ))}
-          {/* Knowledge Point Section */}
-          <div>
-            <button 
-              onClick={() => setShowMobileKnowledge(!showMobileKnowledge)}
-              className="flex items-center justify-between w-full px-4 py-2 text-primary hover:text-white hover:bg-primary transition-all duration-200 rounded-full text-base font-medium"
-            >
-              <span>Knowledge Point</span>
-              <div className="relative w-6 h-6">
-                <div className={`absolute inset-0 transform transition-transform duration-300 ${showMobileKnowledge ? 'rotate-45' : 'rotate-0'}`}>
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v12M6 12h12" />
-                  </svg>
-                </div>
-              </div>
-            </button>
-            <div className={`transition-all duration-300 overflow-hidden ${showMobileKnowledge ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
-              <div className="space-y-1">
-                <Link 
-                  to="/faq" 
-                  className="block px-6 py-2 text-primary hover:text-white hover:bg-primary transition-all duration-200 rounded-t-lg text-base font-medium"
-                >
-                  FAQs
-                </Link>
-                <Link 
-                  to="/blog" 
-                  className="block px-6 py-2 text-primary hover:text-white hover:bg-primary transition-all duration-200 rounded-b-lg text-base font-medium"
-                >
-                  Blogs
-                </Link>
-              </div>
-            </div>
-          </div>
+          
         
 
         {/* Calculator Section */}
@@ -168,9 +137,20 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
             </div>
           </div>
         </div>
-
+        <Link 
+            to="/faq" 
+            className="block px-4 py-2 text-primary hover:text-white hover:bg-primary transition-all duration-200 rounded-t-lg text-base font-medium"
+          >
+            FAQs
+          </Link>
         {/* Additional Links */}
         <div className="pt-2 border-t border-gray-100">
+        <Link 
+            to="/blog" 
+            className="block px-4 py-2 text-primary hover:text-white hover:bg-primary transition-all duration-200 rounded-t-lg text-base font-medium"
+          >
+            Blogs
+          </Link>
           <Link 
             to="/about-us" 
             className="block px-4 py-2 text-primary hover:text-white hover:bg-primary transition-all duration-200 rounded-t-lg text-base font-medium"
@@ -247,6 +227,16 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
           </div>
         )}
       </div>
+      <div className=" pr-12 flex items-center">
+        <Link 
+          to="/faq" 
+          className="text-primary hover:text-white hover:bg-secondary transition-all duration-200 text-base font-medium px-4 py-2 rounded-full"
+        >
+          FAQs
+        </Link>
+        
+        <div className="h-4 w-[1px] bg-gray-300 ml-12"></div>
+      </div>
       <div className="relative  flex items-center" ref={moreMenuRef}>
         <button 
           className="text-primary hover:text-white hover:bg-secondary transition-all duration-200 text-base font-medium flex items-center gap-1 p-2 rounded-full"
@@ -267,39 +257,12 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
           <div 
             className="absolute top-full right-0 mt-2 bg-white rounded-xl shadow-2xl border border-gray-200 min-w-[200px] overflow-visible z-10"
           >
-             <div 
-              className="relative"
-             >
-              <button
-                className="w-full text-left px-4 py-2 text-primary hover:text-white hover:bg-secondary transition-all duration-200 rounded-t-xl cursor-pointer flex items-center justify-between"
-                onClick={() => setShowKnowledgeSubMenu(!showKnowledgeSubMenu)}
-              >
-                <span >KNOWLEDGE POINT</span>
-                <svg className={`w-4 h-4 transition-transform duration-200 ${showKnowledgeSubMenu ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-              
-              {showKnowledgeSubMenu && (
-                <div 
-                  className="absolute right-full top-0 mr-2 bg-white rounded-xl shadow-2xl border border-gray-200 min-w-[200px] z-50 "
-                >
-                  <Link 
-                    to="/faq"
-                    className="block px-4 py-2 text-primary hover:text-white hover:bg-secondary transition-all duration-200 rounded-t-xl  "
-                  >
-                    FAQs
-                  </Link>
-                  <Link 
+            <Link 
                     to="/blog"
-                    className="block px-4 py-2 text-primary hover:text-white hover:bg-secondary transition-all duration-200 rounded-b-xl "
+                    className="block px-4 py-2 text-primary hover:text-white hover:bg-secondary transition-all duration-200 rounded-t-xl "
                   >
                     Blogs
                   </Link>
-                </div>
-              )}
-            </div>
-            <div className="h-[1px] bg-gray-100 my-2"></div>
             <Link 
               to="/about-us"
               className="block px-4 py-2 text-primary hover:text-white hover:bg-secondary transition-all duration-200"

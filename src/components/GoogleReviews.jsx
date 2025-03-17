@@ -38,14 +38,7 @@ const ReviewCard = ({ review }) => {
         </div>
       </div>
       <p className="mt-4 text-gray-600 leading-relaxed flex-grow">{review.text}</p>
-      <div className="mt-4 flex items-center">
-        <img
-          src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"
-          alt="Google Logo"
-          className="h-5 w-auto"
-        />
-        <span className="ml-2 text-sm text-gray-500">Posted on Google</span>
-      </div>
+       
     </div>
   );
 };
@@ -85,7 +78,7 @@ const GoogleReviews = () => {
       profileImage: "https://randomuser.me/api/portraits/women/1.jpg",
       rating: 5,
       date: "2 weeks ago",
-      text: "I honestly couldn't have done this without Navigo. They handled everything from A to Z and made the mortgage process feel like a breeze. Super thankful for their support!"
+      text: "I honestly couldn’t have done this without Navigo. They handled everything from A to Z and made the mortgage process feel like a breeze. Super thankful for their support!"
     },
     {
       name: "Mohammed Al-Hassan",
@@ -172,9 +165,7 @@ const GoogleReviews = () => {
                 </svg>
               ))}
             </div>
-            <span className="ml-2 text-lg font-medium text-gray-900">
-              5.0 Rating on Google
-            </span>
+           
           </div>
         </div>
 

@@ -15,7 +15,7 @@ import AffordabilityCalculatorPage from './pages/AffordabilityCalculatorPage'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import Terms from './pages/Terms'
 import AboutUs from './pages/AboutUs'
-
+import ProcessPage from './pages/ProcessPage'
 function App() {
   return (
     <Router>
@@ -25,7 +25,8 @@ function App() {
         <SimpleQuoteForm />
         <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/faq" element={<FaqPage />} />
+          <Route path="/faq" element={<FaqPage />} />
+          <Route path="/process" element={<ProcessPage />} />
         <Route path="/mortgage-calculator" element={<MortgageCalculatorPage />} />
         <Route path="/affordability-calculator" element={<AffordabilityCalculatorPage />} />
         <Route path="/services" element={<Services />} />

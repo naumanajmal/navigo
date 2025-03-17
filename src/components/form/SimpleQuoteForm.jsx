@@ -97,7 +97,9 @@ const SimpleQuoteForm = () => {
         throw new Error(errorData.message || 'Failed to submit form')
       }
 
+      // Clear form data and errors on successful submission
       setFormData(getInitialFormState(''))
+      setErrors({}) // Clear all errors
       setShowSuccess(true)
       
       setTimeout(() => {
@@ -218,22 +220,38 @@ const SimpleQuoteForm = () => {
 
               <div>
                 <label htmlFor="phone" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-1.5">
-                  Phone Number
+                  Phone Number <span className="text-red-500">*</span>
                 </label>
                 <PhoneInput
                   country={'ae'}
                   value={formData.phone}
                   onChange={handlePhoneChange}
-                  inputProps={{
-                    name: 'phone',
-                    id: 'phone',
-                    className: `block w-full !px-3 !py-2 sm:!py-2.5 !border rounded-lg shadow-sm focus:ring-primary focus:border-primary sm:text-sm ${
-                      errors.phone ? '!border-red-500' : '!border-gray-300'
-                    }`,
+                  inputClass={`block w-full h-[42px] sm:h-[46px] px-3 sm:px-4 pl-[4.5rem] text-sm sm:text-base rounded-xl border-2 ${errors.phone ? 'border-red-500' : 'border-gray-200'} bg-white text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 placeholder:text-gray-400`}
+                  containerClass="relative phone-input-container"
+                  buttonClass="absolute inset-y-0 left-0 flex items-center px-3"
+                  buttonStyle={{ 
+                    backgroundColor: 'transparent', 
+                    border: 'none',
+                    padding: '0 12px'
+                  }}
+                  inputStyle={{ 
+                    width: '100%', 
+                    borderRadius: '12px',
+                    height: '46px',
+                    border: '2px solid #e5e7eb',
+                  }}
+                  placeholder="Enter your phone number"
+                  enableSearch={true}
+                  searchStyle={{
+                    width: '100%',
+                    height: '36px',
+                    borderRadius: '8px',
+                    padding: '8px',
+                    border: '2px solid #e5e7eb'
                   }}
                 />
                 {errors.phone && (
-                  <p className="mt-1 text-xs text-red-600">{errors.phone}</p>
+                  <p className="mt-1 text-xs text-red-500">{errors.phone}</p>
                 )}
               </div>
             </div>

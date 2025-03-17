@@ -11,12 +11,18 @@ const BlogArchive = () => {
   const [categories, setCategories] = useState(['All']);
 
   // WordPress API base URL
-  const WP_API_BASE = '/wp-api/wp/v2';
+  const WP_API_BASE = import.meta.env.PROD 
+    ? 'https://navigo.ae/navigoadmin/index.php/wp-json/wp/v2'
+    : '/wp-api/wp/v2';
 
   useEffect(() => {
-    fetchPosts();
-    fetchCategories();
-  }, []);
+    const loadData = async () => {
+      await fetchPosts();
+      await fetchCategories();
+    };
+    
+    loadData();
+  }, [WP_API_BASE]);
 
   const fetchPosts = async () => {
     try {

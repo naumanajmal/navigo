@@ -147,7 +147,7 @@ const FAQ = ({ faqData = [], limitCount = false }) => {
   const faqs = (!isFaqPage && limitCount) ? allFaqs.slice(0, 6) : allFaqs;
 
   return (
-    <section className="relative bg-gradient-to-br from-[#e5f6ff] via-white to-[#f0f7ff] py-6 sm:py-8 md:py-12 lg:py-16 overflow-hidden">
+    <section className="font-lexend relative bg-gradient-to-br from-[#e5f6ff] via-white to-[#f0f7ff] py-6 sm:py-8 md:py-12 lg:py-16 overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_100%_100%,#00203f15_0%,transparent_50%)] mix-blend-soft-light" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_0%_0%,#008cc915_0%,transparent_50%)] mix-blend-soft-light" />

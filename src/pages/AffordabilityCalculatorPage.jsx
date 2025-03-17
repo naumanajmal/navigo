@@ -1,8 +1,17 @@
+import { useEffect } from 'react';
 import Navbar from '../components/navbar/Navbar'
 import Footer from '../components/Footer'
 import AffordabilityCalculator from '../components/calculator/AffordabilityCalculator'
 
 const AffordabilityCalculatorPage = () => {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }, []);
+
   return (
     <div className="font-lexend">
       <Navbar />

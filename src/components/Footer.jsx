@@ -42,6 +42,14 @@ const Footer = () => {
     // The useEffect in MortgageCalculatorPage component will handle scrolling to top
   };
 
+  // Function to handle Affordability Calculator navigation
+  const navigateToAffordabilityCalculator = (e) => {
+    e.preventDefault();
+    // Navigate to Affordability Calculator page
+    window.location.href = '/affordability-calculator';
+    // The useEffect in AffordabilityCalculatorPage component will handle scrolling to top
+  };
+
   // Function to handle Contact Us navigation
   const navigateToContact = (e) => {
     e.preventDefault();
@@ -75,7 +83,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-primary border-t border-gray-100 text-white">
+    <footer className="font-lexend bg-primary border-t border-gray-100 text-white">
       <div className="pt-12 sm:pt-8 lg:pt-16 flex flex-col items-center justify-center">
         {/* Content Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 w-full sm:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -114,8 +122,12 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="text-sm sm:text-base text-white/80 hover:text-white hover:bg-primary hover:rounded-full hover:px-4 hover:py-2 transition-all duration-300">
-                  Services
+                <Link 
+                  to="/affordability-calculator" 
+                  onClick={navigateToAffordabilityCalculator}
+                  className="text-sm sm:text-base text-white/80 hover:text-white hover:bg-primary hover:rounded-full hover:px-4 hover:py-2 transition-all duration-300"
+                >
+                  Affordability Calculator
                 </Link>
               </li>
               <li>

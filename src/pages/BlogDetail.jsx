@@ -14,12 +14,18 @@ const BlogDetail = () => {
   const contentRef = useRef(null);
 
   // WordPress API base URL
-  const WP_API_BASE = '/wp-api/wp/v2';
+  const WP_API_BASE = import.meta.env.PROD 
+    ? 'https://navigo.ae/navigoadmin/index.php/wp-json/wp/v2'
+    : '/wp-api/wp/v2';
 
   useEffect(() => {
-    fetchPost();
-    fetchCategories();
-  }, [slug]);
+    const loadData = async () => {
+      await fetchPost();
+      await fetchCategories();
+    };
+    
+    loadData();
+  }, [slug, WP_API_BASE]);
 
   // Extract table of contents from the blog content
   useEffect(() => {

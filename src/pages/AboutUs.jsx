@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Navbar from '../components/navbar/Navbar';
 import Footer from '../components/Footer';
 import { motion } from 'framer-motion';
-
+import About from '../components/about/About';
 const AboutUs = () => {
   // Scroll to top when component mounts
   useEffect(() => {
@@ -15,12 +15,12 @@ const AboutUs = () => {
   return (
     <div className="bg-white min-h-screen font-lexend">
       <Navbar />
-      
+
       {/* Hero Section - About Us */}
       <section className="py-8 md:py-16 bg-white pt-28 md:pt-32" id="about-hero-section">
-        <div className="container mx-auto px-4 max-w-7xl space-y-20">
+        <div className="container mx-auto px-4 max-w-7xl sm:space-y-20 space-y-3">
           <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-16 lg:gap-24 pt-8 md:pt-12">
-            <motion.div 
+            <motion.div
               className="w-full lg:w-1/2"
               initial={{ x: -100, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -33,7 +33,7 @@ const AboutUs = () => {
                 className="rounded-lg shadow-xl w-full h-[300px] md:h-[400px] lg:h-[500px] object-cover"
               />
             </motion.div>
-            <motion.div 
+            <motion.div
               className="lg:w-1/2"
               initial={{ x: 100, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -48,20 +48,20 @@ const AboutUs = () => {
                 Our dedicated team of experts works tirelessly to provide clear, straightforward guidance at every step. Whether you&apos;re a first-time homebuyer or looking to upgrade your living space, we&apos;re here to make the journey seamless. We firmly believe that purchasing a home should be a moment of celebration, not a source of anxiety. That&apos;s why our motto is, <span className="font-semibold text-primary">&quot;Making home buying a moment of celebration, not a stressful event.&quot;</span>
               </p>
 
-              
+
 
             </motion.div>
           </div>
           <div>
-          <p className="text-gray-600 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed text-left sm:text-justify">
-                Navigo was founded with a vision to transform the home buying experience. Through innovative digital tools, a user-friendly platform, and personalized support, we&apos;ve redefined what it means to find a home. We focus on transparency, communication, and trust, ensuring that you are empowered with the knowledge and confidence you need to make informed decisions.
-              </p>
-              <p className="text-gray-600 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed text-left sm:text-justify">
-                Our team combines years of expertise in real estate with cutting-edge technology to create a more accessible, efficient, and enjoyable process for our clients. By fostering open and honest relationships, we build long-lasting partnerships that extend beyond just a transaction – we&apos;re here to guide you on your journey to finding a place to call home.
-              </p>
-              <p className="text-gray-600 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed text-left sm:text-justify">
-                At Navigo, we&apos;re not just making home buying easier—we&apos;re making it a joyful experience. Let us help you turn your dreams of homeownership into reality, with ease, transparency, and support every step of the way.
-              </p>
+            <p className="text-gray-600 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed text-left sm:text-justify">
+              Navigo was founded with a vision to transform the home buying experience. Through innovative digital tools, a user-friendly platform, and personalized support, we&apos;ve redefined what it means to find a home. We focus on transparency, communication, and trust, ensuring that you are empowered with the knowledge and confidence you need to make informed decisions.
+            </p>
+            <p className="text-gray-600 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed text-left sm:text-justify">
+              Our team combines years of expertise in real estate with cutting-edge technology to create a more accessible, efficient, and enjoyable process for our clients. By fostering open and honest relationships, we build long-lasting partnerships that extend beyond just a transaction – we&apos;re here to guide you on your journey to finding a place to call home.
+            </p>
+            <p className="text-gray-600 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed text-left sm:text-justify">
+              At Navigo, we&apos;re not just making home buying easier—we&apos;re making it a joyful experience. Let us help you turn your dreams of homeownership into reality, with ease, transparency, and support every step of the way.
+            </p>
           </div>
         </div>
       </section>
@@ -71,9 +71,9 @@ const AboutUs = () => {
         {/* Decorative elements */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_100%_100%,#00203f15_0%,transparent_50%)] mix-blend-soft-light" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_0%_0%,#008cc915_0%,transparent_50%)] mix-blend-soft-light" />
-        
+
         {/* Animated background shapes */}
-        <div className="absolute top-0 left-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-pulse" 
+        <div className="absolute top-0 left-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-pulse"
           style={{ animationDuration: '8s' }} />
         <div className="absolute bottom-0 right-0 w-72 h-72 bg-secondary/5 rounded-full blur-3xl animate-pulse"
           style={{ animationDuration: '10s', animationDelay: '1s' }} />
@@ -168,7 +168,7 @@ const AboutUs = () => {
           </div>
         </div>
       </section>
-
+      <About />
       <Footer />
     </div>
   );
