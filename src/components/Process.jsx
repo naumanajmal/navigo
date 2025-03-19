@@ -10,11 +10,11 @@ export default function Process() {
       <div>
           
           {/* Process Section - Gradient Background */}
-      <section className="relative bg-gradient-to-br from-[#e5f6ff] via-white to-[#f0f7ff] py-20">
+      <section className="relative bg-gradient-to-br from-[#e5f6ff] via-white to-[#f0f7ff]  ">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_100%_100%,#00203f15_0%,transparent_50%)] mix-blend-soft-light" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_0%_0%,#008cc915_0%,transparent_50%)] mix-blend-soft-light" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Mortgage Process</h2>
             <p className="text-gray-600">Your step-by-step guide to property purchase</p>
@@ -116,7 +116,7 @@ export default function Process() {
             </div>
           </div>
           
-          <div className="mt-16 text-center">
+          <div className="mt-16 sm:mt-25 text-center">
             <p className="text-gray-600 font-medium ">PLEASE KEEP IN MIND THAT THE ENTIRE PROCESS CAN TAKE 6-8 WEEKS DEPENDING ON TRANSACTION TYPE.</p>
             <p className="text-gray-600 font-medium">PLEASE SPEAK WITH OUR ADVISORS TO PLAN YOUR TIMELINES ACCORDINGLY.</p>
           </div>
