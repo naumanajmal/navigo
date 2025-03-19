@@ -10,7 +10,7 @@ export default function Process() {
       <div>
           
           {/* Process Section - Gradient Background */}
-      <section className="relative bg-gradient-to-br from-[#e5f6ff] via-white to-[#f0f7ff] py-32">
+      <section className="relative bg-gradient-to-br from-[#e5f6ff] via-white to-[#f0f7ff] py-20">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_100%_100%,#00203f15_0%,transparent_50%)] mix-blend-soft-light" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_0%_0%,#008cc915_0%,transparent_50%)] mix-blend-soft-light" />
 
@@ -48,7 +48,7 @@ export default function Process() {
                 },
                 { 
                   title: 'SIGNING/REVIEW OF MOU', 
-                  icon: FiFileText, 
+                  icon: IoCheckmarkCircleOutline, 
                   desc: 'We will review your MOU (Form F) to ensure you are protected as a mortgage buyer. We will advise if any clauses need to be added or changed to minimize your risk and make sure your purchase goes smoothly.'
                 },
                 { 
@@ -72,13 +72,11 @@ export default function Process() {
                   desc: 'Every developer requires the seller to obtain a No Objection Certificate. This states that the seller does not owe any service charges and is free to sell the property. Once received, you can proceed to final transfer. This is when all monies owed to the seller are cleared and ownership changes hands. You will receive a title deed in your name and the process is complete.'
                 }
               ].map((step, index) => (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                   
                   className="relative grid md:grid-cols-2 gap-8 items-center group"
-                  onMouseEnter={() => setActiveStep(index)}
+            
                 >
                   {/* Circle on Line */}
                   <div className="absolute left-[-9px] md:left-1/2 top-8 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 w-5 h-5 rounded-full bg-white border-2 border-primary/20 group-hover:border-primary group-hover:bg-primary/10 transition-colors z-10"></div>
@@ -96,7 +94,7 @@ export default function Process() {
                     <div className={`hidden md:flex w-16 h-16 rounded-full ${activeStep === index ? 'bg-primary text-white' : 'bg-primary/10 text-primary'} items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0`}>
                       <step.icon className="w-8 h-8" />
                     </div>
-                    <div className={`flex-1 ${index % 2 === 0 ? 'pl-8 sm:pr-8 sm:text-right' : 'pl-8'}`}>
+                    <div className={`flex-1 ${index % 2 === 0 ? 'pl-8' : 'pl-8'}`}>
                       <h3 className="text-xl font-semibold text-gray-800 mb-2 group-hover:text-primary transition-colors">
                         <span className="md:hidden inline-flex items-center gap-2">
                           {/* Mobile view step number and icon */}
@@ -113,14 +111,14 @@ export default function Process() {
                       <p className="text-gray-600 leading-relaxed">{step.desc}</p>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
           
           <div className="mt-16 text-center">
-            <p className="text-red-500 font-medium">PLEASE KEEP IN MIND THAT THE ENTIRE PROCESS CAN TAKE 6-8 WEEKS DEPENDING ON TRANSACTION TYPE.</p>
-            <p className="text-red-500 font-medium">PLEASE SPEAK WITH OUR ADVISORS TO PLAN YOUR TIMELINES ACCORDINGLY.</p>
+            <p className="text-gray-600 font-medium ">PLEASE KEEP IN MIND THAT THE ENTIRE PROCESS CAN TAKE 6-8 WEEKS DEPENDING ON TRANSACTION TYPE.</p>
+            <p className="text-gray-600 font-medium">PLEASE SPEAK WITH OUR ADVISORS TO PLAN YOUR TIMELINES ACCORDINGLY.</p>
           </div>
         </div>
       </section>

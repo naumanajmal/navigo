@@ -9,52 +9,55 @@ export const services = [
     picture: 'Residential_Property.avif',
     list_sub_title: 'Your Dream Home in UAE',
     features: ['Looking for primary residential home', 'For first time home buyers', 'Best mortgage rates', 'Smooth process'],
-    subtitle: `Do you wish to make your own dream home in the UAE? Don’t worry, we’ll make it true!`,
-    description: 'Find your perfect home in the UAE with our comprehensive residential mortgage solutions, offering competitive rates and seamless processing for first-time buyers.',
-    description_1: `UAE is a vibrant country known for its modern infrastructure and opulent lifestyle making it an ideal country to buy a house. Make a dream of buying a home in UAE with Navigo and we will help you by offering you a seamless digital homeownership experience.`,
-    description_2: `Discover the best range of mortgage plans, get quick approval, eligibility, required documents, and more-Navigo is your guide. Whether you are buying a new property or opting for a secondary one, our customized mortgage solutions are designed to make your experience hassle-free.`,
-     benefits: {
-      title: 'Benefits Only for You',
+    subtitle: `Residential property loans are a common way for individuals to finance the purchase of homes.`,
+    description: 'Navigo provides residential property loan solutions with flexible terms, making home ownership a reality for many. Whether you are a first-time buyer or looking to upgrade, Navigo has the expertise to assist with financing the perfect home.',
+    description_1: `Residential property loans are a common way for individuals to finance the purchase of homes. These loans can be used for buying single-family homes, apartments, or other residential properties. Navigo provides residential property loan solutions with flexible terms, making home ownership a reality for many. Whether you are a first-time buyer or looking to upgrade, Navigo has the expertise to assist with financing the perfect home.`,
+    description_2: `Our team of experts will guide you through the entire process, from application to closing, ensuring a smooth and hassle-free experience. We understand that buying a home is one of the biggest financial decisions you'll make, and we're here to help you every step of the way.`,
+    benefits: {
+      title: 'Benefits of Choosing Navigo',
       items: [
-        'Smooth process: We have an expert team for you who are dedicated to making your entire home buying process smooth and hassle-free.',
-        'Minimal documentation: Once you choose us, you don\'t have to worry about anything. We will take care of the documentation process whether you\'re a salaried or self-employed individual.',
-        'Bespoke solutions: We understand every person has different requirements so we follow personalized and tapered solutions according to your unique needs.',
-        'Professionalism and expert team: Our team members are experts in the industry who guide with best mortgage plans.'
+        'Competitive interest rates: Navigo offers highly competitive mortgage rates that help reduce monthly payments.',
+        'Customizable loan terms: The loan amount and repayment schedule can be tailored to meet the buyer\'s financial needs.',
+        'Fast approval process: Navigo\'s simple and quick application process allows for fast approvals and disbursement of funds.',
+        'Expert guidance: Navigo\'s team helps buyers navigate the entire process, from application to closing.',
+        'Flexible down payment options: Depending on the loan product, Navigo can offer flexibility with down payment requirements.',
+        'First-time homebuyer assistance: Navigo provides specialized products for first-time homebuyers, including low down payment options.'
       ]
     },
     eligibility: {
       title: 'Eligibility Criteria',
       items: [
-        'Property type and valve: The minimum value of the property must be of AED 1 million. The property should be either a villa or an apartment and must be fully owned by you.',
-        'Passport: You must present a valid passport at the time of the property purchase.',
-        'Proof of income: Proof of stable income will be required.',
-        'Marriage Certificate: A marriage certificate may be required if you\'re married.'
+        'The applicant must have a stable source of income and a good credit score.',
+        'Proof of identity and residence.',
+        'A down payment, typically between 10-20% of the property value.',
+        'The applicant must demonstrate the ability to repay the loan through income statements or proof of employment.',
+        'Age requirements may apply, generally between 21 and 65 years old.'
       ]
     },
     faqs: [
       {
-        question: 'How can I apply for a home loan in the UAE?',
-        answer: 'If you\'re aged between 21 and 65 and meet the minimum monthly income requirements (AED 15,000 or higher), you can easily apply for a home loan.'
+        question: 'What is the minimum down payment for a residential mortgage?',
+        answer: 'Typically, the minimum down payment is 10-20% of the property\'s value, depending on the loan type and the applicant\'s financial profile.'
       },
       {
-        question: 'What is the minimum or maximum age to apply for a home mortgage loan in the UAE?',
-        answer: 'The minimum age is 21 and the maximum age is 65 (or 70 if self-employed) to apply for a home mortgage loan in the UAE.'
+        question: 'Can I apply for a residential mortgage if I have bad credit?',
+        answer: 'While bad credit can make it harder to qualify, Navigo may still be able to find options with higher interest rates or co-signer options.'
       },
       {
-        question: 'What are the required documents for a home loan in the UAE?',
-        answer: 'The required documents for a home loan are: Emirates ID and Passport, Salary certificate and income proof, UAE residence proof, Property specifications, Address proof, Any other document supporting repayment capacity, Bank statement, Details of any existing loans, Tax returns (if applicable)'
+        question: 'How long does it take to process a residential property loan?',
+        answer: 'The process usually takes 2-4 weeks depending on the lender and the complexity of the application.'
       },
       {
-        question: 'What are the residential property interest rates in the UAE?',
-        answer: 'Interest rates of residential property plans can vary from bank to bank and customer\'s profile.'
+        question: 'Can I refinance my residential property loan with Navigo?',
+        answer: 'Yes, Navigo offers refinancing options for homeowners looking to reduce their monthly payments or access equity.'
       },
       {
-        question: 'Can a non-resident buy a home in Dubai?',
-        answer: 'Yes. A non-resident can buy a home in the UAE. Some areas also offer leasehold options, typically for 99 years.'
+        question: 'Are there any fees associated with applying for a residential mortgage?',
+        answer: 'Yes, there may be processing fees, valuation fees, or legal fees, but Navigo provides a transparent fee structure.'
       },
       {
-        question: 'Is hiring a mortgage broker a good idea?',
-        answer: 'Yes, hiring a mortgage broker is a good idea as mortgage broker help you with the documentation process, eligibility criteria, interest rates, terms and conditions, and bespoke solutions.'
+        question: 'Can I get a residential mortgage if I am self-employed?',
+        answer: 'Yes, self-employed individuals can apply, but they will need to provide proof of income such as tax returns and bank statements.'
       }
     ],
     icon: (
@@ -67,52 +70,57 @@ export const services = [
     id: 2,
     title: 'Commercial Property',
     picture: 'Commercial_Property.webp',
-
     list_sub_title: 'Business Property Solutions',
     features: ['For commercial property buyers', 'Compared interest rates', 'Tailored solutions', 'Expert advice'],
-    subtitle: `Are you thinking of buying your own office or property for business? Let us help you with the best mortgage plans for offices, hotels, or other business property!`,
-    description: 'Expert guidance for commercial property investments in UAE, with tailored mortgage solutions for offices, retail spaces, and business properties.',
-    description_1: `If you’re looking to obtain a commercial property mortgage in the UAE, there are ample things to understand. The commercial property mortgage includes office space, shops, retail outlets, industrial properties, and warehouses. You must understand the local and legal regulations, and gather documents and information, proof of income, credit history, and other financial information. Obtaining a commercial property mortgage can be a little tricky if you’re not aware of these things. But you don’t have to worry, we have got you!`,
-    description_2: `Our expert team will help you with the complex process, compare interest rates, terms, research and preparation. You can easily compare several different banks and mortgage options available in Dubai or our experts can help with bespoke solutions.`,
+    subtitle: `Commercial property loans are designed for individuals or businesses that wish to purchase, refinance, or invest in commercial real estate.`,
+    description: 'Navigo offers commercial property financing with flexible loan terms to help businesses and investors secure prime commercial real estate, including office buildings, retail spaces, industrial properties, and multi-family units.',
+    description_1: `Commercial property loans are designed for individuals or businesses that wish to purchase, refinance, or invest in commercial real estate. This includes office buildings, retail spaces, industrial properties, and multi-family units. Navigo offers commercial property financing with flexible loan terms to help businesses and investors secure prime commercial real estate.`,
+    description_2: `Our team of experts understands the complexities of commercial real estate investments and provides comprehensive support throughout the entire process. From identifying suitable properties to securing competitive financing terms, Navigo ensures a smooth and efficient experience for commercial property investors.`,
     benefits: {
-      title: 'What are the Benefits of Choosing Navigo?',
+      title: 'Benefits of Choosing Navigo',
       items: [
-        'High loan amount',
-        'Good interest rates',
-        'Easy process',
-        'Hassle-free documentation',
-        'Flexible terms and payment plans'
+        'Expert advice: Navigo offers tailored solutions for commercial real estate investments, ensuring optimal returns.',
+        'Competitive interest rates: Commercial property loans come with competitive rates, ensuring affordable financing options.',
+        'Flexible loan amounts and terms: Navigo offers customizable loan amounts and repayment schedules that fit the needs of your business.',
+        'Quick approval process: With Navigo\'s streamlined process, business owners can secure loans faster to seize investment opportunities.',
+        'Access to a wide range of lenders: Navigo partners with multiple financial institutions to ensure you get the best deal.',
+        'Guidance through complex legal and regulatory requirements: Navigo helps clients navigate the complexities of commercial real estate law and compliance.'
       ]
     },
     eligibility: {
       title: 'Eligibility Criteria for Commercial Property',
       items: [
-        'The minimum age must be 21 years and a maximum of 70 years for UAE nationals.',
-        'Valid trade licence',
-        'You must submit the business documents such as Memorandum of Articles or Power of Attorney.',
-        'Banking or lending assessment documents'
+        'The business or individual must have a stable financial track record.',
+        'A solid business plan or investment strategy.',
+        'A down payment, typically between 20-30% of the property value.',
+        'Proof of income or business revenue (for commercial borrowers).',
+        'A good credit score is essential.'
       ]
     },
     faqs: [
       {
-        question: 'Is it difficult to get a Commercial Property mortgage plan in the UAE?',
-        answer: 'No. It\'s not difficult to get a commercial property loan in the UAE. You can hire a mortgage broker to help you with documents, proof of income, credit history, comparing interest rates, etc.'
+        question: 'What is the minimum down payment required for a commercial property loan?',
+        answer: 'Typically, the minimum down payment is 20-30% of the property value, but it can vary depending on the lender.'
       },
       {
-        question: 'What is a Commercial Property mortgage loan in the UAE?',
-        answer: 'If you\'re planning to buy a commercial property such as office space, shops, retail outlets, industrial properties, or warehouses, you can take a commercial property loan.'
+        question: 'Can I apply for a commercial property loan if I have a new business?',
+        answer: 'Yes, new businesses can apply, but they must have a clear business plan and strong financial backing.'
       },
       {
-        question: 'What is the minimum and maximum age to get commercial mortgages in Dubai?',
-        answer: 'The minimum age must be 21 years and a maximum of 70 years for UAE nationals.'
+        question: 'How long does it take to get approved for a commercial property loan?',
+        answer: 'Approval times can range from 2-6 weeks, depending on the complexity of the application.'
       },
       {
-        question: 'What documents are required to get a commercial mortgage in the UAE?',
-        answer: 'The exact documents or papers will depend on the bank, however, you\'ll require these documents: Personal ID proof or documents, Proof of legal residence in Dubai, Proof of your salary statements, Valid trade licence, Business documents such as Memorandum of Articles or Power of Attorney, Banking or lending assessment documents'
+        question: 'Can I use a commercial property loan to buy residential properties?',
+        answer: 'No, commercial property loans are specifically designed for non-residential properties like offices, stores, and industrial spaces.'
       },
       {
-        question: 'What are the commercial mortgage interest rates in the UAE?',
-        answer: 'Interest rates of commercial mortgage plans can vary from bank to bank and customer\'s profile.'
+        question: 'What types of properties can be financed with a commercial loan?',
+        answer: 'You can finance office buildings, retail spaces, warehouses, multi-family units, and other non-residential properties.'
+      },
+      {
+        question: 'What documents are required to apply for a commercial property loan?',
+        answer: 'You\'ll need business financial statements, tax returns, a property purchase agreement, and a detailed business plan.'
       }
     ],
     icon: (
@@ -471,7 +479,7 @@ export const services = [
         answer: 'We typically consider projects with a minimum value of AED 50 million, though this may vary based on the project type and sector.'
       },
       {
-        question: 'How long does the approval process take?',
+        question: 'How long does it take to process a project finance application?',
         answer: 'The approval process usually takes 4-8 weeks, depending on project complexity and documentation readiness.'
       },
       {
@@ -614,7 +622,7 @@ export const services = [
     ],
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0z" />
       </svg>
     )
   },
@@ -858,7 +866,7 @@ export const services = [
         answer: 'No, under-construction loans are typically structured with staggered payments in accordance with the project\'s progress, so you don\'t need to pay the full amount upfront.'
       },
       {
-        question: 'Can I get an under-construction loan if I\'m a non-resident?',
+        question: 'Can I get an under-construction loan if I’m a non-resident?',
         answer: 'Yes, non-residents can apply for under-construction loans, but they may need to meet specific criteria, such as providing additional documentation or a higher down payment.'
       }
     ],

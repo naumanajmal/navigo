@@ -152,6 +152,13 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
             Blogs
           </Link>
           <Link 
+            to="/process" 
+            className="block px-4 py-2 text-primary hover:text-white hover:bg-primary transition-all duration-200 rounded-t-lg text-base font-medium"
+          >
+            How it works
+          </Link>
+          
+          <Link 
             to="/about-us" 
             className="block px-4 py-2 text-primary hover:text-white hover:bg-primary transition-all duration-200 rounded-t-lg text-base font-medium"
           >
@@ -262,7 +269,13 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
                     className="block px-4 py-2 text-primary hover:text-white hover:bg-secondary transition-all duration-200 rounded-t-xl "
                   >
                     Blogs
-                  </Link>
+            </Link>
+            <Link 
+              to="/process"
+              className="block px-4 py-2 text-primary hover:text-white hover:bg-secondary transition-all duration-200"
+            >
+              How it works
+            </Link>
             <Link 
               to="/about-us"
               className="block px-4 py-2 text-primary hover:text-white hover:bg-secondary transition-all duration-200"
