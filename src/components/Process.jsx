@@ -7,7 +7,8 @@ export default function Process() {
 
     const [activeStep, setActiveStep] = useState(0)
   return (
-      <div>
+    <div
+    >
           
           {/* Process Section - Gradient Background */}
       <section className="relative bg-gradient-to-br from-[#e5f6ff] via-white to-[#f0f7ff]  ">
@@ -72,8 +73,12 @@ export default function Process() {
                   desc: 'Every developer requires the seller to obtain a No Objection Certificate. This states that the seller does not owe any service charges and is free to sell the property. Once received, you can proceed to final transfer. This is when all monies owed to the seller are cleared and ownership changes hands. You will receive a title deed in your name and the process is complete.'
                 }
               ].map((step, index) => (
-                <div
-                  key={index}
+                <motion.div
+                key={index}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.1 }}
+                onMouseEnter={() => setActiveStep(index)}
                    
                   className="relative grid md:grid-cols-2 gap-8 items-center group"
             
@@ -111,7 +116,7 @@ export default function Process() {
                       <p className="text-gray-600 leading-relaxed">{step.desc}</p>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>

@@ -180,7 +180,7 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
       <div className="px-12 flex items-center">
         <Link 
           to="/" 
-          className="text-primary hover:text-white hover:bg-secondary transition-all duration-200 text-base font-medium px-4 py-2 rounded-full"
+          className="text-primary hover:text-white hover:bg-primary transition-all duration-200 text-base font-medium px-4 py-2 rounded-full"
         >
           Home
         </Link>
@@ -188,7 +188,7 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
       </div>
       <div className="relative group pr-12 flex items-center" ref={servicesRef}>
         <button 
-          className="text-primary hover:text-white hover:bg-secondary transition-all duration-200 text-base font-medium flex items-center gap-1 px-4 py-2 rounded-full"
+          className="text-primary hover:text-white hover:bg-primary transition-all duration-200 text-base font-medium flex items-center gap-1 px-4 py-2 rounded-full"
           onClick={() => setShowServicesDropdown(!showServicesDropdown)}
         >
           Services
@@ -208,7 +208,7 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
       
       <div className="relative group pr-12 flex items-center" ref={calculatorRef}>
         <button 
-          className="text-primary hover:text-white hover:bg-secondary transition-all duration-200 text-base font-medium flex items-center gap-1 px-4 py-2 rounded-full"
+          className="text-primary hover:text-white hover:bg-primary transition-all duration-200 text-base font-medium flex items-center gap-1 px-4 py-2 rounded-full"
           onClick={() => setShowCalculatorDropdown(!showCalculatorDropdown)}
         >
           Calculator  
@@ -225,7 +225,7 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
               <Link
                 key={option.name}
                 to={option.href}
-                className={`flex items-center px-4 py-2 text-primary hover:text-white hover:bg-secondary transition-all duration-200 ${index === 0 ? 'rounded-t-lg' : ''} ${index === calculatorOptions.length - 1 ? 'rounded-b-lg' : ''}`}
+                className={`flex items-center px-4 py-2 text-primary hover:text-white hover:bg-primary transition-all duration-200 ${index === 0 ? 'rounded-t-lg' : ''} ${index === calculatorOptions.length - 1 ? 'rounded-b-lg' : ''}`}
               >
  
                 {option.name}
@@ -234,10 +234,19 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
           </div>
         )}
       </div>
-      <div className=" pr-12 flex items-center">
+      <div className="pr-12 flex items-center">
+        <Link 
+          to="/how-it-works" 
+          className="text-primary hover:text-white hover:bg-primary transition-all duration-200 text-base font-medium px-4 py-2 rounded-full"
+        >
+          How It Works
+        </Link>
+        <div className="h-4 w-[1px] bg-gray-300 ml-12"></div>
+      </div>
+      <div className="pr-12 flex items-center">
         <Link 
           to="/faq" 
-          className="text-primary hover:text-white hover:bg-secondary transition-all duration-200 text-base font-medium px-4 py-2 rounded-full"
+          className="text-primary hover:text-white hover:bg-primary transition-all duration-200 text-base font-medium px-4 py-2 rounded-full"
         >
           FAQs
         </Link>
@@ -246,7 +255,7 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
       </div>
       <div className="relative  flex items-center" ref={moreMenuRef}>
         <button 
-          className="text-primary hover:text-white hover:bg-secondary transition-all duration-200 text-base font-medium flex items-center gap-1 p-2 rounded-full"
+          className="text-primary hover:text-white hover:bg-primary transition-all duration-200 text-base font-medium flex items-center gap-1 p-2 rounded-full"
           onClick={() => {
             setShowMoreMenu(!showMoreMenu);
             setShowKnowledgeSubMenu(false);
@@ -266,25 +275,25 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
           >
             <Link 
                     to="/blog"
-                    className="block px-4 py-2 text-primary hover:text-white hover:bg-secondary transition-all duration-200 rounded-t-xl "
+                    className="block px-4 py-2 text-primary hover:text-white hover:bg-primary transition-all duration-200 rounded-t-xl "
                   >
                     Blogs
             </Link>
             <Link 
               to="/process"
-              className="block px-4 py-2 text-primary hover:text-white hover:bg-secondary transition-all duration-200"
+              className="block px-4 py-2 text-primary hover:text-white hover:bg-primary transition-all duration-200"
             >
               How it works
             </Link>
             <Link 
               to="/about-us"
-              className="block px-4 py-2 text-primary hover:text-white hover:bg-secondary transition-all duration-200"
+              className="block px-4 py-2 text-primary hover:text-white hover:bg-primary transition-all duration-200"
             >
               About Us
             </Link>
             <Link 
               to="/contact"
-              className="block px-4 py-2 text-primary hover:text-white hover:bg-secondary transition-all duration-200 rounded-b-lg"
+              className="block px-4 py-2 text-primary hover:text-white hover:bg-primary transition-all duration-200 rounded-b-lg"
             >
               Contact
             </Link>

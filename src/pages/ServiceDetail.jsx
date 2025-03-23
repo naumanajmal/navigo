@@ -77,8 +77,7 @@ const ServiceDetail = () => {
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4">{service.title}</h2>
               <div className="h-1 w-20 bg-gradient-to-r from-secondary to-primary rounded-full mx-auto mt-4"></div>
             </div>
-            <p className="text-gray-600 text-lg md:text-xl max-w-3xl mx-auto">{service.subtitle}</p>
-          </div>
+           </div>
           
           {/* Description and Image Grid with enhanced styling */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -119,8 +118,8 @@ const ServiceDetail = () => {
             >
               <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-lg border border-primary/10">
                 <div className="prose max-w-none">
-                  <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-6">{service.description_1}</p>
-                  <p className="text-gray-700 text-base sm:text-lg leading-relaxed">{service.description_2}</p>
+                  <p className="text-gray-700 text-base sm:text-md leading-relaxed mb-6">{service.description_1}</p>
+                  <p className="text-gray-700 text-base sm:text-md leading-relaxed">{service.description_2}</p>
                 </div>
                 
                 {/* CTA Button */}

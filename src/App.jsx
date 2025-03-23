@@ -16,6 +16,8 @@ import PrivacyPolicy from './pages/PrivacyPolicy'
 import Terms from './pages/Terms'
 import AboutUs from './pages/AboutUs'
 import ProcessPage from './pages/ProcessPage'
+import HowItWorksPage from './pages/HowItWorksPage'
+
 function App() {
   return (
     <Router>
@@ -27,6 +29,7 @@ function App() {
         <Route path="/" element={<Home />} />
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/process" element={<ProcessPage />} />
+          <Route path="/how-it-works" element={<HowItWorksPage />} />
         <Route path="/mortgage-calculator" element={<MortgageCalculatorPage />} />
         <Route path="/affordability-calculator" element={<AffordabilityCalculatorPage />} />
         <Route path="/services" element={<Services />} />

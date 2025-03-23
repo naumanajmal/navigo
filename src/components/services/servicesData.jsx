@@ -4,6 +4,79 @@ export const mainSubtitle = "No matter what your financing needs are, we've got 
 export const services = [
   // Mortgage Services
   {
+    id: 5,
+    title: 'International Mortgages',
+    picture: 'Residential_Property.avif',
+    list_sub_title: 'Your Dream Home in UAE',
+    features: ['Looking for primary residential home', 'For first time home buyers', 'Best mortgage rates', 'Smooth process'],
+    subtitle: `Residential property loans are a common way for individuals to finance the purchase of homes.`,
+    description: 'Navigo provides residential property loan solutions with flexible terms, making home ownership a reality for many. Whether you are a first-time buyer or looking to upgrade, Navigo has the expertise to assist with financing the perfect home.',
+    description_1: `Dubai's real estate market attracts global investors, and international mortgages offer
+a seamless way for non-residents to finance property purchases. These mortgages
+provide flexible repayment terms, competitive interest rates, and high loan-to-value
+ratios, making it easier for international buyers to own property in Dubai. Whether
+investing in residential apartments, luxury villas, or commercial spaces, non-residents
+can benefit from structured financing options.`,
+    description_2: `Many banks and financial institutions in
+Dubai offer international mortgage solutions tailored to different nationalities and
+income sources. With Dubai's investor-friendly regulations, owning property as a
+foreigner is more accessible than ever. International mortgage solutions also help
+overseas investors diversify their portfolio while enjoying the high rental yields and
+capital appreciation that Dubai's real estate market offers.`,
+    benefits: {
+      title: 'Benefits of Choosing Navigo',
+      items: [
+        'Access to global markets: Navigo offers mortgages for properties in numerous countries, helping clients invest in international real estate.',
+        'Competitive rates: Navigo works with a wide range of international lenders to offer competitive interest rates.',
+        'Streamlined application process: Navigo\'s experts guide clients through the paperwork and application process, ensuring smooth transactions.',
+        'Foreign currency options: Navigate different currencies with ease through Navigo\'s specialized loan services, making currency conversion simple.',
+        'Flexibility in loan terms: Loan amounts and repayment terms are tailored to suit each client\'s unique needs and financial situation.',
+        'Expert advice: Navigo offers expert advice on international property markets, helping clients make informed decisions about their investments.'
+      ]
+    },
+    eligibility: {
+      title: 'Eligibility Criteria',
+      items: [
+        'Proof of income from the home country or international sources.',
+        'A solid credit history and a good credit score.',
+        'The ability to provide a down payment, which can vary by country (typically 20-30%).',
+        'Availability of the required legal documents such as passports, residency visas, and proof of employment.',
+        'The borrower may need to provide additional financial documentation based on the country they are purchasing in.'
+      ]
+    },
+    faqs: [
+      {
+        question: 'Can I get a mortgage for a property in a foreign country?',
+        answer: 'Yes, Navigo offers international mortgage solutions for purchasing properties in numerous countries worldwide.'
+      },
+      {
+        question: 'Do I need a larger deposit for an international mortgage?',
+        answer: 'Typically, international mortgages require a larger deposit (often 20-30%) compared to local mortgages.'
+      },
+      {
+        question: 'Will my foreign income count towards my mortgage application?',
+        answer: 'Yes, foreign income can be considered, but it must be properly documented and verified.'
+      },
+      {
+        question: 'How long does the approval process take for international mortgages?',
+        answer: 'The approval process can take several weeks to a few months depending on the country and property type.'
+      },
+      {
+        question: 'Are there any tax implications for owning property abroad?',
+        answer: 'Yes, owning property abroad may subject you to taxes in both the country of purchase and your home country.'
+      },
+      {
+        question: 'Can I refinance my international mortgage?',
+        answer: 'Yes, refinancing options may be available depending on the lender and the country where the property is located.'
+      }
+    ],
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    )
+  },
+  {
     id: 1,
     title: 'Residential Property',
     picture: 'Residential_Property.avif',
@@ -11,8 +84,8 @@ export const services = [
     features: ['Looking for primary residential home', 'For first time home buyers', 'Best mortgage rates', 'Smooth process'],
     subtitle: `Residential property loans are a common way for individuals to finance the purchase of homes.`,
     description: 'Navigo provides residential property loan solutions with flexible terms, making home ownership a reality for many. Whether you are a first-time buyer or looking to upgrade, Navigo has the expertise to assist with financing the perfect home.',
-    description_1: `Residential property loans are a common way for individuals to finance the purchase of homes. These loans can be used for buying single-family homes, apartments, or other residential properties. Navigo provides residential property loan solutions with flexible terms, making home ownership a reality for many. Whether you are a first-time buyer or looking to upgrade, Navigo has the expertise to assist with financing the perfect home.`,
-    description_2: `Our team of experts will guide you through the entire process, from application to closing, ensuring a smooth and hassle-free experience. We understand that buying a home is one of the biggest financial decisions you'll make, and we're here to help you every step of the way.`,
+    description_1: `Dubai's residential property market offers a wide range of options, from ultra-modern apartments in Downtown Dubai to waterfront villas on Palm Jumeirah. Mortgage solutions for residential properties cater to first-time buyers, expatriates, and investors looking for high rental yields or long-term capital growth. Financing options come with flexible tenure periods, competitive interest rates, and high loan-to-value ratios.`,
+    description_2: `With the availability of fixed and variable-rate mortgages, homebuyers can choose a plan that suits their financial needs. Additionally, banks offer exclusive deals for salaried individuals and self-employed buyers, making homeownership more accessible. Dubai's real estate market is well-regulated, providing security and transparency in property transactions. Whether buying for personal use or investment, mortgage solutions make residential property ownership achievable.`,
     benefits: {
       title: 'Benefits of Choosing Navigo',
       items: [
@@ -74,8 +147,8 @@ export const services = [
     features: ['For commercial property buyers', 'Compared interest rates', 'Tailored solutions', 'Expert advice'],
     subtitle: `Commercial property loans are designed for individuals or businesses that wish to purchase, refinance, or invest in commercial real estate.`,
     description: 'Navigo offers commercial property financing with flexible loan terms to help businesses and investors secure prime commercial real estate, including office buildings, retail spaces, industrial properties, and multi-family units.',
-    description_1: `Commercial property loans are designed for individuals or businesses that wish to purchase, refinance, or invest in commercial real estate. This includes office buildings, retail spaces, industrial properties, and multi-family units. Navigo offers commercial property financing with flexible loan terms to help businesses and investors secure prime commercial real estate.`,
-    description_2: `Our team of experts understands the complexities of commercial real estate investments and provides comprehensive support throughout the entire process. From identifying suitable properties to securing competitive financing terms, Navigo ensures a smooth and efficient experience for commercial property investors.`,
+    description_1: `Dubai is a global business hub, and investing in commercial property can be highly rewarding. Mortgage solutions for commercial properties help investors acquire office spaces, retail units, warehouses, and mixed-use buildings. These loans typically offer extended repayment periods, competitive interest rates, and financing up to 70% of the property value.`,
+    description_2: `Commercial mortgage financing is ideal for business owners looking to establish their presence in Dubai or investors seeking high rental returns. Some lenders provide tailor-made financing solutions, including Islamic banking options, to accommodate diverse investor needs. With Dubai's growing economy, commercial property remains a lucrative investment, offering stability and long-term gains. Whether buying in free zones or mainland locations, commercial mortgages provide a strategic advantage in acquiring premium real estate.`,
     benefits: {
       title: 'Benefits of Choosing Navigo',
       items: [
@@ -137,8 +210,18 @@ export const services = [
     features: ['International financing', 'Legal assistance', 'Competitive rates', 'Simplified process'],
     subtitle: `Specialized mortgage solutions for non-residents looking to purchase property abroad.`,
     description: 'Specialized mortgage solutions for non-residents looking to invest in property, with expert guidance on international financing and regulations.',
-    description_1: `Non-resident mortgages allow individuals living outside of the country to purchase property within the country. This type of mortgage is ideal for expatriates, foreign nationals, or investors looking to buy property abroad. Navigo offers specialized mortgage solutions that cater to non-residents, making it easier to navigate the legalities and financial complexities involved in securing a mortgage in a foreign country.`,
-    description_2: `Our team of experts understands the unique challenges faced by international buyers and provides comprehensive support throughout the entire process. From identifying suitable properties to securing competitive financing terms, Navigo ensures a smooth and efficient experience for non-resident investors.`,
+    description_1: `Dubai welcomes international investors, and non-resident mortgages enable foreign
+buyers to finance property purchases without residing in the UAE. These mortgages
+come with competitive interest rates, loan tenures of up to 25 years, and financing
+options covering up to 75% of the property value. Banks have simplified the mortgage
+process for non-residents, offering streamlined documentation and remote application
+options. Investors from Europe, Asia, and other regions can secure financing for
+residential and commercial properties in freehold areas.`,
+    description_2: `With Dubai’s high rental yields
+and attractive property appreciation, non-resident mortgages provide global investors
+with a secure entry into the market. Tailored solutions, including Islamic financing
+options, further enhance accessibility for international buyers seeking to invest in
+Dubai’s thriving real estate sector.`,
     benefits: {
       title: 'Benefits of Choosing Navigo:',
       items: [
@@ -197,8 +280,17 @@ export const services = [
     picture: 'refinance.jpg',
     subtitle: 'Better Rates, Better Terms',
     list_sub_title: 'Better Rates, Better Terms',
-    description_1: `Refinancing, or balance transfer, is a process where an individual transfers an existing mortgage or loan to a new lender to secure better terms. Whether the goal is to reduce monthly payments, lower the interest rate, or consolidate debt, refinancing allows homeowners to adjust their loan structure to better fit their financial situation.`,
-    description_2: `Navigo specializes in helping clients refinance their loans to achieve better financial outcomes through reduced interest rates, extended repayment terms, or better loan conditions. Our expert team will guide you through the entire refinancing process, ensuring you make the best decision for your financial future.`,
+    description_1: `Refinancing and balance transfer options allow property owners in Dubai to switch
+their existing mortgage to a new lender offering better terms. This process helps
+borrowers reduce interest rates, lower monthly payments, and consolidate debt for
+improved financial management. Many banks offer attractive refinance options,
+enabling homeowners to tap into their property’s appreciation and access additional
+funds.`,
+    description_2: `Balance transfers are especially useful for those looking to optimize their
+mortgage structure and maximize cost savings. Investors with multiple properties can
+also consolidate their loans for better cash flow management. Whether for residential
+or commercial properties, refinancing offers financial flexibility and the potential for
+significant long-term savings in Dubai’s competitive mortgage market.`,
     description: 'Looking to get better rates or terms on your existing mortgage? Refinancing might be the perfect solution for you. We\'ll help you explore your options and find the best refinancing solution.',
     features: ['Interest rates analysis', 'Easy documentation', 'Legal advice', 'Mortgage negotiation'],
     benefits: {
@@ -253,122 +345,72 @@ export const services = [
       </svg>
     )
   },
-  {
-    id: 5,
-    title: 'Professional Legal Support',
-    picture:'Legal_Services.webp',
-    subtitle: 'Expert Guidance',
-    list_sub_title: 'Expert Guidance',
-    description_1: `Navigating the legal aspects of property transactions in the UAE requires expert knowledge and attention to detail. Our professional legal support service ensures that your property dealings are conducted with the utmost care and in full compliance with UAE laws and regulations.`,
-    description_2: `Our network of experienced legal professionals specializes in UAE property law and can assist you with everything from contract review to dispute resolution. We work closely with you to understand your needs and provide tailored legal solutions that protect your interests throughout the property transaction process.`,
-    description: 'Our network of experienced legal professionals ensures your property transactions are handled with precision and care. ',
-    features: ['Contract review', 'Due diligence', 'Legal documentation', 'Dispute resolution'],
-    benefits: {
-      title: 'Benefits of Our Legal Support',
-      items: [
-        'Expert guidance: Access to experienced property law professionals who understand UAE regulations.',
-        'Risk mitigation: Thorough legal review to identify and address potential issues before they become problems.',
-        'Time efficiency: Streamlined legal processes to expedite your property transactions.',
-        'Complete compliance: Ensure all transactions meet UAE legal requirements and standards.',
-        'Peace of mind: Professional handling of all legal aspects of your property dealings.'
-      ]
-    },
-    eligibility: {
-      title: 'Service Requirements',
-      items: [
-        'Property documentation: All relevant property documents must be available for review.',
-        'Identity verification: Valid identification and necessary authorization documents.',
-        'Transaction details: Clear information about the intended property transaction.',
-        'Power of attorney: If applicable, properly authenticated power of attorney documents.',
-        'Previous agreements: Any existing contracts or agreements related to the property.'
-      ]
-    },
-    faqs: [
-      {
-        question: 'What legal services do you provide for property transactions?',
-        answer: 'We provide comprehensive legal services including contract review, due diligence, documentation preparation, legal compliance checks, and dispute resolution support.'
-      },
-      {
-        question: 'How long does the legal review process typically take?',
-        answer: 'The duration varies depending on the complexity of the transaction, but typically takes 5-7 working days for standard property transactions.'
-      },
-      {
-        question: 'Do you handle both residential and commercial property legal matters?',
-        answer: 'Yes, our legal team has extensive experience in both residential and commercial property transactions in the UAE.'
-      },
-      {
-        question: 'What documents are required for legal review?',
-        answer: 'Required documents typically include property title deed, purchase agreement, identification documents, and any existing contracts or agreements related to the property.'
-      },
-      {
-        question: 'Can you help with property dispute resolution?',
-        answer: 'Yes, our legal team can assist with property-related disputes through negotiation, mediation, or legal proceedings if necessary.'
-      },
-      {
-        question: 'Do you provide legal services in multiple languages?',
-        answer: 'Yes, we offer legal services in multiple languages to accommodate our diverse client base in the UAE.'
-      }
-    ],
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
-      </svg>
-    )
-  },
+  
   {
     id: 6,
     title: 'Corporate & SME Lending',
     picture:'Business_Lending.webp',
     subtitle: 'Business Growth Solutions',
     list_sub_title: 'Business Growth Solutions',
-    description_1: `Growing your business in the UAE requires reliable financial support. Our Corporate & SME Lending solutions are designed to meet the diverse needs of businesses, from small enterprises to large corporations. We understand that each business has unique requirements and challenges, which is why we offer customized lending solutions.`,
-    description_2: `Whether you need working capital, equipment financing, or expansion funding, our expert team will work with you to structure the right lending solution. We pride ourselves on quick processing times, competitive rates, and flexible terms that align with your business objectives and cash flow patterns.`,
+    description_1: `Dubai’s business-friendly ecosystem offers a wide range of corporate and SME lending
+solutions to support companies at every stage of growth. Whether for business
+expansion, working capital needs, or asset acquisition, corporate loans provide flexible
+financing with competitive interest rates and tailored repayment plans. Small and
+medium enterprises (SMEs), which form the backbone of Dubai’s economy, can access
+specialized lending programs designed to fuel growth.`,
+    description_2: `From term loans and overdraft
+facilities to invoice discounting and equipment financing, businesses can secure funds
+to enhance operations. Many banks also offer Shariah-compliant Islamic financing
+options to cater to diverse business needs. With Dubai’s dynamic commercial
+environment, corporate and SME lending solutions play a crucial role in supporting
+business sustainability and expansion.`,
     description: 'Tailored lending solutions for businesses of all sizes, supporting growth and operational needs with flexible financing options.',
     features: ['Working capital', 'Equipment financing', 'Business expansion', 'Trade finance'],
     benefits: {
-      title: 'Benefits of Our Business Lending',
+      title: 'Benefits of Choosing Navigo',
       items: [
-        'Customized solutions: Lending packages tailored to your specific business needs and goals.',
-        'Competitive rates: Attractive interest rates with flexible repayment terms.',
-        'Quick processing: Streamlined application and approval process for faster access to funds.',
-        'Expert guidance: Dedicated relationship managers to support your business growth.',
-        'Flexible collateral: Multiple collateral options to secure your business loan.'
+        'Tailored Financial Solutions: Navigo customizes loan offerings to match the specific needs of each business, whether it is for expansion, capital investment, or operational liquidity.',
+        'Flexible Loan Terms: Navigo offers flexible repayment schedules, interest rates, and loan terms to suit the financial capabilities of SMEs and corporate entities.',
+        'Access to Competitive Rates: Navigo works with a network of lenders to provide competitive rates, ensuring the best value for businesses.',
+        'Quick Approval Process: With Navigo\'s streamlined application process, businesses can receive approval faster, helping them seize growth opportunities without delay.',
+        'Expert Guidance: Navigo\'s experienced team provides valuable advice on financial structuring, helping businesses make informed decisions about financing.',
+        'Support for Startups: Navigo offers tailored financial solutions to startups, helping them secure the funding they need to establish themselves in the market.'
       ]
     },
     eligibility: {
-      title: 'Eligibility Requirements',
+      title: 'Eligibility',
       items: [
-        'Business registration: Valid UAE trade license and commercial registration.',
-        'Operating history: Minimum business operation period in the UAE.',
-        'Financial statements: Audited financial statements for the past 2-3 years.',
-        'Bank statements: Recent business bank statements showing healthy cash flow.',
-        'Business plan: Detailed business plan for loan utilization and repayment.'
+        'Business Type: The business should be registered and operational with a proven track record.',
+        'Financial Health: Proof of stable revenue generation and financial stability through balance sheets, profit-and-loss statements, and cash flow projections.',
+        'Credit History: A solid credit history for the business is important for favorable loan terms.',
+        'Repayment Capacity: Demonstrated ability to repay the loan based on the business\'s projected earnings.',
+        'Business Plan: A well-prepared business plan that outlines the use of the loan and expected outcomes.'
       ]
     },
     faqs: [
       {
-        question: 'What types of business loans do you offer?',
-        answer: 'We offer various types of business loans including working capital loans, equipment financing, business expansion loans, trade finance solutions, and project-specific funding.'
+        question: 'What types of loans are available for SMEs?',
+        answer: 'SMEs can access a variety of loans, including working capital loans, equipment financing, term loans, and trade finance, depending on their needs.'
       },
       {
-        question: 'How long does the loan approval process take?',
-        answer: 'The approval process typically takes 7-14 working days, depending on the loan amount and complexity of the business structure.'
+        question: 'Can I apply for a corporate loan if my business is new?',
+        answer: 'Yes, even new businesses can apply for loans, especially if they have a clear business plan and can demonstrate future cash flow potential.'
       },
       {
-        question: 'What is the maximum loan amount available?',
-        answer: 'Loan amounts vary based on your business size, financial health, and requirements. We can structure loans from AED 250,000 up to several million dirhams.'
+        question: 'How do I qualify for a corporate loan?',
+        answer: 'Qualifications include proof of stable income, a good credit history, a clear business plan, and sufficient collateral.'
       },
       {
-        question: 'What documents are required for a business loan?',
-        answer: 'Required documents include trade license, audited financial statements, bank statements, business plan, and other supporting documents depending on the loan type.'
+        question: 'What is the typical loan tenure for corporate loans?',
+        answer: 'Loan tenures can vary widely depending on the type of loan and the lender but typically range from 1 to 10 years.'
       },
       {
-        question: 'Do you offer Islamic financing options?',
-        answer: 'Yes, we offer Sharia-compliant financing solutions for businesses seeking Islamic banking options.'
+        question: 'Are corporate loans secured or unsecured?',
+        answer: 'Corporate loans can be both secured (backed by business assets) or unsecured (requiring a good credit score and business history), depending on the lender\'s policies.'
       },
       {
-        question: 'Can startups apply for business loans?',
-        answer: 'Yes, we have special financing programs for startups, though they may require additional security or have different terms compared to established businesses.'
+        question: 'What documents are needed to apply for an SME loan?',
+        answer: 'Typically, you will need financial statements, tax returns, proof of business registration, a business plan, and cash flow projections.'
       }
     ],
     icon: (
@@ -383,8 +425,18 @@ export const services = [
     picture:'Personal_Loans.jpg',
     subtitle: 'Individual Financial Solutions',
     list_sub_title: 'Individual Financial Solutions',
-    description_1: `Life in the UAE often presents opportunities and needs that require additional financial support. Our Personal Loans are designed to help you achieve your personal goals, whether it's funding your education, renovating your home, or managing unexpected expenses. We understand that every individual's financial situation is unique.`,
-    description_2: `Our personal loan solutions offer competitive interest rates, flexible repayment terms, and quick processing to ensure you get the funds when you need them. Our dedicated team works closely with you to understand your requirements and financial capacity, helping you choose the most suitable loan option.`,
+    description_1: `Personal loans in Dubai provide individuals with quick access to funds for various
+financial needs, including education, travel, home improvements, and emergencies.
+Banks and financial institutions offer both secured and unsecured personal loans with
+competitive interest rates and flexible repayment tenures. Salaried employees and
+self-employed individuals can benefit from tailored loan solutions with minimal
+documentation and fast approval processes. Many lenders provide exclusive personal
+loan deals for UAE nationals and expatriates, offering high loan amounts and attractive
+repayment options.`,
+    description_2: `Islamic finance alternatives, such as Tawarruq-based personal
+financing, ensure compliance with Shariah principles for those seeking interest-free
+options. With Dubai’s vibrant lifestyle and financial opportunities, personal loans help
+individuals manage their expenses efficiently while maintaining financial stability.`,
     description: 'Flexible personal financing options to help you achieve your goals, whether it’s for education, home improvement, or other personal needs.',
     features: ['Quick approval', 'Flexible terms', 'Competitive rates', 'Multiple purposes'],
     benefits: {
@@ -445,8 +497,18 @@ export const services = [
     picture:'Project_Finance.webp',
     subtitle: 'Large-Scale Development Funding',
     list_sub_title: 'Large-Scale Development Funding',
-    description_1: `Major projects require sophisticated financing solutions. Our Project Finance service specializes in funding large-scale developments, from infrastructure and real estate to industrial ventures. We understand the complexities involved in project financing and provide structured solutions that align with project milestones and cash flow projections.`,
-    description_2: `Our experienced team works closely with project developers, contractors, and stakeholders to create customized financing packages. We consider various aspects including project viability, risk assessment, and market conditions to ensure optimal financing structure that supports successful project completion.`,
+    description_1: `Dubai’s rapid infrastructure development and large-scale ventures require structured
+project finance solutions. Whether for real estate developments, energy projects,
+transportation infrastructure, or industrial expansions, project financing provides
+long-term funding for capital-intensive initiatives. Financial institutions collaborate with
+investors, developers, and government entities to structure loan agreements that align
+with project cash flows and risk management strategies. Financing can include debt
+syndication, mezzanine financing, and Shariah-compliant options such as Istisna and
+Ijara for Islamic project funding.`,
+    description_2: `With Dubai’s vision for continuous economic and
+infrastructural growth, project finance remains a vital tool for turning ambitious plans
+into reality. Flexible repayment schedules, extended loan tenures, and milestone-based
+disbursements ensure projects are well-funded and successfully executed.`,
     description: 'Comprehensive financing solutions for major projects, including infrastructure, real estate development, and industrial ventures.',
     features: ['Structured finance', 'Long-term funding', 'Risk assessment', 'Project monitoring'],
     benefits: {
@@ -508,8 +570,17 @@ export const services = [
     subtitle: 'International Trade Solutions',
     list_sub_title: 'International Trade Solutions',
 
-    description_1: `In today's global marketplace, efficient trade finance solutions are crucial for business success. Our comprehensive trade finance services are designed to facilitate international trade operations, helping businesses manage risks and optimize working capital. We understand the complexities of cross-border transactions and provide tailored solutions.`,
-    description_2: `Whether you need letters of credit, trade loans, or supply chain financing, our expert team will work with you to structure the most suitable trade finance solution. We leverage our extensive network and expertise to ensure smooth international trade operations while managing associated risks effectively.`,
+    description_1: `Dubai’s position as a global trading hub makes trade finance essential for businesses
+engaged in international and domestic trade. Trade finance solutions facilitate import
+and export transactions by providing working capital, mitigating payment risks, and
+ensuring smooth cash flow management. Financial instruments such as letters of credit,
+export financing, factoring, and supply chain finance help businesses manage
+trade-related expenses effectively.`,
+    description_2: `Banks and financial institutions also offer Islamic
+trade finance solutions like Murabaha and Wakalah for Shariah-compliant transactions.
+With Dubai’s strong logistics infrastructure and strategic location, trade finance plays a
+crucial role in enabling seamless cross-border commerce, helping businesses expand
+their reach and maximize profitability.`,
     description: 'Facilitate international trade with our comprehensive trade finance solutions, including letters of credit, trade loans, and supply chain financing.',
     features: ['Letters of credit', 'Trade loans', 'Supply chain finance', 'Export financing'],
     benefits: {
@@ -572,8 +643,8 @@ export const services = [
     features: ['Specialized mortgage services', 'Tailored solutions', 'Competitive rates', 'Expert guidance'],
     subtitle: `Looking for a mortgage solution that understands your unique needs as a UAE/GCC national? We've got you covered!`,
     description: 'Specialized mortgage services for UAE and GCC nationals, offering tailored solutions with competitive rates and expert guidance for property investments.',
-    description_1: `Navigo offers specialized mortgage services tailored for UAE/GCC nationals, allowing them to invest in real estate both domestically and abroad. With deep insights into the region's market and a keen understanding of local property laws, Navigo provides seamless mortgage solutions for nationals seeking to secure residential, commercial, or investment properties.`,
-    description_2: `UAE/GCC nationals often enjoy favorable terms due to their strong economic position, making them attractive clients for lenders. Navigo ensures these clients get the best terms available in a competitive market, providing expertise and strategic financial advice.`,
+    description_1: `UAE and GCC nationals enjoy exclusive mortgage benefits, including higher loan amounts, lower interest rates, and longer repayment terms. Many banks offer special financing programs that cater specifically to Emiratis and GCC citizens, allowing them to invest in residential and commercial properties effortlessly. With flexible repayment options and competitive rates, these mortgages make homeownership more accessible.`,
+    description_2: `UAE nationals can also access government-backed mortgage programs that offer subsidized financing. For those looking to expand their investment portfolio, specialized loan options provide financial support for multiple properties. Banks also provide Shariah-compliant financing solutions for nationals who prefer Islamic banking. Whether buying a family home or an investment property, UAE and GCC nationals benefit from some of the best mortgage terms in the market.`,
     benefits: {
       title: 'Benefits of Choosing Navigo:',
       items: [
@@ -634,8 +705,18 @@ export const services = [
     features: ['Multi-million dollar loans', 'Customized solutions', 'Competitive rates', 'Expert guidance'],
     subtitle: `Need substantial capital for your major project or acquisition? Our mega loan solutions are designed for high-value investments.`,
     description: 'Large-scale financing options for high-net-worth individuals and businesses seeking substantial capital for major projects or acquisitions with customized solutions.',
-    description_1: `Mega loans are large-scale financing options typically designed for high-net-worth individuals or businesses seeking substantial capital to fund major projects or acquisitions. These loans are usually multi-million-dollar agreements and require highly customized financial solutions. Navigo specializes in securing these large-scale loans for clients across various sectors, including real estate, business expansion, and large-scale investments.`,
-    description_2: `With a strong track record in facilitating mega loans, Navigo ensures clients receive the necessary capital with flexible terms and competitive interest rates. Our team of experts works closely with you to structure the loan according to your specific needs and financial capacity.`,
+    description_1: `Dubai’s luxury real estate market caters to high-net-worth individuals, and mega loans
+provide substantial financing for premium properties. These high-value mortgages
+offer financing for luxury penthouses, exclusive waterfront villas, and large-scale
+commercial investments. Mega loans come with customized repayment structures,
+extended loan tenures, and preferential interest rates tailored to elite investors.
+Financial institutions in Dubai provide bespoke mortgage solutions that include private
+banking services, wealth management, and flexible equity release options.`,
+    description_2: `High-net-worth individuals can leverage these loans to acquire prime properties in
+sought-after locations like Downtown Dubai, Palm Jumeirah, and Emirates Hills. With
+Dubai’s stable real estate market and attractive returns, mega loans offer a strategic
+advantage for those looking to invest in high-value properties with maximum financial
+flexibility.`,
     benefits: {
       title: 'Benefits of Choosing Navigo:',
       items: [
@@ -696,8 +777,18 @@ export const services = [
     features: ['No monthly repayments', 'Stay in your home', 'Tax-free cash', 'Professional advice'],
     subtitle: `Access the equity tied up in your property without having to sell it. Our equity release solutions provide financial flexibility for homeowners.`,
     description: 'Financial solutions that allow homeowners to access the equity in their property while continuing to live there, ideal for retirement planning and supplementing income.',
-    description_1: `Equity release is a financial product that allows homeowners, typically retirees, to access the equity tied up in their properties without having to sell them. This is often done via a lifetime mortgage or home reversion plan. Navigo’s equity release solutions are designed to help clients unlock cash from their property, providing funds for a variety of purposes, such as home improvements, medical expenses, or supplementing retirement income.`,
-    description_2: `Navigo ensures that clients fully understand the implications of equity release, providing transparent advice and support throughout the process. Our team of experts will guide you through all available options, helping you make an informed decision that best suits your financial needs and future plans.`,
+    description_1: `Equity release loans allow homeowners in Dubai to unlock the financial value tied up in
+their properties without selling them. This type of financing enables property owners to
+access cash for reinvestment, business expansion, debt consolidation, or personal
+financial needs. Many financial institutions in Dubai offer equity release solutions with
+competitive interest rates and flexible repayment options. Homeowners can borrow
+against their property’s current market value, leveraging built-up equity to generate
+liquidity.`,
+    description_2: `This financing method is particularly useful for individuals seeking to invest in
+additional properties or fund major expenses. With Dubai’s rising property values,
+equity release provides an effective way to maximize asset potential while retaining
+ownership. Banks also offer Islamic finance options for equity release under
+Shariah-compliant structures.`,
     benefits: {
       title: 'Benefits of Choosing Navigo:',
       items: [
@@ -746,7 +837,7 @@ export const services = [
     ],
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     )
   },
@@ -758,8 +849,17 @@ export const services = [
     features: ['Residential plots', 'Agricultural land', 'Commercial land', 'Expert guidance'],
     subtitle: `Looking to purchase land for personal, commercial, or development purposes? Our specialized land loans provide the financing you need.`,
     description: 'Specialized loans for purchasing land, whether for residential, agricultural, or commercial purposes, with expert guidance on zoning regulations and investment potential.',
-    description_1: `Plot and land loans are specifically designed for individuals or companies looking to purchase land, whether for personal, commercial, or development purposes. These loans can be used for acquiring residential plots, agricultural land, or land for commercial and industrial purposes. Navigo's land loans cater to both first-time buyers and seasoned investors. With a strong understanding of local property laws, market conditions, and land acquisition processes, Navigo offers customized loan options for those looking to make land acquisitions.`,
-    description_2: `Our team of experts will guide you through the entire process, from selecting the right land to securing the financing you need. We understand that land investments require careful consideration of zoning regulations, future development potential, and market trends. With Navigo, you can be confident that you're making a sound investment with the right financial structure.`,
+    description_1: `Investing in land is a lucrative opportunity in Dubai, and specialized plot and land loans
+help buyers acquire prime real estate for future development. These loans cater to
+individuals looking to build custom homes, developers planning large-scale projects,
+and investors interested in long-term appreciation. Financial institutions offer
+competitive loan-to-value ratios, allowing borrowers to finance up to 60-70% of the
+land’s value.`,
+    description_2: `Repayment terms are flexible, and some lenders provide interest-only
+periods during the construction phase. Whether purchasing land in freehold areas for
+expatriates or leasehold zones for development, tailored mortgage solutions ensure
+smooth transactions. With Dubai’s continued urban expansion, investing in plots and
+land presents significant potential for capital growth and high returns.`,
     benefits: {
       title: 'Benefits of Choosing Navigo:',
       items: [
@@ -809,7 +909,7 @@ export const services = [
     ],
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
       </svg>
     )
   },
@@ -821,8 +921,16 @@ export const services = [
     features: ['Progressive payments', 'Developer verification', 'Construction monitoring', 'Flexible terms'],
     subtitle: `Financing solutions for properties still in development phase.`,
     description: 'Specialized loans for purchasing or financing properties still under construction, with progressive payment options aligned with construction milestones.',
-    description_1: `Under-construction loans are designed for individuals or businesses looking to purchase or finance a property that is still in the development phase. These loans allow the borrower to make payments progressively as the construction of the property progresses. Navigo specializes in under-construction loans for both residential and commercial properties. This loan type is ideal for buyers who want to secure a property at a lower price during the early stages of construction, allowing them to move in once the project is completed.`,
-    description_2: `Our team of experts works closely with developers and clients to ensure a smooth financing process throughout the construction period. We conduct thorough due diligence on developers, monitor construction progress, and structure payment schedules that align with project milestones, providing you with peace of mind and financial flexibility.`,
+    description_1: `Dubai’s off-plan property market is a major investment opportunity, and
+under-construction mortgage solutions help buyers secure properties before
+completion. These loans provide flexible payment structures, allowing investors to make
+staggered payments aligned with construction milestones. Many banks offer financing
+up to 50-70% of the property’s value, ensuring affordability.`,
+    description_2: `Developers in Dubai often
+partner with financial institutions to provide attractive mortgage plans for off-plan
+buyers. Under-construction financing is ideal for investors looking to enter the market
+at lower prices while benefiting from future capital appreciation. With Dubai’s strong
+regulatory framework, off-plan investments are secure, offering buyers peace of mind.`,
     benefits: {
       title: 'Benefits of Choosing Navigo:',
       items: [
@@ -884,8 +992,15 @@ export const services = [
     features: ['Multiple loan consolidation', 'Simplified payments', 'Reduced interest rates', 'Improved cash flow'],
     subtitle: `Simplify your finances by consolidating multiple loans into one manageable solution.`,
     description: 'Consolidate multiple loans or investments into a single entity, simplifying your financial situation and potentially reducing costs.',
-    description_1: `Portfolio consolidation involves merging multiple loans or investments into a single entity, simplifying your financial situation and potentially reducing costs. This can apply to mortgages, personal loans, or business debts. Navigo helps individuals and businesses consolidate their portfolios into a manageable, streamlined loan with better terms. The goal is to optimize interest rates, reduce monthly payments, and allow for a more organized financial future.`,
-    description_2: `Portfolio consolidation is particularly helpful for people with multiple loans from different lenders. Our expert team analyzes your current financial situation and identifies opportunities to consolidate your debts in a way that reduces your overall financial burden and simplifies your payment structure.`,
+    description_1: `For investors managing multiple real estate assets, portfolio consolidation mortgages
+offer financial efficiency. This financing solution helps property owners restructure their
+loans, combining multiple mortgages into a single payment plan. By consolidating
+loans, investors can optimize interest rates, reduce financial burdens, and improve cash
+flow management.`,
+    description_2: `Portfolio consolidation is particularly beneficial for high-net-worth
+individuals with diverse property investments across residential, commercial, and
+off-plan projects. Dubai’s banks provide tailored solutions that align with individual
+financial goals, offering flexibility and long-term sustainability.`,
     benefits: {
       title: 'Benefits of Choosing Navigo:',
       items: [
@@ -946,8 +1061,14 @@ export const services = [
     features: ['Sharia-compliant', 'No interest (riba)', 'Ethical investments', 'Transparent terms'],
     subtitle: `Financial solutions that comply with Islamic principles and ethical standards.`,
     description: 'Sharia-compliant financial products and services that adhere to Islamic principles, offering ethical alternatives to conventional interest-based financing.',
-    description_1: `Islamic finance is a form of finance that complies with the principles of Islamic law (Sharia). These principles prohibit the payment or receipt of interest (riba) and investing in businesses that deal with unethical products or services. Islamic finance provides alternative financing options such as Murabaha (cost-plus financing), Ijarah (leasing), and Musharakah (partnership).`,
-    description_2: `Navigo offers Islamic finance solutions that cater to both personal and business needs, ensuring that all products comply with Sharia law while still meeting clients' financial goals. Our team of experts works closely with Sharia scholars to ensure that all our Islamic finance products are fully compliant with Islamic principles.`,
+    description_1: `Islamic mortgage solutions in Dubai cater to investors seeking Shariah-compliant
+financing. These options, including Murabaha and Ijara, follow ethical banking
+principles, avoiding interest-based transactions. Islamic home financing allows buyers
+to purchase property through structured agreements where the bank and borrower
+share ownership.`,
+    description_2: `With increasing demand for Islamic finance, Dubai’s banks offer
+competitive mortgage products that adhere to religious principles while maintaining
+financial flexibility.`,
     benefits: {
       title: 'Benefits of Choosing Navigo:',
       items: [
