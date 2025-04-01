@@ -234,15 +234,7 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
           </div>
         )}
       </div>
-      <div className="pr-12 flex items-center">
-        <Link 
-          to="/how-it-works" 
-          className="text-primary hover:text-white hover:bg-primary transition-all duration-200 text-base font-medium px-4 py-2 rounded-full"
-        >
-          How It Works
-        </Link>
-        <div className="h-4 w-[1px] bg-gray-300 ml-12"></div>
-      </div>
+      
       <div className="pr-12 flex items-center">
         <Link 
           to="/faq" 
@@ -280,7 +272,7 @@ const NavLinks = ({ isMobile = false, showCalculatorDropdown, setShowCalculatorD
                     Blogs
             </Link>
             <Link 
-              to="/process"
+              to="/how-it-works"
               className="block px-4 py-2 text-primary hover:text-white hover:bg-primary transition-all duration-200"
             >
               How it works

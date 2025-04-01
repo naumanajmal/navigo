@@ -34,7 +34,7 @@ function Home() {
       <Navbar />
 
       {/* Hero Section */}
-      <section id="hero-section" className="relative h-[100vh] bg-black pt-20 overflow-hidden">
+      <section id="hero-section" className="relative h-[100vh] bg-black pt-28 md:pt-32 overflow-hidden">
         {/* Hero Slider */}
         <div className="absolute inset-0 z-0">
           <HeroSlider onSlideChange={setActiveIndex} />
@@ -83,7 +83,7 @@ function Home() {
 
             {/* Right Side - Form (Hidden on Mobile) */}
             <div className="w-[35%] hidden lg:block">
-            <AnimateOnScroll className="hidden lg:block w-full max-w-sm xl:max-w-md" animation="fade-in">
+            <AnimateOnScroll className="hidden lg:block w-full max-w-sm xl:max-w-md mt-4" animation="fade-in">
               <QuoteForm />
             </AnimateOnScroll>
             </div>
